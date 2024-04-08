@@ -1,0 +1,11 @@
+.btn-login {
+    background-color: rgb(104, 98, 98);
+    color: black;
+    border: 2px solid black;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-login:hover {
+    background-color: black;
+    color: rgb(248, 234, 234);
+  }
