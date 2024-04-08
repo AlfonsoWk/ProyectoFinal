@@ -1,83 +1,58 @@
 {
   "users": [
     {
-      "id": "2de6",
-      "fname_lname": "German Valoy",
-      "email": "infovaloy99@gmail.com",
-      "password": "germanv99"
-    },
-    {
-      "id": "3194",
-      "fname_lname": "Alfonso Wenk",
-      "email": "alfonso99@gmail.com",
-      "password": "12345678"
-    },
-    {
-      "id": "281e",
-      "fname_lname": "Facundo",
-      "email": "facundo99@gmail.com",
-      "password": "01234567"
-    },
-    {
-      "id": "4b87",
-      "fname_lname": "Esteban Frias",
-      "email": "esteban2024@gmail.com",
-      "password": "argentina99"
-    },
-    {
-      "id": "1200",
-      "fname_lname": "German",
-      "email": "infovaloy99@gmail.com",
-      "password": "germanv99",
-      "cpassword": "germanv99",
-      "role": "user"
-    },
-    {
-      "id": "a705",
-      "fname_lname": "German rolo",
-      "email": "infovaloy1999@gmail.com",
-      "password": "argentina2025",
-      "cpassword": "argentina2025",
-      "role": "user"
-    },
-    {
-      "id": "2916",
-      "fname_lname": "Ramon Valdez",
-      "email": "ramoncito99@gmail.com",
-      "password": "99999999",
-      "cpassword": "99999999",
-      "role": "user"
-    },
-    {
-      "id": "5666",
-      "fname_lname": "German",
-      "email": "easfdasfas@fasfa.com",
-      "password": "11111111",
-      "cpassword": "11111111",
-      "role": "user"
-    },
-    {
-      "id": "be33",
-      "email": "infovaloy99@gmail.com",
-      "password": "germanv99"
-    },
-    {
-      "id": "be03",
-      "email": "asdasfa@fasasd.com",
-      "password": "43242rewrrf"
-    },
-    {
-      "id": "a421",
-      "email": "sadasfg@sadsd.com",
-      "password": "asdasf34"
-    },
-    {
       "id": "11b2",
       "fname_lname": "Juan Gabriel",
       "email": "gabriel99@gmail.com",
       "password": "patito2020",
       "cpassword": "patito2020",
-      "role": "user"
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "0d07",
+      "fname_lname": "German Valoy",
+      "email": "infovaloy99@gmail.com",
+      "password": "germanv99",
+      "cpassword": "germanv99",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "c61d",
+      "fname_lname": "Alfonso Wenk",
+      "email": "alfonso99@gmail.com",
+      "password": "12345678",
+      "cpassword": "12345678",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "f06a",
+      "fname_lname": "Facundo Luque",
+      "email": "facundo99@gmail.com",
+      "password": "facundo123",
+      "cpassword": "facundo123",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "e10a",
+      "fname_lname": "Esteban Frias",
+      "email": "esteban_frias@hotmail.com",
+      "password": "987654321",
+      "cpassword": "987654321",
+      "role": "user",
+      "status": "active"
+    },
+    {
+      "id": "d23d",
+      "fname_lname": "Carlos Perez",
+      "email": "carlos99@gmail.com",
+      "password": "12345678",
+      "cpassword": "12345678",
+      "role": "user",
+      "status": "active"
     }
   ]
 }

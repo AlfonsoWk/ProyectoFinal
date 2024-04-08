@@ -33,13 +33,14 @@ const Login = () => {
       } else if (user.password !== formData.password) {
         setError("Contraseña incorrecta. Por favor, intenta de nuevo");
       } else {
-        // Inicio de sesión exitoso
+    
         alert("Inicio de sesión exitoso");
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
         navigate('/dashboarduser');
       }
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
-      // Manejar otros tipos de errores, como problemas de red, etc.
+      
       alert("Error al iniciar sesión. Por favor, intenta de nuevo más tarde");
     }
   };

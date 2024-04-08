@@ -18,6 +18,7 @@ const Registration = () => {
     password: "",
     cpassword: "",
     role: "user",
+    status: "active"
   });
 
   const [errors, setErrors] = useState({});
@@ -87,6 +88,7 @@ const Registration = () => {
           password: "",
           cpassword: "",
           role: "user",
+          status: "active"
         });
         setErrors({});
       } catch (error) {
