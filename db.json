@@ -1,0 +1,147 @@
+{
+  "users": [
+    {
+      "id": "7fe0",
+      "fname_lname": "Nicolas",
+      "email": "mentor@gmail.com",
+      "password": "12345678",
+      "cpassword": "12345678",
+      "role": "USER",
+      "status": "INACTIVE",
+      "planContratado": "soloMusculacion",
+      "telefono": "-1"
+    },
+    {
+      "id": "6136",
+      "fname_lname": "alfonso",
+      "email": "wenkalfonso@hotmail.com",
+      "password": "12345678",
+      "cpassword": "12345678",
+      "role": "USER",
+      "status": "INACTIVE"
+    },
+    {
+      "id": "ba7d",
+      "fname_lname": "alfonso",
+      "email": "wenkalfonso@hotmail.com",
+      "password": "12345678",
+      "cpassword": "12345678",
+      "role": "adf",
+      "status": "INACTIVE",
+      "telefono": "1"
+    },
+    {
+      "id": "72fb",
+      "fname_lname": "yo",
+      "email": "asas@hotma.com",
+      "password": "12345678",
+      "role": "USER",
+      "status": "INACTIVE",
+      "cpassword": "12345678"
+    },
+    {
+      "id": "6642",
+      "fname_lname": "facu",
+      "email": "wenkalfonso@hotmail.com",
+      "password": "12345678",
+      "role": "USER",
+      "status": "ACTIVE",
+      "cpassword": "12345678",
+      "telefono": "2"
+    },
+    {
+      "id": "db87",
+      "fname_lname": "German",
+      "email": "german@german.com",
+      "password": "12345678",
+      "role": "USER",
+      "status": "INACTIVE",
+      "cpassword": "12345678",
+      "telefono": "-1"
+    }
+  ],
+  "clases": [
+    {
+      "id": "1",
+      "nombre": "funcional",
+      "cupos_disponibles": "10",
+      "cupos": "10",
+      "profesor": "facundo luque",
+      "inicio": "9",
+      "fin": "10"
+    },
+    {
+      "id": "5414",
+      "nombre": "facudnso",
+      "cupos_disponibles": "aaaa",
+      "cupos": "aaaa",
+      "profesor": "aaaaa",
+      "inicio": "10",
+      "fin": "12"
+    },
+    {
+      "id": "a0c3",
+      "nombre": "",
+      "cupos_disponibles": "2",
+      "cupos": "2",
+      "profesor": "",
+      "inicio": "",
+      "fin": ""
+    },
+    {
+      "id": "7017",
+      "nombre": "",
+      "cupos_disponibles": "3",
+      "cupos": "3",
+      "profesor": "",
+      "inicio": "",
+      "fin": ""
+    },
+    {
+      "id": "264b",
+      "nombre": "",
+      "cupos_disponibles": "",
+      "cupos": "",
+      "profesor": "",
+      "inicio": "",
+      "fin": ""
+    },
+    {
+      "id": "614e",
+      "nombre": "fffff",
+      "cupos_disponibles": "0",
+      "cupos": "0",
+      "profesor": "ffff",
+      "inicio": "1",
+      "fin": "1"
+    },
+    {
+      "id": "6b26",
+      "nombre": "Alfonso",
+      "cupos_disponibles": "10",
+      "cupos": "10",
+      "profesor": "wqeqe",
+      "inicio": "12",
+      "fin": "11",
+      "disponible": false
+    },
+    {
+      "id": "0292",
+      "nombre": "Alfonso",
+      "cupos_disponibles": "2",
+      "cupos": "2",
+      "profesor": "1222",
+      "inicio": "10",
+      "fin": "11"
+    },
+    {
+      "id": "baaa",
+      "nombre": "Alfonso",
+      "cupos_disponibles": "111",
+      "cupos": "111",
+      "profesor": "222",
+      "inicio": "111",
+      "fin": "2"
+    }
+  ]
+}
