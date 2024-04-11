@@ -53,6 +53,15 @@
       "cpassword": "12345678",
       "role": "user",
       "status": "active"
+    },
+    {
+      "id": "f9c7",
+      "fname_lname": "Patricio Vergara",
+      "email": "patocallejero@gmail.com",
+      "password": "germanv99",
+      "cpassword": "germanv99",
+      "role": "user",
+      "status": "active"
     }
   ]
 }

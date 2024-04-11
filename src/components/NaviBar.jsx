@@ -4,16 +4,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const NaviBar = () => {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <Link class="navbar-brand" to='/'>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container-fluid">
+        <Link className="navbar-brand" to='/'>
           Navbar
         </Link>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <form class="d-flex">
-            <Link to="/registration" className="">  Registration
-            </Link>
-          </form>
+        <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className="nav-item">
+              <Link to="/registration" className="nav-link">Registration</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/login" className="nav-link">Login</Link>
+            </li>
+          </ul>
         </div>
       </div>
     </nav>
@@ -21,3 +28,5 @@ const NaviBar = () => {
 };
 
 export default NaviBar;
+
+
