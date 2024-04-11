@@ -16,23 +16,28 @@ const consultarClima = () => {
     const lon = "-116.58199762501916"
     const part = "minutelly"
     const url =  `https://api.weatherbit.io/v2.0/current?lat=-26.81371001999747&lon=-65.25177608408183&key=${apy_key}&lang=es` 
-     //`https://api.weatherbit.io/v2.0/current?lat=-26.81371001999747&lon=-65.25177608408183&key=${apy_key}&lang=es`
-                
-    
-  
-
-    fetch (url)
+    const part = "current"
+    const url = `https://api.weatherbit.io/v2.0/current?lat=-26.81371001999747&lon=-65.25177608408183&key=${apy_key}&include=minutely`
+   fetch (url)
     .then((res) => res.json())
     .then(res2=>{
+
         
         console.log(res2.data)
+
+        console.log("ciudad",res2.data[0].city_name, "temperat", res2.minutely[1].temp)
+        console.log("facundo clima: ", res2)
+
         ciudad = res2.data[0].city_name
         temperatura = res2.data[0].temp
         icono = res2.data[0].weather.icon
         logo = `../src/icons/${icono}.png`
+
         const descricion = res2.data[0].weather.description
         
-        datosClima =[ciudad, temperatura, icono, descricion]
+
+        
+        datosClima =[ciudad, temperatura, icono]
 
         
 
@@ -43,6 +48,10 @@ const consultarClima = () => {
        <h2 class="text-center"> ${datosClima[0]} </h2>
        <h1 class="text-center" >${datosClima[1]} °C</h1>
        <h2 class="text-center">${datosClima[3]} </h2>
+
+       <h3>Ciudad: ${datosClima[0]} </h3>
+       <h3>Clima: ${datosClima[1]} °C</h3>
+
        <img src=${logo} alt="">
        
        `
@@ -57,10 +66,7 @@ const consultarClima = () => {
 
     
   
-}
-
-
-export default consultarClima
+}export default consultarClima
 
 
 
