@@ -1,0 +1,12 @@
+#agotado{
+    color: red
+}
+
+.table tr{
+    min-height: 200px;
+}
+
+#modal{
+    z-index: 1;
+    
+}

@@ -1,0 +1,45 @@
+{
+  "clases": [
+    {
+      "nombre": "funcional",
+      "inicio": "9",
+      "fin": "10",
+      "profesor": "facundo luque",
+      "cupos_disponibles": 6,
+      "cupos": "10",
+      "disponible": true,
+      "id": "1"
+    },
+    {
+      "nombre": "spinning",
+      "inicio": "21",
+      "fin": "22",
+      "profesor": "alfonso wenk",
+      "cupos_disponibles": 5,
+      "cupos": "8",
+      "disponible": true,
+      "id": "2"
+    },
+    {
+      "nombre": "spinning",
+      "inicio": "22",
+      "fin": "23",
+      "profesor": "esteban frias",
+      "cupos_disponibles": 7,
+      "cupos": "10",
+      "disponible": true,
+      "id": "3"
+    },
+    {
+      "nombre": "funcional",
+      "inicio": "13",
+      "fin": "14",
+      "profesor": "german valoy",
+      "cupos_disponibles": 7,
+      "cupos": "10",
+      "disponible": true,
+      "id": "4"
+    }
+  ],
+  "clases_usuarios": []
+}
