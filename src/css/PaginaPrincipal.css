@@ -1,0 +1,61 @@
+ .imagenes{
+    max-height: 300px;
+   
+}
+
+.imagenes{
+    height: 100%;
+    width: 100%;
+}
+
+
+.planes {
+    /*border: 1px black solid;*/
+    min-width: 200px;
+    min-height: 200px;
+    
+}
+
+.planes img {
+    max-width: 450px;
+    max-height: 250px;
+}
+.planes img {
+    width: 100%;
+    height: 100%;
+    transition: all 300ms;
+    position: relative;
+}
+
+.planes img:hover{
+    transform: scale(1.15);
+}
+
+
+.ventas img{
+    transition: all 300ms;
+    position: relative;
+}
+
+.ventas img:hover{
+    transform: scale(1.15);
+}
+
+
+
+
+h3{
+    text-align: center;
+}
+
+.container .row{
+    margin-top: 20px;
+   
+}
+
+
+.clima {
+    min-height: 150px;
+    background-color: rgb(20, 20, 250);
+    color: white;
+}
