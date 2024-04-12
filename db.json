@@ -41,5 +41,7 @@
       "id": "4"
     }
   ],
-  "clases_usuarios": []
+  "clases_usuarios": [],
+
+  "usuarios": []
 }
