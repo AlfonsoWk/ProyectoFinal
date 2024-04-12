@@ -7,14 +7,14 @@ import DashboardUser from "./components/DashboardUser";
 import { DetallePlan } from "./pages/DetallePlan";
 import { Contacto } from "./pages/Contacto";
 import { Error404 } from "./pages/Error404";
-import  Nosotros  from "./pages/Nosotros";
+import Nosotros from "./pages/Nosotros";
 
 //import { Footer } from "./components/Footer";
 //import NavBar from "../components/NavBar";
 import { AdminPage } from "./pages/AdminPage.jsx";
 import { UserPage } from "./pages/UserPage.jsx";
 
-//import { Principal } from "./pages/PaginaPrincipal.jsx";
+import Principal from "./pages/PaginaPrincipal.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -27,8 +27,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/*         <Route path="/" element={<Principal />} />
-         */}{" "}
+        <Route path="/" element={<Principal />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboarduser" element={<DashboardUser />} />
