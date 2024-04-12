@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import emailjs from "@emailjs/browser";
+import emailjs from '@emailjs/browser';
 
 export const Contacto = () => {
   const [formValues, setFormValues] = useState({
@@ -41,7 +41,7 @@ export const Contacto = () => {
 
     emailjs
       .send("service_v2ejebu", "template_nyxv7yt", templateParams, {
-        publicKey: "LIZGBtcQkpF4HV6-P",
+        publicKey: "d_jN8aMQHAitz_XK4",
       })
       .then(
         (result) => {

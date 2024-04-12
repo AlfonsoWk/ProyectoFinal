@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
+import  NavBar  from "../components/NavBar";
+import { Footer } from "../components/Footer";
 
 import planes from "../images/planes.jpg";
 import musculacion from "../images/musculacion.webp";
@@ -10,6 +12,7 @@ import "../css/detallePlan.css";
 export const DetallePlan = () => {
   return (
     <div>
+      <NavBar />
       <div className="d-flex flex-wrap justify-content-center">
         <div className="mx-2 mb-3">
           <Card style={{ width: "18rem" }} className="h-100">
@@ -62,6 +65,7 @@ export const DetallePlan = () => {
               </Link>
             </Card.Body>
           </Card>
+          <Footer />
         </div>
       </div>
     </div>

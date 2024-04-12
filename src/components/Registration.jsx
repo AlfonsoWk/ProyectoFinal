@@ -20,7 +20,7 @@ const Registration = () => {
     status: "active",
   });
 
-  const [errorMessage, setErrorMessage] = useState(""); 
+  const [errorMessage, setErrorMessage] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -50,7 +50,7 @@ const Registration = () => {
       isValid = false;
       setErrorMessage("Debes aceptar los términos y condiciones");
     } else {
-      setErrorMessage(""); 
+      setErrorMessage("");
     }
 
     if (isValid) {
@@ -114,7 +114,7 @@ const Registration = () => {
                 <div className="mb-4">
                   <MDBInput
                     label={
-                      <span className="required">Tu Nombre y Apellido</span>
+                      <span className="required">Nombre y Apellido</span>
                     }
                     onChange={(event) =>
                       setFormData({
@@ -123,7 +123,7 @@ const Registration = () => {
                       })
                     }
                     value={formData.fname_lname}
-                    size="lg"
+                    size="sm"
                     id="fname_lname"
                     type="text"
                   />
@@ -136,7 +136,7 @@ const Registration = () => {
                       setFormData({ ...formData, email: event.target.value })
                     }
                     value={formData.email}
-                    size="lg"
+                    size="sm"
                     id="email"
                     type="email"
                   />
@@ -149,7 +149,7 @@ const Registration = () => {
                       setFormData({ ...formData, password: event.target.value })
                     }
                     value={formData.password}
-                    size="lg"
+                    size="sm"
                     id="password"
                     type="password"
                   />
@@ -167,7 +167,7 @@ const Registration = () => {
                       })
                     }
                     value={formData.cpassword}
-                    size="lg"
+                    size="sm"
                     id="cpassword"
                     type="password"
                   />

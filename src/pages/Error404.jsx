@@ -4,7 +4,6 @@ import Button from "react-bootstrap/Button";
 
 export const Error404 = () => {
   const handleVolver = () => {
-    // Redirige al usuario a la página principal
     window.location.href = "/";
   };
 
@@ -24,8 +23,9 @@ export const Error404 = () => {
         />
       </div>
       <div style={{ position: "absolute", top: 10, left: 10 }}>
-        {/* Llama a la función handleVolver cuando se hace clic en el botón */}
-        <Button variant="primary" onClick={handleVolver}>Volver</Button>
+        <Button variant="primary" onClick={handleVolver}>
+          Volver
+        </Button>
       </div>
     </div>
   );

@@ -24,12 +24,19 @@ export const UserPage = () => {
             <h3 className="text-center">Administrador de Usuarios</h3>
           </div>
           <div className="col-2">
+            <Link to="/Principal">
+              <Button variant="success" onClick={() => setModalShow(true)}>
+                Ir al inicio
+              </Button>
+            </Link>
+          </div>
+          <div className="col-2">
             <Button variant="primary" onClick={() => setModalShow(true)}>
               Agregar Usuario
             </Button>
           </div>
           <div className="col-2">
-            <Link to="/administrador">
+            <Link to="/AdminPage">
               <Button variant="warning">Ir a Clases</Button>
             </Link>
           </div>

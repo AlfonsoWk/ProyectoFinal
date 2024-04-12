@@ -104,7 +104,7 @@ const Login = () => {
               </p>
               <p className="text-center mt-3 text-secondary">
                 ¿Olvidaste tu contraseña?{" "}
-                <Link to="/forgot-password">Recuperar contraseña</Link>
+                <Link to="/contacto">Recuperar contraseña</Link>
               </p>
             </MDBCardBody>
           </MDBCard>

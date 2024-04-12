@@ -109,6 +109,7 @@ export const UserTable = () => {
               <th scope="col">Plan Contratado</th>
               <th scope="col">Rol</th>
               <th scope="col">Status</th>
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>

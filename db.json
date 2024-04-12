@@ -1,14 +1,13 @@
 {
   "clases": [
     {
+      "id": "1",
       "nombre": "funcional",
-      "inicio": "9",
-      "fin": "10",
-      "profesor": "facundo luque",
-      "cupos_disponibles": 6,
+      "cupos_disponibles": "10",
       "cupos": "10",
-      "disponible": true,
-      "id": "1"
+      "profesor": "facundo luque",
+      "inicio": "9",
+      "fin": "10"
     },
     {
       "nombre": "spinning",
@@ -21,27 +20,36 @@
       "id": "2"
     },
     {
+      "id": "3",
       "nombre": "spinning",
-      "inicio": "22",
-      "fin": "23",
-      "profesor": "esteban frias",
-      "cupos_disponibles": 7,
+      "cupos_disponibles": "10",
       "cupos": "10",
-      "disponible": true,
-      "id": "3"
+      "profesor": "esteban frias",
+      "inicio": "22",
+      "fin": "23"
     },
     {
+      "id": "4",
       "nombre": "funcional",
-      "inicio": "13",
-      "fin": "14",
-      "profesor": "german valoy",
-      "cupos_disponibles": 7,
+      "cupos_disponibles": "10",
       "cupos": "10",
-      "disponible": true,
-      "id": "4"
+      "profesor": "german valoy",
+      "inicio": "13",
+      "fin": "14"
     }
   ],
   "clases_usuarios": [],
-
-  "usuarios": []
+  "users": [
+    {
+      "id": "a386",
+      "fname_lname": "Facundo",
+      "email": "facundo@facundo.com",
+      "telefono": "1234567",
+      "planContratado": "soloMusculacion",
+      "password": "123456",
+      "role": "ADMIN",
+      "status": "INACTIVE",
+      "cpassword": "123456"
+    }
+  ]
 }
