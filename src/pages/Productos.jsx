@@ -2,6 +2,8 @@ import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";  
 
 function Productos() {
 
@@ -20,8 +22,10 @@ function Productos() {
 
 
   return (
+    <div>
+      <NavBar />
       <Container className='px-4'>
-        <h1 className='mt-3 mb-5 w-100 p-3 bg-dark text-white rounded'>Nuestros productos</h1>
+        <h1 className='mt-3 mb-5 w-100 p-3 bg-dark text-white rounded text-center'>Nuestros productos</h1>
         <Row xs={2} md={4} className="g-4 mb-5">
       {tarjetas.map((tarjeta) => (
         <Col key={tarjeta.id} id='card'>
@@ -41,6 +45,8 @@ function Productos() {
       ))}
         </Row>
       </Container>
+      <Footer />
+      </div>
   );
 }
 

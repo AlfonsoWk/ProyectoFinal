@@ -8,6 +8,7 @@ import { DetallePlan } from "./pages/DetallePlan";
 import { Contacto } from "./pages/Contacto";
 import { Error404 } from "./pages/Error404";
 import Nosotros from "./pages/Nosotros";
+import Productos from "./pages/Productos.jsx";
 
 //import { Footer } from "./components/Footer";
 //import NavBar from "../components/NavBar";
@@ -37,6 +38,7 @@ function App() {
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/Nosotros" element={<Nosotros />} />
+        <Route path="/Productos" element={<Productos />} />
       </Routes>
     </Router>
   );
