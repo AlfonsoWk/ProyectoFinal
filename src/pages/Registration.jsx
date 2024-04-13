@@ -9,6 +9,8 @@ import {
 import { Link } from "react-router-dom";
 import "../css/Registration.css";
 import axios from "axios";
+import NavBar from "../components/NavBar";
+import {Footer} from "../components/Footer";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -86,6 +88,8 @@ const Registration = () => {
   };
 
   return (
+    <>
+    <NavBar/>
     <div
       className="registration-container d-flex align-items-center justify-content-center"
       style={{
@@ -200,6 +204,8 @@ const Registration = () => {
         </div>
       </MDBContainer>
     </div>
+    <Footer/>
+    </>
   );
 };
 

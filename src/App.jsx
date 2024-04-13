@@ -1,9 +1,9 @@
 //import { useState } from "react";
 
 //import Principal from "./components/Principal"
-import Registration from "./components/Registration";
-import Login from "./components/Login";
-import DashboardUser from "./components/DashboardUser";
+import Registration from "./pages/Registration.jsx";
+import Login from "./pages/Login.jsx";
+import DashboardUser from "./pages/DashboardUser.jsx";
 import { DetallePlan } from "./pages/DetallePlan";
 import { Contacto } from "./pages/Contacto";
 import { Error404 } from "./pages/Error404";
@@ -29,7 +29,7 @@ function App() {
     <Router>
       <Routes>
 {/*         <Route path="/" element={<Principal />} />
- */}        <Route path="/registration" element={<Registration />} />
+ */}        <Route path="/Registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboarduser" element={<DashboardUser />} />
         <Route path="/DetallePlan" element={<DetallePlan />} />

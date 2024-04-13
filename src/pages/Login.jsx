@@ -4,6 +4,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/Login.css";
 import SpinnerImage from "../images/logob.png";
+import  NavBar  from "../components/NavBar";
+import { Footer } from "../components/Footer";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
@@ -44,6 +46,8 @@ const Login = () => {
   };
 
   return (
+    <>
+    <NavBar />
     <div
       className="d-flex align-items-center justify-content-center"
       style={{
@@ -125,6 +129,8 @@ const Login = () => {
         </div>
       )}
     </div>
+    <Footer />
+    </>
   );
 };
 
