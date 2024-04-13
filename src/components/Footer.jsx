@@ -1,5 +1,5 @@
 import React from "react";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
+import { FaInstagram,FaFacebookF } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -10,24 +10,27 @@ export const Footer = () => {
   return (
     <footer className="footer footer-negro">
       <div className="container">
-        <div className="row align-items-center">
+        <div className="row">
           {/* Logo */}
           <div className="col-sm-12 col-md-6 logo-container">
             <img
               src={logob}
               alt="Logo Empresa"
-              style={{ width: "8em", marginLeft: "-7em" }}
+              style={{ width: "auto", marginLeft: "-3em", marginTop: "1em" }}
             />
           </div>
           {/* Redes Sociales */}
           <div
             className="col-sm-12 col-md-6 redes-container"
-            style={{ marginLeft: "-44em", marginTop: "12em" }}
+            style={{ marginLeft: "-45em", marginTop: "12em" }}
           >
-            <ul className="redes-sociales d-flex">
+            <ul
+              className="redes-sociales d-flex"
+              style={{ marginTop: "-7em", marginLeft: "4em" }}
+            >
               <li style={{ marginRight: "1em" }}>
                 <a href="#">
-                  <FaFacebook />
+                  <FaFacebookF />
                 </a>
               </li>
               <li style={{ marginRight: "1em" }}>
@@ -48,7 +51,7 @@ export const Footer = () => {
             </ul>
           </div>
           {/* Información de cursos y empresa */}
-          <div className="col-sm-12 col-md-6">
+          <div className="col-sm-12 col-md-6" style={{ marginTop: "1em"}}>
             <div
               className="container_informacion d-flex"
               style={{ position: "relative" }}

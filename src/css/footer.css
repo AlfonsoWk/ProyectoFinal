@@ -31,12 +31,15 @@ footer ul li a {
   margin-left: 30em;
 }
 
+.copyright{
+  margin-bottom: -55em;
+}
 /* Estilos para pantallas más pequeñas */
 
 @media (max-width: 768px) {
   .redes-sociales {
     align-items: center;
-    margin-left: 13em;
+    margin-left: 20em;
   }
   .informacion_cursos {
     width: 50%;
@@ -47,12 +50,12 @@ footer ul li a {
   }
 
   .logo-container {
-    margin-left: 33em;
+    margin-left: 22em;
   }
   .copyright {
     text-align: center; 
     font-size: 8px;
-    margin-left: 36em; 
+    
     margin-top: 1em; 
   }
 }

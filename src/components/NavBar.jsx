@@ -23,16 +23,16 @@ const NavBar = () => {
             <Nav.Link href="#home" className="ItemNav">
               Clases
             </Nav.Link>
-            <Nav.Link href="#login" className="ItemNav">
+            <Nav.Link href="login" className="ItemNav">
               Inicia Sesion
             </Nav.Link>
-            <Nav.Link href="#Nosotros" className="ItemNav">
+            <Nav.Link href="Nosotros" className="ItemNav">
               Acerca de nosotros
             </Nav.Link>
             <Nav.Link href="#link" className="ItemNav">
               Nuestros Productos
             </Nav.Link>
-            <Nav.Link href="#Contacto" className="ItemNav">
+            <Nav.Link href="Contacto" className="ItemNav">
               Contactanos
             </Nav.Link>
           </Nav>

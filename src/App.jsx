@@ -14,7 +14,7 @@ import Nosotros from "./pages/Nosotros";
 import { AdminPage } from "./pages/AdminPage.jsx";
 import { UserPage } from "./pages/UserPage.jsx";
 
-import Principal from "./pages/PaginaPrincipal.jsx";
+//import Principal from "./pages/PaginaPrincipal.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -27,8 +27,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Principal />} />
-        <Route path="/registration" element={<Registration />} />
+{/*         <Route path="/" element={<Principal />} />
+ */}        <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/dashboarduser" element={<DashboardUser />} />
         <Route path="/DetallePlan" element={<DetallePlan />} />
