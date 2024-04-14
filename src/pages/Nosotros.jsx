@@ -17,13 +17,13 @@ function Nosotros() {
     <div>
       <NavBar />
       <Container>
-        <h1 className="mt-5 mb-5 bg-dark text-light text-center p-3 rounded">
+        <h1 className="mt-5 mb-5 bg-black text-light text-center p-3 rounded">
           Nosotros
         </h1>
         <Row xs={2} md={2} lg={4} className="g-3 mb-5">
           {cards.map((card) => (
             <Col key={card}>
-              <Card className="bg-dark text-light">
+              <Card className="bg-black text-light">
                 <Card.Img className="h-100" variant="top" src={card.img} />
                 <Card.Body>
                   <Card.Title className="text-center">{card.title}</Card.Title>

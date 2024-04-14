@@ -10,14 +10,13 @@
       "fin": "10"
     },
     {
+      "id": "2",
       "nombre": "spinning",
-      "inicio": "21",
-      "fin": "22",
-      "profesor": "alfonso wenk",
-      "cupos_disponibles": 5,
+      "cupos_disponibles": "8",
       "cupos": "8",
-      "disponible": true,
-      "id": "2"
+      "profesor": "alfonso wenk",
+      "inicio": "21",
+      "fin": "22"
     },
     {
       "id": "3",

@@ -15,7 +15,7 @@ export const DetallePlan = () => {
       <NavBar />
       <div className="d-flex flex-wrap justify-content-center">
         <div className="mx-2 mb-3">
-          <Card style={{ width: "18rem" }} className="h-100">
+          <Card style={{ width: "18rem", marginTop: "7px" }} className="h-100">
             <Card.Img variant="top" src={musculacion} />
             <Card.Body className="text-center">
               <Card.Title className="bg-primary text-white">
@@ -32,7 +32,7 @@ export const DetallePlan = () => {
           </Card>
         </div>
         <div className="mx-2 mb-3">
-          <Card style={{ width: "18rem" }} className="h-100">
+          <Card style={{ width: "18rem", marginTop: "7px" }} className="h-100">
             <Card.Img variant="top" src={clases_gimnasia} />
             <Card.Body className="text-center">
               <Card.Title className="bg-success text-white">
@@ -50,7 +50,7 @@ export const DetallePlan = () => {
           </Card>
         </div>
         <div className="mx-2 mb-3">
-          <Card style={{ width: "18rem" }} className="h-100">
+          <Card style={{ width: "18rem", marginTop: "7px" }} className="h-100">
             <Card.Img variant="top" src={planes} />
             <Card.Body className="text-center">
               <Card.Title className="bg-warning text-white">
@@ -65,9 +65,9 @@ export const DetallePlan = () => {
               </Link>
             </Card.Body>
           </Card>
-          <Footer />
         </div>
       </div>
+          <Footer />
     </div>
   );
 };

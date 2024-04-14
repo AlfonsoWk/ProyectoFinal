@@ -31,8 +31,13 @@ footer ul li a {
   margin-left: 30em;
 }
 
-.copyright{
+.copyright {
   margin-bottom: -55em;
+}
+
+.redes-sociales {
+  margin-left: 4em;
+  margin-top: 6em;
 }
 /* Estilos para pantallas más pequeñas */
 
@@ -53,10 +58,9 @@ footer ul li a {
     margin-left: 22em;
   }
   .copyright {
-    text-align: center; 
+    text-align: center;
     font-size: 8px;
-    
-    margin-top: 1em; 
+    margin-top: 1em;
   }
 }
 @media (max-width: 320px) {
@@ -77,9 +81,9 @@ footer ul li a {
     text-align: center;
   }
   .copyright {
-    text-align: center; 
+    text-align: center;
     font-size: 7px;
-    margin-left: -1em; 
-    margin-top: 10em; 
+    margin-left: -1em;
+    margin-top: 10em;
   }
 }

@@ -16,17 +16,17 @@ export const Footer = () => {
             <img
               src={logob}
               alt="Logo Empresa"
-              style={{ width: "auto", marginLeft: "-3em", marginTop: "1em" }}
+              style={{ width: "11%", marginLeft: "-4em", marginTop: "1em" }}
             />
           </div>
           {/* Redes Sociales */}
           <div
             className="col-sm-12 col-md-6 redes-container"
-            style={{ marginLeft: "-45em", marginTop: "12em" }}
+            style={{ marginLeft: "-45em" }}
           >
             <ul
               className="redes-sociales d-flex"
-              style={{ marginTop: "-7em", marginLeft: "4em" }}
+              /* style={{ marginTop: "-7em", marginLeft: "4em" }} */
             >
               <li style={{ marginRight: "1em" }}>
                 <a href="#">
@@ -63,16 +63,16 @@ export const Footer = () => {
               >
                 <ul>
                   <li>
-                    <a href="#">Sucursales</a>
+                    <a href="404">Sucursales</a>
                   </li>
                   <li>
-                    <a href="#">Elegí tu plan</a>
+                    <a href="DetallePlan">Elegí tu plan</a>
                   </li>
                   <li>
-                    <a href="#">Pase de Prueba</a>
+                    <a href="404">Pase de Prueba</a>
                   </li>
                   <li>
-                    <a href="#">Productos</a>
+                    <a href="Productos">Productos</a>
                   </li>
                 </ul>
               </div>
@@ -87,16 +87,16 @@ export const Footer = () => {
               >
                 <ul>
                   <li>
-                    <a href="#">Acerca de nosotros</a>
+                    <a href="Nosotros">Acerca de nosotros</a>
                   </li>
                   <li>
-                    <a href="#">Contacto</a>
+                    <a href="Contacto">Contacto</a>
                   </li>
                   <li>
-                    <a href="#">Política de privacidad</a>
+                    <a href="404">Política de privacidad</a>
                   </li>
                   <li>
-                    <a href="#">Club de Beneficios</a>
+                    <a href="404">Club de Beneficios</a>
                   </li>
                 </ul>
               </div>

@@ -1,11 +1,10 @@
 import React from "react";
-import "../css/NavBar.css";
-
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 
 import logonav from "../images/logob1.png";
+import "../css/NavBar.css";
 
 //className="bg-body-tertiary" navbar navbar-dark bg-dark
 
@@ -15,7 +14,7 @@ const NavBar = () => {
       <Container id="container-nav">
         <Navbar.Brand href="#home" id="logo">
           {" "}
-          <img src={logonav} alt="" />{" "}
+          <img src={logonav} alt="" style={{ width: "50px", marginLeft: "10px" }} />{" "}
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -29,7 +28,7 @@ const NavBar = () => {
             <Nav.Link href="Nosotros" className="ItemNav">
               Acerca de nosotros
             </Nav.Link>
-            <Nav.Link href="#link" className="ItemNav">
+            <Nav.Link href="Productos" className="ItemNav">
               Nuestros Productos
             </Nav.Link>
             <Nav.Link href="Contacto" className="ItemNav">
