@@ -16,42 +16,42 @@ export const Footer = () => {
             <img
               src={logob}
               alt="Logo Empresa"
-              style={{ width: "11%", marginLeft: "-4em", marginTop: "1em" }}
+              style={{ width: "11%", marginLeft: "-4em", marginTop: "5px" }}
             />
           </div>
           {/* Redes Sociales */}
           <div
             className="col-sm-12 col-md-6 redes-container"
-            style={{ marginLeft: "-45em" }}
+            /* style={{ marginLeft: "-45em" }} */
           >
             <ul
               className="redes-sociales d-flex"
               /* style={{ marginTop: "-7em", marginLeft: "4em" }} */
             >
               <li style={{ marginRight: "1em" }}>
-                <a href="#">
+                <a href="404">
                   <FaFacebookF />
                 </a>
               </li>
               <li style={{ marginRight: "1em" }}>
-                <a href="#">
+                <a href="404">
                   <FaXTwitter />
                 </a>
               </li>
               <li style={{ marginRight: "1em" }}>
-                <a href="#">
+                <a href="404">
                   <FaInstagram />
                 </a>
               </li>
               <li>
-                <a href="#">
+                <a href="404">
                   <FiYoutube />
                 </a>
               </li>
             </ul>
           </div>
           {/* Información de cursos y empresa */}
-          <div className="col-sm-12 col-md-6" style={{ marginTop: "1em"}}>
+          <div className="col-sm-12 col-md-6">
             <div
               className="container_informacion d-flex"
               style={{ position: "relative" }}

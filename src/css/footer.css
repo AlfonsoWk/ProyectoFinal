@@ -24,11 +24,13 @@ footer ul li a {
 }
 
 .informacion_cursos {
-  margin-left: -6em;
+  margin-left: 20em;
+  margin-top: -7em;
 }
 
 .informacion_empresa {
-  margin-left: 30em;
+  margin-left: 57em;
+  margin-top: -7em;
 }
 
 .copyright {
@@ -36,22 +38,25 @@ footer ul li a {
 }
 
 .redes-sociales {
-  margin-left: 4em;
-  margin-top: 6em;
+  margin-left: -41em;
+  margin-top: 5em;
 }
 /* Estilos para pantallas más pequeñas */
 
 @media (max-width: 768px) {
   .redes-sociales {
     align-items: center;
-    margin-left: 20em;
+    margin-left: 15em;
+    margin-top: 0em;
   }
   .informacion_cursos {
     width: 50%;
-    margin-left: 20em;
+    margin-left: -20em;
+    margin-top: 2em;
   }
   .informacion_empresa {
-    margin-left: 30em;
+    margin-left: 10em;
+    margin-top: 2em;
   }
 
   .logo-container {
@@ -68,22 +73,24 @@ footer ul li a {
     margin-left: 11em;
   }
   .redes-sociales {
-    margin-left: 16em;
+    margin-left: 4em;
   }
   .informacion_cursos {
     width: 50%;
-    margin-left: -3em;
+    margin-left: -1em;
     text-align: center;
+    margin-top: -1em;
   }
   .informacion_empresa {
     width: 50%;
-    margin-left: 11em;
+    margin-left: 9em;
     text-align: center;
+    margin-top: -1em;
   }
   .copyright {
     text-align: center;
     font-size: 7px;
     margin-left: -1em;
-    margin-top: 10em;
+    margin-top: 4em;
   }
 }

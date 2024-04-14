@@ -6,7 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import emailjs from "@emailjs/browser";
-import { Link } from "react-router-dom";
+//import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";
 
 export const Contacto = () => {
   const [formValues, setFormValues] = useState({
@@ -62,11 +64,12 @@ export const Contacto = () => {
 
   return (
     <>
-      <div className="col-2" style={{ marginTop: "1em", marginLeft: "1em" }}>
+      <NavBar />
+      {/*<div className="col-2" style={{ marginTop: "1em", marginLeft: "1em" }}>
         <Link to="/Principal">
           <Button variant="warning">Ir al inicio</Button>
         </Link>
-      </div>
+  </div>*/}
 
       <Container>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
@@ -131,6 +134,8 @@ export const Contacto = () => {
           </Col>
         </Row>
       </Container>
+
+      <Footer />
     </>
   );
 };
