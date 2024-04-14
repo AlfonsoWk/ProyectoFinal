@@ -68,13 +68,13 @@ function Productos() {
   ];
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url('src/images/Principal.jpg')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
       <Container className="px-4">
         <h1 className="mt-3 mb-5 w-100 p-3 bg-black text-white rounded text-center">
           Nuestros productos
         </h1>
-        <Row xs={2} md={4} className="g-4 mb-5">
+        <Row xs={1} sm={2} md={4} className="g-4 mb-5">
           {tarjetas.map((tarjeta) => (
             <Col key={tarjeta.id} id="card">
               <Card
@@ -100,3 +100,4 @@ function Productos() {
 }
 
 export default Productos;
+

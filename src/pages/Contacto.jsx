@@ -6,9 +6,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
 import emailjs from "@emailjs/browser";
-//import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import backgroundImage from "../images/fotogym2.jpg"; // Importa la imagen de fondo
 
 export const Contacto = () => {
   const [formValues, setFormValues] = useState({
@@ -65,13 +65,15 @@ export const Contacto = () => {
   return (
     <>
       <NavBar />
-      {/*<div className="col-2" style={{ marginTop: "1em", marginLeft: "1em" }}>
-        <Link to="/Principal">
-          <Button variant="warning">Ir al inicio</Button>
-        </Link>
-  </div>*/}
 
-      <Container>
+      <Container
+        fluid
+        style={{
+          backgroundImage: `url(${backgroundImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
             <div className="border border-3 rounded border-primary"></div>
