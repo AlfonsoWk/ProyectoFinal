@@ -65,8 +65,9 @@ export const Contacto = () => {
   return (
     <>
       <NavBar />
-
-      <Container
+    
+      
+        <Container
         fluid
         style={{
           backgroundImage: `url(${backgroundImage})`,
@@ -136,6 +137,10 @@ export const Contacto = () => {
           </Col>
         </Row>
       </Container>
+      
+      
+
+      
 
       <Footer />
     </>

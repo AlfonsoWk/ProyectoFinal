@@ -1,0 +1,22 @@
+
+   
+.clasesReservadas{
+    width: 100%;
+  
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+
+
+#reservadas{
+    margin-left: 32%;
+    margin-right: 25%;
+  
+}
+
+#buttonCancelar{
+    margin-left: 50%;
+}

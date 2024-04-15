@@ -5,12 +5,16 @@ import { Link } from "react-router-dom";
 import { CourseTable } from "../components/CourseTable";
 import { CreateCourseModal } from "../components/CreateCourseModal";
 
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";
+
 export const AdminPage = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <div>
-      <div className="container">
+      <NavBar/>
+      <div className="container" style={{minHeight:"34rem"}}>
         <div className="row">
           <div className="col">
             <h2 className="text-center">
@@ -47,6 +51,7 @@ export const AdminPage = () => {
         </div>
       </div>
       <CreateCourseModal show={modalShow} onHide={() => setModalShow(false)} />
+      <Footer/>
     </div>
   );
 };

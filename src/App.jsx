@@ -7,16 +7,19 @@ import { Contacto } from "./pages/Contacto";
 import { Error404 } from "./pages/Error404";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos.jsx";
+import ReservarPage from "./pages/ReservarPage.jsx"
+import PanelClases from "./components/PanelClases.jsx"
+import PaginaPrincipal from "./pages/PaginaPrincipal.jsx";
 
 import { AdminPage } from "./pages/AdminPage.jsx";
 import { UserPage } from "./pages/UserPage.jsx";
 
-//import PaginaPrincipal from "./pages/PaginaPrincipal.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+
 
 function App() {
   /* const [count, setCount,] = useState(0) */
@@ -25,15 +28,20 @@ function App() {
     <Router>
       <Routes>
         {/* <Route path="/" element={<PaginaPrincipal />} /> */}
+
+        <Route path="/" element={<PaginaPrincipal />} /> 
         <Route path="/Registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
         <Route path="/DetallePlan" element={<DetallePlan />} />
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/404" element={<Error404 />} />
+        <Route path="/*" element={<Error404 />} />
         <Route path="/AdminPage" element={<AdminPage />} />
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/Productos" element={<Productos />} />
+        <Route path="/Reservar" element={<ReservarPage />} />
+        <Route path="/Cancelar" element={<PanelClases />} />
       </Routes>
     </Router>
   );

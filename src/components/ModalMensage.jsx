@@ -1,14 +1,14 @@
 
-
+import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
-import {updateCupos, clasesUsuarios} from "../helpers/apiClases"
+import {updateCupos, getClases,clasesUsuarios} from "../helpers/apiClases"
 import "../css/Modal.css"
 
 
 const ModalMensage = ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
 
-
+let reserva = true
 
 
   if (!isOpen) {
@@ -19,22 +19,47 @@ const ModalMensage = ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
   
   const reservar = async () =>{  
     
-
-     const nuevoCupo = paramFuncion.cupos_disponibles - 1
-
-     const fecha = new Date()
-
-     const datos = {
-        nombre: "Ricardo",
-        cupos:"10"
-     }
     
-      updateCupos(paramFuncion.id,datos)
-     
-     /*
-       
+     const nuevoCupo = paramFuncion.cupos_disponibles - 1
+    
+     const fecha = new Date()
+     const hora = Number(fecha.getHours()) 
+     const obtenerClases = await getClases()
+
+    
+
+     obtenerClases.map((obtener)=>{
+          if (obtener._id !== paramFuncion.id){
+            return
+          }
+
+          
+          if (hora >= obtener.inicio){
+           reserva = false
+           console.log("estado ",reserva)
+           }
+          
+     })
+
+    if(!reserva){
       
-        await  updateCupos(paramFuncion.id,{
+      
+      return (
+        alert(`la clase ${paramFuncion.nombre} no puede ser reservada en en este horario`),
+        closeModal()
+      
+    )
+    }
+    /* if (obtenerClases.inicio <= hora){
+
+       console.log("ini es: ",obtenerClases.inicio, "hora es: ", hora)
+       console.log("La clase no puede ser reservada en este horario")
+       return
+     }*/
+    
+     await  updateCupos(paramFuncion.id,{cupos_disponibles:nuevoCupo })
+
+      /*await  updateCupos(paramFuncion.id,{
 
            "nombre": paramFuncion.nombre,
            "inicio": paramFuncion.inicio,
@@ -45,11 +70,11 @@ const ModalMensage = ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
            "disponible": true
            })*/
    
-          // actualizarDatos()
+          actualizarDatos()
           
-      /*    await clasesUsuarios({
-            "id_clase": paramFuncion.id,
-            "nombre": paramFuncion.nombre,
+           await clasesUsuarios({
+          "id_clase": paramFuncion.id,
+           "nombre": paramFuncion.nombre,
            "inicio": paramFuncion.inicio,
            "fin": paramFuncion.fin,
            "profesor":paramFuncion.profesor,
@@ -58,7 +83,7 @@ const ModalMensage = ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
            "disponible": true,
            "usuario": "fluque"
            })
-           closeModal()*/
+           closeModal()
      
 }
 

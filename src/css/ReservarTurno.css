@@ -1,3 +1,10 @@
+#contenedor{
+    width: 100%;
+
+    /*margin-bottom: 23%;*/
+
+}
+
 #agotado{
     color: red
 }
@@ -10,3 +17,18 @@
     z-index: 1;
     
 }
+
+.clasesDisponibles{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+
+}
+
+#disponibles{
+    margin-left: 32%;
+    margin-right: 25%;
+  
+}
+

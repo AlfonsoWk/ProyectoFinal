@@ -5,12 +5,16 @@ import { Link } from "react-router-dom";
 import { UserTable } from "../components/UserTable";
 import { CreateUserModal } from "../components/CreateUserModal";
 
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";
+
 export const UserPage = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <div>
-      <div className="container">
+      <NavBar/>
+      <div className="container" style={{minHeight:"34rem"}}>
         <div className="row">
           <div className="col">
             <h2 className="text-center">
@@ -47,6 +51,7 @@ export const UserPage = () => {
         </div>
       </div>
       <CreateUserModal show={modalShow} onHide={() => setModalShow(false)} />
+      <Footer/>
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 
 import logonav from "../images/logob1.png";
 import "../css/NavBar.css";
@@ -12,19 +13,30 @@ const NavBar = () => {
   return (
     <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
       <Container id="container-nav">
+        
         <Navbar.Brand href="#home" id="logo">
           {" "}
           <img src={logonav} alt="" style={{ width: "50px", marginLeft: "10px" }} />{" "}
         </Navbar.Brand>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link href="#home" className="ItemNav">
               Clases
             </Nav.Link>
-            <Nav.Link href="login" className="ItemNav">
+            
+            <Link to="/login" className="ItemNav">
+              Inicia Sesion
+            </Link>
+
+            {
+              /*
+                <Nav.Link href="login" className="ItemNav">
               Inicia Sesion
             </Nav.Link>
+              */
+            }
             <Nav.Link href="Nosotros" className="ItemNav">
               Acerca de nosotros
             </Nav.Link>

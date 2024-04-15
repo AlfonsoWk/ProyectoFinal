@@ -94,7 +94,10 @@ function Productos() {
           ))}
         </Row>
       </Container>
+    
       <Footer />
+     
+     
     </div>
   );
 }

@@ -21,8 +21,8 @@ const consultarClima = () => {
                 <h2 class="text-center">${ciudad}</h2>
                 <h1 class="text-center">${temperatura} °C</h1>
                 <h2 class="text-center">${descripcion}</h2>
-                <h3>Ciudad: ${ciudad}</h3>
-                <h3>Temperatura: ${temperatura} °C</h3>
+              
+             
                 <img src="${logo}" alt="Icono del clima">
             `;
         })

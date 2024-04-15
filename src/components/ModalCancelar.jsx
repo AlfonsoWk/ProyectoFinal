@@ -20,7 +20,8 @@ const ModalCancelar= ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
     const cupo = paramFuncion.cupos_disponibles + 1
    
         await cancelaReserva(paramFuncion.id);
-        await  updateCupos(paramFuncion.id_clase,{
+        await  updateCupos(paramFuncion.id_clase,{cupos_disponibles:cupo,})
+       /* await  updateCupos(paramFuncion.id_clase,{
 
             "nombre": paramFuncion.nombre,
             "inicio": paramFuncion.inicio,
@@ -29,7 +30,7 @@ const ModalCancelar= ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
             "cupos_disponibles":cupo,
             "cupos":paramFuncion.cupos,
             "disponible": true
-            })
+            })*/
         await actualizarDatos();
         closeModal()
     

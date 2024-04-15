@@ -1,6 +1,8 @@
 import React from "react";
 import Carrusel from "../components/Carrusel";
 import Clima from "../components/Clima";
+import NavBar from "../components/NavBar";
+import { Footer } from "../components/Footer";
 
 import proteinas from "../images/proteinas.jpg";
 import indumentaria from "../images/Indumentaria.webp";
@@ -8,12 +10,19 @@ import musculacion from "../images/PlasMusculacion.jpg";
 import clases from "../images/soloclases.jpg";
 import full from "../images/planfull.jpg";
 
+
+
 import "../css/PaginaPrincipal.css";
 
 const PaginaPrincipal = () => {
   return (
     <>
+   <NavBar/>
       <div className="container">
+    <div className="row">
+   
+    </div>
+    
         <div className="row">
           <Carrusel />
         </div>
@@ -68,10 +77,8 @@ const PaginaPrincipal = () => {
         </div>
       </div>
 
-      <br />
 
-      <br />
-      <br />
+ <Footer/>
     </>
   );
 };
