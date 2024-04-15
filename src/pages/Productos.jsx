@@ -4,6 +4,8 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import { Link } from "react-router-dom";
+import "../css/productos.css"
 
 function Productos() {
   const variant = "black";
@@ -86,6 +88,7 @@ function Productos() {
         <Row xs={1} sm={2} md={4} className="g-4 mb-5">
           {tarjetas.map((tarjeta) => (
             <Col key={tarjeta.id} id="card">
+              <Link to={tarjeta.link || "404"}> 
               <Card
                 className="mb-2 border-0"
                 bg={variant.toLowerCase()}
@@ -94,11 +97,12 @@ function Productos() {
               >
                 <Card.Img variant="top" src={tarjeta.img} />
                 <Card.Body>
-                  <Card.Title className="">{tarjeta.title}</Card.Title>
-                  <Card.Text className="mb-1">{tarjeta.categoria}</Card.Text>
-                  <Card.Text>{tarjeta.precio}</Card.Text>
+                  <Card.Title className="text-no-decoration" style={{textAlign: "center"}}>{tarjeta.title}</Card.Title>
+                  <Card.Text className="text-no-decoration mb-1" style={{textAlign: "center"}}>{tarjeta.categoria}</Card.Text>
+                  <Card.Text className="text-no-decoration" style={{textAlign: "center"}} >{tarjeta.precio}</Card.Text>
                 </Card.Body>
               </Card>
+              </Link>
             </Col>
           ))}
         </Row>

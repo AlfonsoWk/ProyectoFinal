@@ -4,6 +4,7 @@ import Carrusel from "../components/Carrusel";
 import Clima from "../components/Clima";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import { Link } from "react-router-dom";
 import proteinas from "../images/proteinas.jpg";
 import indumentaria from "../images/Indumentaria.webp";
 import musculacion from "../images/PlasMusculacion.jpg";
@@ -48,64 +49,73 @@ const PaginaPrincipal = () => {
         </div>
       ) : (
         <>
-        <div className="main-container">
-          <NavBar />
-          
+          <div className="main-container">
+            <NavBar />
+
             <Carrusel />
 
             <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-md-4">
-            <div className="planes">
-              <h5>PLAN: MUSCULACION</h5>
-              <img src={musculacion} alt="" />
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="planes">
-              <h4>PLAN: SOLO CLASES</h4>
-              <img src={clases} alt="" />
-            </div>
-          </div>
-          <div className="col-md-4">
-            <div className="planes">
-              <h4>PLAN: FULL</h4>
-              <img src={full} alt="" />
-            </div>
-          </div>
-        </div>
+              <div className="row justify-content-center">
+                <div className="col-md-4">
+                  <div className="planes" style={{ color: "white" }}>
+                    <h5>PLAN: MUSCULACION</h5>
+                    <Link to="/detalleplan">
+                      <img src={musculacion} alt="" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="planes" style={{ color: "white" }}>
+                    <h4>PLAN: SOLO CLASES</h4>
+                    <Link to="/detalleplan">
+                      <img src={clases} alt="" />
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-md-4">
+                  <div className="planes" style={{ color: "white" }}>
+                    <h4>PLAN: FULL</h4>
+                    <Link to="/detalleplan">
+                      <img src={full} alt="" />
+                    </Link>
+                  </div>
+                </div>
+              </div>
 
-        <div className="row justify-content-center">
-          <div className="col-md-6">
-            <div className="ventas">
-              <div id="suplementos">
-                <h3>SUPLEMENTOS</h3>
-                <img src={proteinas} alt="" className="imagenes" />
+              <div className="row justify-content-center">
+                <div className="col-md-6">
+                  <div className="ventas" style={{ color: "white" }}>
+                    <div id="suplementos">
+                      <h3>SUPLEMENTOS</h3>
+                      <Link to="/productos">
+                        <img src={proteinas} alt="" className="imagenes" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-md-6">
+                  <div className="ventas" style={{ color: "white" }}>
+                    <div id="indumentaria">
+                      <h3>ROPA DEPORTIVA</h3>
+                      <Link to="/productos">
+                        <img src={indumentaria} alt="" className="imagenes" />
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="row justify-content-center">
+                <div className="col">
+                  <div className="clima">
+                    <Clima />
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="col-md-6">
-            <div className="ventas">
-              <div id="indumentaria">
-                <h3>ROPA DEPORTIVA</h3>
-                <img src={indumentaria} alt="" className="imagenes" />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="row justify-content-center">
-          <div className="col">
-            <div className="clima">
-              <Clima />
-            </div>
-          </div>
-        </div>
-      </div>
             <Footer />
           </div>
-          
         </>
       )}
     </>

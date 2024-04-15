@@ -2,6 +2,7 @@ import React from "react";
 import error404 from "../images/error404.png";
 import Button from "react-bootstrap/Button";
 import { Link } from "react-router-dom";
+import "../css/error404.css";
 
 export const Error404 = () => {
   const handleVolver = () => {
@@ -20,7 +21,12 @@ export const Error404 = () => {
         <img
           src={error404}
           alt="pagina Error"
-          style={{ maxWidth: "40%", maxHeight: "40%", marginTop: 10 }}
+          className="error404"
+ /*          style={{ 
+            maxWidth: "40%", 
+            maxHeight: "40%", 
+            marginTop: 10,
+          }} */
         />
       </div>
       <Link to="/" style={{ position: "absolute", top: 10, left: 10 }}>
