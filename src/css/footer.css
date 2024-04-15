@@ -1,7 +1,6 @@
 .footer-negro {
   background-color: black;
   color: white;
- 
 }
 
 ul,
@@ -25,72 +24,104 @@ footer ul li a {
 }
 
 .informacion_cursos {
-  margin-left: 20em;
+  margin-left: 20%;
   margin-top: -7em;
 }
 
 .informacion_empresa {
-  margin-left: 57em;
+  margin-left: 100%;
   margin-top: -7em;
 }
 
 .copyright {
-  margin-bottom: -55em;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+  
 }
 
 .redes-sociales {
   margin-left: -46em;
-  margin-top: 5em;
+  margin-top: 6em;
 }
-/* Estilos para pantallas más pequeñas */
 
+.logo-container {
+  margin-left: 0;
+}
+
+/* Agregar línea arriba del texto de derechos de autor */
+.footer hr {
+  border-top: 1px solid white; /* Estilo de línea */
+  width: 50%; /* Ancho de la línea */
+  margin: 1em auto; /* Margen superior e inferior automático y centrado horizontalmente */
+}
+
+/* Estilos para el texto de derechos de autor */
+.footer .copyright {
+  text-align: center;
+  
+}
+
+
+/* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {
   .redes-sociales {
     display: flex;
-    justify-content:center;
+    justify-content: center;
     margin-top: 1em;
     margin-left: 0%;
-  
   }
-  .informacion_cursos,
-  .informacion_empresa {
-    width: 100%; /* Cambiar el ancho al 100% para ocupar todo el espacio disponible */
-    margin-left: 0; /* Eliminar el margen izquierdo */
+
+  .informacion_cursos
+   {
+    width: 100%;
+    margin-left: -20px;
     margin-top: 2em;
     text-align: center;
   }
-  .logo-container {
-    display:flex;
-    justify-content:center;
-    margin-left: 0; /* Eliminar el margen izquierdo */
+
+  .informacion_empresa {
+    width: 100%;
+    margin-left: 180px;
     margin-top: 2em;
+    text-align: center;
   }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 0;
+    margin-top: 2em;
+    
+  }
+
   .copyright {
     text-align: center;
-    font-size: 1em; /* Cambiar el tamaño de fuente a em para hacerlo más escalable */
-    margin-top: 1em;
+    font-size: 1em;
+    margin-top: em;
   }
 }
 
 @media (max-width: 320px) {
   .logo-container {
-    margin-left: 0; /* Eliminar el margen izquierdo */
+    margin-left: 0;
   }
+
   .redes-container {
-    margin-left: 0; /* Eliminar el margen izquierdo */
+    margin-left: 0;
   }
+
   .informacion_cursos,
   .informacion_empresa {
-    width: 100%; /* Cambiar el ancho al 100% para ocupar todo el espacio disponible */
-    margin-left: 0; /* Eliminar el margen izquierdo */
+    width: 100%;
+    margin-left: 0;
     text-align: center;
     margin-top: 2em;
   }
+
   .copyright {
     text-align: center;
-    font-size: 0.7em; /* Cambiar el tamaño de fuente a em para hacerlo más escalable */
-    margin-left: 0; /* Eliminar el margen izquierdo */
+    font-size: 0.7em;
+    margin-left: 0;
     margin-top: 2em;
   }
 }
-

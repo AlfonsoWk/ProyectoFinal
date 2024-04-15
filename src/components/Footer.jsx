@@ -16,7 +16,7 @@ export const Footer = () => {
             <img
               src={logob}
               alt="Logo Empresa"
-              style={{ width: "11%", marginLeft: "-4em", marginTop: "5px" }}
+              style={{ width: "11%", marginInline: "-4em",  marginTop: "8px" }}
             />
           </div>
           {/* Redes Sociales */}
@@ -102,13 +102,15 @@ export const Footer = () => {
               </div>
             </div>
           </div>
+          
+          <p className="copyright" style={{ textAlign: "center" }}>
+          <hr /> {/* Línea horizontal */}
+  &copy; {new Date().getFullYear()} Rolling Gym - Todos los derechos reservados. Gral. Paz 576, San Miguel de Tucumán Tucumán, Argentina, Tel: 0381 578-3030
+  
+</p>
+
         </div>
       </div>
-      <p className="copyright" style={{ textAlign: "center" }}>
-        &copy; {new Date().getFullYear()} Rolling Gym - Todos los derechos
-        reservados. Gral. Paz 576, San Miguel de Tucumán Tucumán, Argentina,
-        Tel: 0381 578-3030
-      </p>
     </footer>
   );
 };
