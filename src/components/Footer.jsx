@@ -59,7 +59,7 @@ export const Footer = () => {
               {/* Información de cursos */}
               <div
                 className="informacion_cursos"
-                style={{ width: "50%", textAlign: "center" }}
+                style={{ width: "50%", textAlign: "" }}
               >
                 <ul>
                   <li>

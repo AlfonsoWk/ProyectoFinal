@@ -1,6 +1,7 @@
 .footer-negro {
   background-color: black;
   color: white;
+ 
 }
 
 ul,
@@ -45,52 +46,51 @@ footer ul li a {
 
 @media (max-width: 768px) {
   .redes-sociales {
-    align-items: center;
-    margin-left: 15em;
-    margin-top: 0em;
+    display: flex;
+    justify-content:center;
+    margin-top: 1em;
+    margin-left: 0%;
+  
   }
-  .informacion_cursos {
-    width: 50%;
-    margin-left: -20em;
-    margin-top: 2em;
-  }
+  .informacion_cursos,
   .informacion_empresa {
-    margin-left: 10em;
+    width: 100%; /* Cambiar el ancho al 100% para ocupar todo el espacio disponible */
+    margin-left: 0; /* Eliminar el margen izquierdo */
     margin-top: 2em;
+    text-align: center;
   }
-
   .logo-container {
-    margin-left: 22em;
+    display:flex;
+    justify-content:center;
+    margin-left: 0; /* Eliminar el margen izquierdo */
+    margin-top: 2em;
   }
   .copyright {
     text-align: center;
-    font-size: 8px;
+    font-size: 1em; /* Cambiar el tamaño de fuente a em para hacerlo más escalable */
     margin-top: 1em;
   }
 }
+
 @media (max-width: 320px) {
   .logo-container {
-    margin-left: 11em;
+    margin-left: 0; /* Eliminar el margen izquierdo */
   }
-  .redes-sociales {
-    margin-left: 4em;
+  .redes-container {
+    margin-left: 0; /* Eliminar el margen izquierdo */
   }
-  .informacion_cursos {
-    width: 50%;
-    margin-left: -1em;
-    text-align: center;
-    margin-top: -1em;
-  }
+  .informacion_cursos,
   .informacion_empresa {
-    width: 50%;
-    margin-left: 9em;
+    width: 100%; /* Cambiar el ancho al 100% para ocupar todo el espacio disponible */
+    margin-left: 0; /* Eliminar el margen izquierdo */
     text-align: center;
-    margin-top: -1em;
+    margin-top: 2em;
   }
   .copyright {
     text-align: center;
-    font-size: 7px;
-    margin-left: -1em;
-    margin-top: 4em;
+    font-size: 0.7em; /* Cambiar el tamaño de fuente a em para hacerlo más escalable */
+    margin-left: 0; /* Eliminar el margen izquierdo */
+    margin-top: 2em;
   }
 }
+

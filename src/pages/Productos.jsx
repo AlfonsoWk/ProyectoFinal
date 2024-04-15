@@ -68,7 +68,16 @@ function Productos() {
   ];
 
   return (
-    <div style={{ backgroundImage: `url('src/images/Principal.jpg')`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div
+      style={{
+        backgroundImage: `url('src/images/Principal.jpg')`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+        width: "100%",
+      }}
+    >
       <NavBar />
       <Container className="px-4">
         <h1 className="mt-3 mb-5 w-100 p-3 bg-black text-white rounded text-center">
@@ -94,13 +103,10 @@ function Productos() {
           ))}
         </Row>
       </Container>
-    
+
       <Footer />
-     
-     
     </div>
   );
 }
 
 export default Productos;
-
