@@ -32,8 +32,11 @@
   
 }
 
-.ItemNav{
+.ItemNav {
     color: white;
+    border-radius: 80px; /* Agregamos bordes redondeados */
+    transition: background-color 1.5s ease; /* Hacemos la transición más suave y lenta */
+
 }
 
 .btn-hover:hover {

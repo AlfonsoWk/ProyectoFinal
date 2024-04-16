@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 import emailjs from "@emailjs/browser";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
-import backgroundImage from "../images/fotogym2.jpg"; // Importa la imagen de fondo
+
 
 export const Contacto = () => {
   const [formValues, setFormValues] = useState({
@@ -64,16 +64,13 @@ export const Contacto = () => {
 
   return (
     <>
+    <div style={{ backgroundImage: `url('src/images/fotogym2.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
     
       
         <Container
         fluid
-        style={{
-          backgroundImage: `url(${backgroundImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
+        
       >
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
@@ -137,12 +134,9 @@ export const Contacto = () => {
           </Col>
         </Row>
       </Container>
-      
-      
-
-      
 
       <Footer />
+      </div>
     </>
   );
 };

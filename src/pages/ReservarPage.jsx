@@ -6,11 +6,11 @@ import { Footer } from "../components/Footer"
 const ReservarPage = () => {
   return (
    <>
-    
+        <div style={{ backgroundImage: `url('src/images/reservar.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <NavBar/>
     <ReservaTurno/>
     <Footer/>
-  
+    </div>
    </>
   )
 }

@@ -49,7 +49,7 @@ const ReservaTurno = () => {
 
   console.log("datos de la hora: ", hora);
   return (
-    <div className="container" id="contenedor"  style={{minHeight: "34rem"}}>
+    <div className="container" id="contenedor"  style={{minHeight: "34rem", color:"black"}}>
      
       
       <div className="row">

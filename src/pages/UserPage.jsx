@@ -13,8 +13,9 @@ export const UserPage = () => {
 
   return (
     <>
+<div style={{ backgroundImage: `url('src/images/userpage2.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
-      <div className="container mt-4">
+      <div className="container mt-4" style={{color:"white", backgroundColor:"black", borderRadius:"50px"}}>
         <div className="row">
           <div className="col">
             <h2 className="text-center">
@@ -50,6 +51,8 @@ export const UserPage = () => {
         </div>
       </div>
       <CreateUserModal show={modalShow} onHide={() => setModalShow(false)} />
+      
+      </div>
       <Footer />
     </>
   );

@@ -47,17 +47,9 @@ const Login = () => {
 
   return (
     <>
+    <div style={{ backgroundImage: `url('src/images/rollingGimAsset.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <NavBar />
-    <div
-      className="d-flex align-items-center justify-content-center"
-      style={{
-        backgroundImage: "url(src/images/rollingGimAsset.jpg)",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        width: "100vw",
-        height: "100vh",
-      }}
-    >
+
       {!loading && (
         <MDBContainer style={{ color: "white" }}>
           <MDBCard
@@ -126,10 +118,13 @@ const Login = () => {
               height: "200px",
             }}
           />
+          
         </div>
+        
       )}
+      <Footer />
     </div>
-    <Footer />
+    
     </>
   );
 };

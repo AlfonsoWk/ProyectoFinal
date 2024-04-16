@@ -10,6 +10,7 @@ export const Error404 = () => {
   };
 
   return (
+    <div style={{ backgroundImage: `url('src/images/404.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <div style={{ position: "relative" }}>
       <div
         style={{
@@ -34,6 +35,7 @@ export const Error404 = () => {
           Volver
         </Button>
       </Link>
+    </div>
     </div>
   );
 };

@@ -111,6 +111,15 @@
       "role": "ADMIN",
       "status": "INACTIVE",
       "cpassword": "123456"
+    },
+    {
+      "id": "f54a",
+      "fname_lname": "Alfonso Wenk",
+      "email": "alfonso99@gmail.com",
+      "password": "12345678",
+      "cpassword": "12345678",
+      "role": "user",
+      "status": "active"
     }
   ]
 }

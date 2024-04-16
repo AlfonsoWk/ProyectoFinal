@@ -12,9 +12,9 @@ export const AdminPage = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <div>
+    <div style={{ backgroundImage: `url('src/images/adminpage.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar/>
-      <div className="container" style={{minHeight:"34rem"}}>
+      <div className="container" style={{minHeight:"34rem", color:"black", backgroundColor:"white", borderRadius:"50px"}}>
         <div className="row">
           <div className="col">
             <h2 className="text-center">

@@ -66,15 +66,15 @@ const PanelClases = () => {
 
   return (
     <>
-    
+    <div style={{ backgroundImage: `url('src/images/clases.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <NavBar/>
-
-    <div className="container" style={{minHeight: "34rem"}}>
+    
+    <div className="container" style={{minHeight: "34rem", color:"white"}}>
       
       <div className="row">
         <div className="col">
-          <h2 className="text-center">Bienvenido a Rolling Gym</h2>
-          <hr />
+          <h2 className="text-center" style={{backgroundColor:"black"}}>Bienvenido a Rolling Gym</h2>
+          <hr style={{color:"black"}} />
         </div>
       </div>
 
@@ -82,12 +82,12 @@ const PanelClases = () => {
         <div className="col">
           <div className="clasesReservadas">
 
-          <h2 id="reservadas" >Clases reservadas</h2>
+          <h2 id="reservadas" style={{backgroundColor:"black"}} >Clases reservadas</h2>
        </div>
 
        <div className="clasesReservadas">
          <Link to={"/Reservar"}>
-            <button className="btn btn-primary mr-2 mb-2">
+            <button className="btn btn-primary mr-2 mb-2 mt-3">
                Clases dispobles 
             </button>
           </Link>
@@ -161,6 +161,7 @@ const PanelClases = () => {
     </div>
 
     <Footer/>
+    </div>
     </>
   );
 };
