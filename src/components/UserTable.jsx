@@ -98,55 +98,53 @@ export const UserTable = () => {
   };
 
   return (
-    <>
-      <div className="col">
-        <table className="table">
-          <thead className="thead-dark">
-            <tr className="table-dark">
-              <th scope="col">Nombre y Apellido</th>
-              <th scope="col">Email</th>
-              <th scope="col">Teléfono</th>
-              <th scope="col">Plan Contratado</th>
-              <th scope="col">Rol</th>
-              <th scope="col">Status</th>
-              <th scope="col"></th>
-            </tr>
-          </thead>
-          <tbody>
-            {users.map((user) => {
-              return (
-                <tr key={user.id}>
-                  <th>{user.fname_lname}</th>
-                  <td style={{ textAlign: "center" }}>{user.email}</td>
-                  <td style={{ textAlign: "center" }}>{user.telefono}</td>
-                  <td style={{ textAlign: "center" }}>{user.planContratado}</td>
-                  <td style={{ textAlign: "center" }}>{user.role}</td>
-                  <td style={{ textAlign: "center" }}>{user.status}</td>
-                  <td>
-                    <button
-                      className="btn btn-danger mr-2 mb-2"
-                      onClick={() => {
-                        handleDelete(user.id);
-                      }}
-                    >
-                      Borrar
-                    </button>
-                    <button
-                      className="btn btn-success mr-2 mb-2 "
-                      onClick={() => {
-                        handleModify(user.id);
-                      }}
-                      style={{ marginLeft: "10px" }}
-                    >
-                      Modificar
-                    </button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-      </div>
+    <div className="table-responsive">
+      <table className="table">
+        <thead className="thead-dark">
+          <tr className="table-dark">
+            <th scope="col">Nombre y Apellido</th>
+            <th scope="col">Email</th>
+            <th scope="col">Teléfono</th>
+            <th scope="col">Plan Contratado</th>
+            <th scope="col">Rol</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          {users.map((user) => {
+            return (
+              <tr key={user.id}>
+                <td>{user.fname_lname}</td>
+                <td>{user.email}</td>
+                <td>{user.telefono}</td>
+                <td>{user.planContratado}</td>
+                <td>{user.role}</td>
+                <td>{user.status}</td>
+                <td>
+                  <button
+                    className="btn btn-danger mr-2 mb-2"
+                    onClick={() => {
+                      handleDelete(user.id);
+                    }}
+                  >
+                    Borrar
+                  </button>
+                  <button
+                    className="btn btn-success mr-2 mb-2"
+                    onClick={() => {
+                      handleModify(user.id);
+                    }}
+                    style={{ marginLeft: "10px" }}
+                  >
+                    Modificar
+                  </button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Modificar usuario</Modal.Title>
@@ -291,6 +289,8 @@ export const UserTable = () => {
           </button>
         </Modal.Footer>
       </Modal>
-    </>
+    </div>
   );
 };
+
+

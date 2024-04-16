@@ -7,50 +7,46 @@ import { Link } from "react-router-dom";
 import logonav from "../images/logob1.png";
 import "../css/NavBar.css";
 
-//className="bg-body-tertiary" navbar navbar-dark bg-dark
-
 const NavBar = () => {
   return (
-    <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
-      <Container id="container-nav">
-        
-        <Navbar.Brand href="#home" id="logo">
-          {" "}
-          <img src={logonav} alt="" style={{ width: "50px", marginLeft: "10px" }} />{" "}
-        </Navbar.Brand>
+    <div className="d-flex justify-content-center">
+      <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
+        <Container id="container-nav">
+          
+          <Navbar.Brand href="/" id="logo">
+            {" "}
+            <img src={logonav} alt="" style={{ width: "50px", marginLeft: "10px" }} />{" "}
+          </Navbar.Brand>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="me-auto">
-            <Link to="/Reservar" className="ItemNav" style={{textDecoration: "none", marginTop: "8px",marginRight: "10px"}}>
-              Clases
-            </Link>
-            
-            <Link to="/login" className="ItemNav" style={{ textDecoration: "none", marginTop: "8px" }}> 
-              Inicia Sesion
-            </Link>
-
-            {
-              /*
-                <Nav.Link href="login" className="ItemNav">
-              Inicia Sesion
-            </Nav.Link>
-              */
-            }
-            <Nav.Link href="Nosotros" className="ItemNav">
-              Acerca de nosotros
-            </Nav.Link>
-            <Nav.Link href="Productos" className="ItemNav">
-              Nuestros Productos
-            </Nav.Link>
-            <Nav.Link href="Contacto" className="ItemNav">
-              Contactanos
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto">
+              <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-0" style={{display:"Flex", margin:"auto", alignItems:"center", marginBottom:"20px", marginTop:"20px"}}>
+                <Link to="/Reservar" className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>
+                  | Clases |
+                </Link>
+                <Link to="/Productos" className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>
+                  | Nuestos Productos |
+                </Link>
+                <Link to="/Nosotros" className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>
+                  | Acerca de nosotros |
+                </Link>
+                <Link to="/Contacto" className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>
+                  | Contactanos |
+                </Link>
+              </div>
+            </Nav>
+            <div className="d-flex justify-content-center align-items-center">
+              <Link to="/login" className="ItemNav" style={{ textDecoration: "none", marginRight: "10px", marginBottom:"20px", marginTop:"20px" }}> 
+                <button className="btn btn-secondary btn-hover">Inicia Sesión</button>
+              </Link>
+            </div>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+    </div>
   );
 };
 
 export default NavBar;
+

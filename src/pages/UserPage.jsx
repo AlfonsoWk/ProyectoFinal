@@ -12,9 +12,9 @@ export const UserPage = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <div>
-      <NavBar/>
-      <div className="container" style={{minHeight:"34rem"}}>
+    <>
+      <NavBar />
+      <div className="container mt-4">
         <div className="row">
           <div className="col">
             <h2 className="text-center">
@@ -23,35 +23,35 @@ export const UserPage = () => {
             <hr />
           </div>
         </div>
-        <div className="row">
-          <div className="col">
-            <h3 className="text-center">Administrador de Usuarios</h3>
+        <div className="row align-items-center mb-4">
+          <div className="col-md">
+            <h3 className="text-center mb-3 mb-md-0">
+              Administrador de Usuarios
+            </h3>
           </div>
-          <div className="col-2">
-            <Link to="/Principal">
-              <Button variant="success" onClick={() => setModalShow(true)}>
-                Ir al inicio
-              </Button>
-            </Link>
-          </div>
-          <div className="col-2">
-            <Button variant="primary" onClick={() => setModalShow(true)}>
+          <div className="col-md-auto mb-3 mb-md-0">
+            <Button variant="primary" onClick={() => setModalShow(true)} block>
               Agregar Usuario
             </Button>
           </div>
-          <div className="col-2">
+          <div className="col-md-auto">
             <Link to="/AdminPage">
-              <Button variant="warning">Ir a Clases</Button>
+              <Button variant="warning" block>
+                Ir a Clases
+              </Button>
             </Link>
           </div>
         </div>
         <hr />
         <div className="row">
-          <UserTable />
+          <div className="col">
+            <UserTable />
+          </div>
         </div>
       </div>
       <CreateUserModal show={modalShow} onHide={() => setModalShow(false)} />
-      <Footer/>
-    </div>
+      <Footer />
+    </>
   );
 };
+

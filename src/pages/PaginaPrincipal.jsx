@@ -58,24 +58,24 @@ const PaginaPrincipal = () => {
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-md-4">
-                  <div className="planes" style={{ color: "white" }}>
-                    <h5>PLAN: MUSCULACION</h5>
+                  <div className="planes" style={{ color: "white", backgroundColor:"black", textAlign:"center"}}>
+                    <h3>PLAN: MUSCULACION</h3>
                     <Link to="/detalleplan">
                       <img src={musculacion} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="planes" style={{ color: "white" }}>
-                    <h4>PLAN: SOLO CLASES</h4>
+                  <div className="planes" style={{ color: "white", backgroundColor:"black", textAlign:"center" }}>
+                    <h3>PLAN: SOLO CLASES</h3>
                     <Link to="/detalleplan">
                       <img src={clases} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="planes" style={{ color: "white" }}>
-                    <h4>PLAN: FULL</h4>
+                  <div className="planes" style={{ color: "white", backgroundColor:"black", textAlign:"center" }}>
+                    <h3>PLAN: FULL</h3>
                     <Link to="/detalleplan">
                       <img src={full} alt="" />
                     </Link>
@@ -85,7 +85,7 @@ const PaginaPrincipal = () => {
 
               <div className="row justify-content-center">
                 <div className="col-md-6">
-                  <div className="ventas" style={{ color: "white" }}>
+                  <div className="ventas" style={{ color: "white", backgroundColor:"black", textAlign:"center" }}>
                     <div id="suplementos">
                       <h3>SUPLEMENTOS</h3>
                       <Link to="/productos">
@@ -96,7 +96,7 @@ const PaginaPrincipal = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <div className="ventas" style={{ color: "white" }}>
+                  <div className="ventas" style={{ color: "white", backgroundColor:"black", textAlign:"center" }}>
                     <div id="indumentaria">
                       <h3>ROPA DEPORTIVA</h3>
                       <Link to="/productos">

@@ -35,3 +35,12 @@
 .ItemNav{
     color: white;
 }
+
+.btn-hover:hover {
+    background-color: #000000;
+  }
+
+.ItemNav:hover {
+    background-color: #504f4f;
+}
+  
