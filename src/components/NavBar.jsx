@@ -22,9 +22,9 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home" className="ItemNav" style={{marginLeft: "-1em"}}>
+            <Link to="/Reservar" className="ItemNav" style={{textDecoration: "none", marginTop: "8px",marginRight: "10px"}}>
               Clases
-            </Nav.Link>
+            </Link>
             
             <Link to="/login" className="ItemNav" style={{ textDecoration: "none", marginTop: "8px" }}> 
               Inicia Sesion

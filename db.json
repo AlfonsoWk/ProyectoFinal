@@ -1,14 +1,8 @@
 {
   "clases": [
     {
-      
-      "id": "1",
-      "nombre": "spinning",
-      "cupos_disponibles": "8",
-      "cupos": "8",
-      "profesor": "alfonso wenk",
-      "inicio": "21",
-      "fin": "22"
+      "cupos_disponibles": 7,
+      "id": "1"
     },
     {
       "id": "2",
@@ -92,7 +86,20 @@
       "fin": "14"
     }
   ],
-  "clases_usuarios": [],
+  "clases_usuarios": [
+    {
+      "id": "2227",
+      "id_clase": "1",
+      "nombre": "spinning",
+      "inicio": "21",
+      "fin": "22",
+      "profesor": "alfonso wenk",
+      "cupos_disponibles": 7,
+      "cupos": "8",
+      "disponible": true,
+      "usuario": "fluque"
+    }
+  ],
   "users": [
     {
       "id": "a386",

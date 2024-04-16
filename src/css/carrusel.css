@@ -1,4 +1,8 @@
 .item img {
+    min-height: 300px;
     max-height: 40rem; /* Altura máxima deseada */
     width: 100%; /* Para asegurar que las imágenes se ajusten correctamente */
+}
+.container{
+    margin-top: 20px;
 }

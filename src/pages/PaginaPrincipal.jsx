@@ -49,8 +49,9 @@ const PaginaPrincipal = () => {
         </div>
       ) : (
         <>
+        
           <div className="main-container">
-            <NavBar />
+          <NavBar />
 
             <Carrusel />
 

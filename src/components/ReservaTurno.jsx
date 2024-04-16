@@ -67,18 +67,25 @@ const ReservaTurno = () => {
               Clases disponibles
             </h2>
 
+          </div>
+        </div>
+      </div>
+
+      <div className="row">
+        
+        <div className="clasesDisponibles">
             <Link to={"/Cancelar"}>
               <button className="btn btn-primary mr-2 mb-2" id="redireccion">
                 Clases reservadas
               </button>
             </Link>
-          </div>
         </div>
+      
       </div>
 
       <hr />
 
-      <div className="row">
+      <div className="table-responsive">
         <table className="table" >
           <thead>
             <tr className="table-dark">

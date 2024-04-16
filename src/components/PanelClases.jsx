@@ -83,20 +83,21 @@ const PanelClases = () => {
           <div className="clasesReservadas">
 
           <h2 id="reservadas" >Clases reservadas</h2>
+       </div>
 
-<Link to={"/Reservar"}>
-  <button className="btn btn-primary mr-2 mb-2">
-    Clases dispobles 
-  </button>
-</Link>
-
-          </div>
+       <div className="clasesReservadas">
+         <Link to={"/Reservar"}>
+            <button className="btn btn-primary mr-2 mb-2">
+               Clases dispobles 
+            </button>
+          </Link>
+       </div>
          
           <hr />
         </div>
       </div>
 
-      <div className="row">
+      <div className="table-responsive">
         <div className="col">
           <table className="table">
             <thead>
@@ -138,7 +139,7 @@ const PanelClases = () => {
                             });
                         }}
                       >
-                        Cancelar Reserva
+                        Cancelar 
                       </button>
                     </td>
 
