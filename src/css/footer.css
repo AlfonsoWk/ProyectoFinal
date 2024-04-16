@@ -61,6 +61,17 @@ footer ul li a {
   
 }
 
+footer ul li a:hover{
+  color: white;
+  border-radius: 20% 30% 10% 30%;
+  /* border-style:outset; */ /* Agregamos bordes redondeados */
+  transition: background-color 1.5s ease; /* Hacemos la transición más suave y lenta */
+}
+
+.footer ul li a:hover{
+  background-color: #504f4f;
+}
+
 
 /* Estilos para pantallas más pequeñas */
 @media (max-width: 768px) {

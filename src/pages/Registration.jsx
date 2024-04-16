@@ -89,16 +89,10 @@ const Registration = () => {
 
   return (
     <>
+    <div style={{ backgroundImage: `url('src/images/fondogym5.webp')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
       <div
         className="registration-container d-flex align-items-center justify-content-center"
-        style={{
-          backgroundImage: "url(src/images/registro.jpg)",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100vw",
-          height: "100vh",
-        }}
       >
         <MDBContainer>
           <div
@@ -213,6 +207,7 @@ const Registration = () => {
         </MDBContainer>
       </div>
       <Footer />
+      </div>
     </>
   );
 };

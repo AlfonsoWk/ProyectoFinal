@@ -82,13 +82,13 @@ function Productos() {
     >
       <NavBar />
       <Container className="px-4">
-        <h1 className="mt-3 mb-5 w-100 p-3 bg-black text-white rounded text-center">
+        <h1 className="mt-3 mb-5 w-100 p-3 bg-black text-white rounded text-center border">
           Nuestros productos
         </h1>
-        <Row xs={1} sm={2} md={4} className="g-4 mb-5">
+        <Row xs={1} sm={3} md={4} className="g-5 mb-5">
           {tarjetas.map((tarjeta) => (
             <Col key={tarjeta.id} id="card">
-              <Link to={tarjeta.link || "404"}> 
+              <Link to={tarjeta.link || "/404"} style={{textDecoration:"none", position:"relative"}}> 
               <Card
                 className="mb-2 border-0"
                 bg={variant.toLowerCase()}
