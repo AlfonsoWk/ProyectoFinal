@@ -1,5 +1,5 @@
 .card-container {
-  background: url('src/images/fondo.jpg') center center/cover no-repeat;
+  background: url('../images/fondo.jpg') center center/cover no-repeat;
   background-size:cover;
   
 }
