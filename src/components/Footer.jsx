@@ -8,8 +8,8 @@ import logob from "../images/logob.png";
 
 export const Footer = () => {
   return (
-    <footer className="footer footer-negro">
-      <div className="container">
+    <footer className="footer footer-negro" style={{borderRadius:"50px"}}>
+      <div className="container" >
         <div className="row">
           {/* Logo */}
           <div className="col-sm-12 col-md-6 logo-container">
@@ -54,7 +54,7 @@ export const Footer = () => {
           <div className="col-sm-12 col-md-6">
             <div
               className="container_informacion d-flex"
-              style={{ position: "relative" }}
+              style={{ position: "relative"}}
             >
               {/* Información de cursos */}
               <div
@@ -63,10 +63,10 @@ export const Footer = () => {
               >
                 <ul>
                   <li>
-                    <a href="404">Sucursales</a>
+                    <a href="404">Sucursales </a>
                   </li>
                   <li>
-                    <a href="DetallePlan">Elegí tu plan</a>
+                    <a href="DetallePlan">Elegí tu plan </a>
                   </li>
                   <li>
                     <a href="404">Pase de Prueba</a>
