@@ -30,7 +30,7 @@ const PaginaPrincipal = () => {
         <div
           className="main-container d-flex align-items-center justify-content-center"
           style={{
-            backgroundImage: `${principal} `, // Utiliza la imagen de spinner como fondo
+            backgroundImage: `${principal}`, // Utiliza la imagen de spinner como fondo
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100vw",
