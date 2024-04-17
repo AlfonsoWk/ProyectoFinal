@@ -7,6 +7,8 @@ import { Footer } from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../css/productos.css"
 import proteina1 from "../images/proteina1.webp"
+import principal from "../images/Principal.jpg"
+
 
 function Productos() {
   const variant = "black";
@@ -79,7 +81,7 @@ function Productos() {
   return (
     <div
       style={{
-        backgroundImage: `url('src/images/Principal.jpg')`,
+        backgroundImage: `${principal}`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
