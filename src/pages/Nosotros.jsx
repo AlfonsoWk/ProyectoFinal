@@ -10,6 +10,7 @@ import alfonso from "../images/Alfonso.webp";
 import facundo from "../images/Facundo Luque.webp";
 import German from "../images/German.webp";
 import Esteban from "../images/Esteban.webp";
+import gym3 from "../images/gym3.jpg";
 
 function Nosotros() {
   const cards = [
@@ -24,7 +25,7 @@ function Nosotros() {
   };
 
   return (
-    <div style={{ backgroundImage: `url('src/images/gym3.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundImage: `url(${gym3})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
       <Container>
         <h1 className="mt-5 mb-5 bg-black text-light text-center p-3 rounded">
