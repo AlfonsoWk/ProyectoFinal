@@ -37,8 +37,11 @@ const PanelClases = () => {
     actualizarDatos();
   }, []);
 
+  const indexOfLastClase = currentPage * clasesPerPage;
+  const indexOfFirstClase = indexOfLastClase - clasesPerPage;
+  const currentClases = clasesUsuarios.slice(indexOfFirstClase, indexOfLastClase);
 
-
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
   return (
     <>
     <div style={{ backgroundImage: `url('src/images/clases.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
@@ -126,6 +129,7 @@ const PanelClases = () => {
           </table>
         </div>
       </div>
+      
       </div>
 
       <ModalCancelar
@@ -134,7 +138,18 @@ const PanelClases = () => {
         paramFuncion={paramFuncion}
         actualizarDatos={() => actualizarDatos()}
       />
-    
+
+        <nav>
+            <ul className="pagination justify-content-center">
+              {Array.from({ length: Math.ceil(clasesUsuarios.length / clasesPerPage) }).map((_, index) => (
+                <li key={index} className={page-item ${index + 1 === currentPage ? 'active' : ''}}>
+                  <button onClick={() => paginate(index + 1)} className="page-link">
+                    {index + 1}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
     <Footer/>
     </div>
