@@ -1,33 +1,44 @@
-Título del proyecto: Rolling Gym
-Descripción: Página web orientada a la administración de un gimnasio, sus profesores, clases y usuarios. 
-Cuenta además con la posibilidad de contratar distintos planes, reservar y cancelación de turnos y adquisición de productos ofrecidos.
-Para poder ver el proyecto necesitas tener instalado visual studio code, react, node y bootstrap.
-Para la instalación de todos los paquetes requeridos ejecutar npm i o npm install en la consola de visual studio code.
+# Rolling Gym
 
-Repositorio Front: https://github.com/AlfonsoWk/ProyectoFinal
-git clone: https://github.com/AlfonsoWk/ProyectoFinal.git
-Repositorio Back: https://github.com/AlfonsoWk/ProyectoFinalBack
-git clone: https://github.com/AlfonsoWk/ProyectoFinalBack.git
-Herramientas utilizadas:
-•	Bootstrap
-•	HTML
-•	CSS
-•	JavaScript
-•	React
-•	Mongo
-•	Postman
-•	Git
-•	Json Server
-Desarrolladores:
-•	Facundo Luque.
-•	Esteban Frias.
-•	German Valoy.
-•	Alfonso Wenk.
-Tablero Trello: https://trello.com/b/0kjIfiAf/rolling-gym-tocode
-Usuario de administrador:
-Contraseña administrador:
-link del proyecto en netlify: https://rollinggym.netlify.app/
+## Descripción
+Página web para la administración de un gimnasio, profesores, clases, usuarios y la posibilidad de contratar planes, reservar/cancelar turnos y adquirir productos.
 
-Mail emailjs (gmail): 
-rollfgym@gmail.com
-rollgym00#
+## Instalación
+Necesitas tener instalado:
+- Visual Studio Code
+- React
+- Node.js
+- Bootstrap
+
+Ejecuta `npm install` para instalar los paquetes requeridos.
+
+## Repositorios
+- Frontend: [Repositorio Front](https://github.com/AlfonsoWk/ProyectoFinal), `git clone https://github.com/AlfonsoWk/ProyectoFinal.git`
+- Backend: [Repositorio Back](https://github.com/AlfonsoWk/ProyectoFinalBack), `git clone https://github.com/AlfonsoWk/ProyectoFinalBack.git`
+
+## Herramientas utilizadas
+- Bootstrap
+- HTML
+- CSS
+- JavaScript
+- React
+- MongoDB
+- Postman
+- Git
+- Json Server
+
+## Desarrolladores
+- Facundo Luque
+- Esteban Frias
+- German Valoy
+- Alfonso Wenk
+
+## Tablero Trello
+[Tablero Trello](https://trello.com/b/0kjIfiAf/rolling-gym-tocode)
+
+## Usuario de administrador
+- Email: rollfgym@gmail.com
+- Contraseña: rollgym00#
+
+## Proyecto en Netlify
+[Rolling Gym](https://rollinggym.netlify.app/)
