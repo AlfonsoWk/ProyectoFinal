@@ -9,6 +9,7 @@ import "../css/Login.css";
 import SpinnerImage from "../images/logob.png";
 import  NavBar  from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import rollingGin from "../images/rollingGimAsset.jpg";
 
 const Login = ({setuser}) => {
   const [loading, setLoading] = useState(false);
@@ -72,7 +73,7 @@ const Login = ({setuser}) => {
 
   return (
     <>
-    <div style={{ backgroundImage: `url('src/images/rollingGimAsset.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundImage: `url(${rollingGin})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <NavBar />
 
       {!loading && (

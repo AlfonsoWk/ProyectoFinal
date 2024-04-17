@@ -6,13 +6,17 @@ import Container from "react-bootstrap/Container";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import { AiFillLinkedin } from "react-icons/ai";
+import alfonso from "../images/Alfonso.webp";
+import facundo from "../images/Facundo Luque.webp";
+import German from "../images/German.webp";
+import Esteban from "../images/Esteban.webp";
 
 function Nosotros() {
   const cards = [
-    { title: "Alfonso Wenk", img: "src/images/Alfonso.webp", linkedin: "https://www.linkedin.com/in/alfonso-wenk/" },
-    { title: "Facundo Luque", img: "src/images/Facundo Luque.webp", linkedin: "https://www.linkedin.com/in/facundo-luque-820a05245/" },
-    { title: "German Valoy", img: "src/images/German.webp",  linkedin: "https://www.linkedin.com/in/augusto-germ%C3%A1n-valoy-a8b7183a/" },
-    { title: "Esteban Frias", img: "src/images/Esteban.webp", linkedin: "404" },
+    { title: "Alfonso Wenk", img: `${alfonso}`, linkedin: "https://www.linkedin.com/in/alfonso-wenk/" },
+    { title: "Facundo Luque", img: `${facundo}`, linkedin: "https://www.linkedin.com/in/facundo-luque-820a05245/" },
+    { title: "German Valoy", img: `${German}`,  linkedin: "https://www.linkedin.com/in/augusto-germ%C3%A1n-valoy-a8b7183a/" },
+    { title: "Esteban Frias", img: `${Esteban}`, linkedin: "404" },
   ];
 
   const handleLinkedInClick = (linkedin) => {

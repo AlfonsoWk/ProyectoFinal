@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import "../css/productos.css";
 import proteina1 from "../images/proteina1.webp";
 import proteina2 from "../images/proteina2.webp";
-import principal from "../images/Principal.jpg";
+import principal1 from "../images/Principal.jpg";
 import vasos1 from "../images/vasos1.webp";
 import vasos2 from "../images/vasos2.webp";
 import aminoacidos1 from "../images/aminoacidos1.webp";
@@ -87,7 +87,7 @@ function Productos() {
   return (
     <div
       style={{
-        backgroundImage: `${principal}`,
+        backgroundImage: ` url(${principal1})`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",

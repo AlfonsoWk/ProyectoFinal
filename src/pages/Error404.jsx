@@ -11,39 +11,32 @@ export const Error404 = () => {
   };
 
   return (
-    <div
-      style={{
-        backgroundImage: `${p404}`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        minHeight: "100vh",
-      }}
-    >
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <img
-            src={error404}
-            alt="pagina Error"
-            className="error404"
-            /*          style={{ 
+    <div style={{ backgroundImage: `${p404}`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ position: "relative" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <img
+      src= {error404}
+          alt="pagina Error"
+          className="error404"
+ /*          style={{ 
             maxWidth: "40%", 
             maxHeight: "40%", 
             marginTop: 10,
           }} */
-          />
-        </div>
-        <Link to="/" style={{ position: "absolute", top: 10, left: 10 }}>
-          <Button variant="primary" onClick={handleVolver}>
-            Volver
-          </Button>
-        </Link>
+        />
       </div>
+      <Link to="/" style={{ position: "absolute", top: 10, left: 10 }}>
+        <Button variant="primary" onClick={handleVolver}>
+          Volver
+        </Button>
+      </Link>
+    </div>
     </div>
   );
 };
