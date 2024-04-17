@@ -37,7 +37,7 @@ export const createUser = async (datos) => {
   });
 
   const data =response.json()
-  console.log("la respuesta es: ".data)
+  console.log("la respuesta es: ", data)
 
 };
 
