@@ -14,6 +14,7 @@ import "../css/Registration.css";
 
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import fondogym5 from "../images/fondogym5.webp";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -104,7 +105,7 @@ const Registration = () => {
 
   return (
     <>
-    <div style={{ backgroundImage: `url('src/images/fondogym5.webp')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundImage: `url(${fondogym5})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
       <div
         className="registration-container d-flex align-items-center justify-content-center"
