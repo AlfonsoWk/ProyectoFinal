@@ -5,17 +5,16 @@ import Col from "react-bootstrap/Col";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import { Link } from "react-router-dom";
-import "../css/productos.css"
-import proteina1 from "../images/proteina1.webp"
-import proteina2 from "../images/proteina2.webp"
-import principal from "../images/Principal.jpg"
-import vasos1 from "../images/vasos1.webp"
-import vasos2 from "../images/vasos2.webp"
-import aminoacidos1 from "../images/aminoacidos1.webp"
-import aminoacidos2 from "../images/aminoacidos2.webp"
-import energia1 from "../images/energia1.webp"
-import energia2 from "../images/energia2.webp"
-
+import "../css/productos.css";
+import proteina1 from "../images/proteina1.webp";
+import proteina2 from "../images/proteina2.webp";
+import principal from "../images/Principal.jpg";
+import vasos1 from "../images/vasos1.webp";
+import vasos2 from "../images/vasos2.webp";
+import aminoacidos1 from "../images/aminoacidos1.webp";
+import aminoacidos2 from "../images/aminoacidos2.webp";
+import energia1 from "../images/energia1.webp";
+import energia2 from "../images/energia2.webp";
 
 function Productos() {
   const variant = "black";
@@ -54,14 +53,12 @@ function Productos() {
       categoria: "Categoria: Shakers",
       precio: "Precio: $6700",
       img: `${vasos2}`,
-      //img: "src/images/vasos2.webp",
     },
     {
       id: 5,
       title: "Glutamine",
       categoria: "Categoria: Aminoacidos",
       precio: "Precio: $12000",
-      //img: "src/images/aminoacidos1.webp",
       img: `${aminoacidos1}`,
     },
     {
@@ -69,7 +66,6 @@ function Productos() {
       title: "Truemade",
       categoria: "Categoria: Aminoacidos",
       precio: "Precio: $11500",
-      //img: "src/images/aminoacidos2.webp",
       img: `${aminoacidos2}`,
     },
     {
@@ -77,7 +73,6 @@ function Productos() {
       title: "Enargy Gel+",
       categoria: "Categoria: Energia",
       precio: "Precio: $14400",
-      //img: "src/images/energia1.webp",
       img: `${energia1}`,
     },
     {
@@ -85,7 +80,6 @@ function Productos() {
       title: "Multi Vitamin",
       categoria: "Categoria: Energia",
       precio: "Precio: $16900",
-      //img: "src/images/energia2.webp",
       img: `${energia2}`,
     },
   ];
@@ -109,20 +103,38 @@ function Productos() {
         <Row xs={1} sm={3} md={4} className="g-5 mb-5">
           {tarjetas.map((tarjeta) => (
             <Col key={tarjeta.id} id="card">
-              <Link to={tarjeta.link || "/404"} style={{textDecoration:"none", position:"relative"}}> 
-              <Card
-                className="mb-2 border-0"
-                bg={variant.toLowerCase()}
-                key={variant}
-                text={variant.toLowerCase() === "light" ? "black" : "white"}
+              <Link
+                to={tarjeta.link || "/404"}
+                style={{ textDecoration: "none", position: "relative" }}
               >
-                <Card.Img variant="top" src={tarjeta.img} />
-                <Card.Body>
-                  <Card.Title className="text-no-decoration" style={{textAlign: "center"}}>{tarjeta.title}</Card.Title>
-                  <Card.Text className="text-no-decoration mb-1" style={{textAlign: "center"}}>{tarjeta.categoria}</Card.Text>
-                  <Card.Text className="text-no-decoration" style={{textAlign: "center"}} >{tarjeta.precio}</Card.Text>
-                </Card.Body>
-              </Card>
+                <Card
+                  className="mb-2 border-0"
+                  bg={variant.toLowerCase()}
+                  key={variant}
+                  text={variant.toLowerCase() === "light" ? "black" : "white"}
+                >
+                  <Card.Img variant="top" src={tarjeta.img} />
+                  <Card.Body>
+                    <Card.Title
+                      className="text-no-decoration"
+                      style={{ textAlign: "center" }}
+                    >
+                      {tarjeta.title}
+                    </Card.Title>
+                    <Card.Text
+                      className="text-no-decoration mb-1"
+                      style={{ textAlign: "center" }}
+                    >
+                      {tarjeta.categoria}
+                    </Card.Text>
+                    <Card.Text
+                      className="text-no-decoration"
+                      style={{ textAlign: "center" }}
+                    >
+                      {tarjeta.precio}
+                    </Card.Text>
+                  </Card.Body>
+                </Card>
               </Link>
             </Col>
           ))}

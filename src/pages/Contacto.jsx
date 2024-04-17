@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import emailjs from "@emailjs/browser";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import fotogym2 from "../images/fotogym2.jpg";
 
 
 export const Contacto = () => {
@@ -64,7 +65,7 @@ export const Contacto = () => {
 
   return (
     <>
-    <div style={{ backgroundImage: `url('src/images/fotogym2.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundImage: `url(${fotogym2})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
     
       
