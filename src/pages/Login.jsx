@@ -74,9 +74,11 @@ const Login = ({setuser}) => {
   return (
     <>
     <div style={{ backgroundImage: `url(${rollingGin})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
-    <NavBar />
+    
 
-      {!loading && (
+    {!loading && <NavBar />}
+
+    {!loading ? (
         <MDBContainer style={{ color: "white" }}>
           <MDBCard
             className="m-5"
@@ -131,26 +133,21 @@ const Login = ({setuser}) => {
             </MDBCardBody>
           </MDBCard>
         </MDBContainer>
-      )}
-      {loading && (
-        <div className="spinner-container">
-          <img
-            src={SpinnerImage}
-            alt="Spinner"
-            className="spinner"
-            style={{
-              animation: "spin 1s linear infinite",
-              width: "200px",
-              height: "200px",
-            }}
-          />
-          
-        </div>
-        
-      )}
-      <Footer />
-    </div>
-    
+      ) : (
+          <div className="spinner-container" style={{ textAlign: "center", paddingTop: "20vh" }}>
+            <img
+              src={SpinnerImage}
+              alt="Spinner"
+              className="spinner rotate" // Aplica la clase "rotate" para la animación de rotación
+              style={{
+                width: "200px",
+                height: "200px",
+              }}
+            />
+          </div>
+        )}
+        {!loading && <Footer />}
+      </div>
     </>
   );
 };
