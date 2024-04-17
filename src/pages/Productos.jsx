@@ -7,7 +7,14 @@ import { Footer } from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../css/productos.css"
 import proteina1 from "../images/proteina1.webp"
+import proteina2 from "../images/proteina2.webp"
 import principal from "../images/Principal.jpg"
+import vasos1 from "../images/vasos1.webp"
+import vasos2 from "../images/vasos2.webp"
+import aminoacidos1 from "../images/aminoacidos1.webp"
+import aminoacidos2 from "../images/aminoacidos2.webp"
+import energia1 from "../images/energia1.webp"
+import energia2 from "../images/energia2.webp"
 
 
 function Productos() {
@@ -32,56 +39,61 @@ function Productos() {
       title: "Colageno Sport",
       categoria: "Categoria: Proteina",
       precio: "Precio: $17800",
-      img: "src/images/proteina2.webp",
+      img: `${proteina2}`,
     },
     {
       id: 3,
       title: "Shaker ENA",
       categoria: "Categoria: Shakers",
       precio: "Precio: $5200",
-      img: "src/images/vasos1.webp",
+      img: `${vasos1}`,
     },
     {
       id: 4,
       title: "Shaker Premiun",
       categoria: "Categoria: Shakers",
       precio: "Precio: $6700",
-      img: "src/images/vasos2.webp",
+      img: `${vasos2}`,
+      //img: "src/images/vasos2.webp",
     },
     {
       id: 5,
       title: "Glutamine",
       categoria: "Categoria: Aminoacidos",
       precio: "Precio: $12000",
-      img: "src/images/aminoacidos1.webp",
+      //img: "src/images/aminoacidos1.webp",
+      img: `${aminoacidos1}`,
     },
     {
       id: 6,
       title: "Truemade",
       categoria: "Categoria: Aminoacidos",
       precio: "Precio: $11500",
-      img: "src/images/aminoacidos2.webp",
+      //img: "src/images/aminoacidos2.webp",
+      img: `${aminoacidos2}`,
     },
     {
       id: 7,
       title: "Enargy Gel+",
       categoria: "Categoria: Energia",
       precio: "Precio: $14400",
-      img: "src/images/energia1.webp",
+      //img: "src/images/energia1.webp",
+      img: `${energia1}`,
     },
     {
       id: 8,
       title: "Multi Vitamin",
       categoria: "Categoria: Energia",
       precio: "Precio: $16900",
-      img: "src/images/energia2.webp",
+      //img: "src/images/energia2.webp",
+      img: `${energia2}`,
     },
   ];
 
   return (
     <div
       style={{
-        backgroundImage: `url(${principal}`,
+        backgroundImage: `${principal}`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
