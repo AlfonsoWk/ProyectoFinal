@@ -54,9 +54,11 @@ export const CreateUserModal = (props) => {
       return;
     }
 
-    const newUser = { ...formValues };
-    delete newUser.cpassword;
+     
 
+    const newUser = { ...formValues };
+   
+    console.log("el usuario de admin page es: ",newUser)
     await createUser(newUser);
     props.onHide();
   };
@@ -165,8 +167,8 @@ export const CreateUserModal = (props) => {
               required
             >
               <option value="">Selecciona un Status</option>
-              <option value="ACTIVE">Activo</option>
-              <option value="INACTIVE">Inactivo</option>
+              <option value="true">Activo</option>
+              <option value="false">Inactivo</option>
             </Form.Control>
           </Form.Group>
         </Form>

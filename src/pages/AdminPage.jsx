@@ -27,13 +27,19 @@ export const AdminPage = () => {
           <div className="col">
             <h3 className="text-center">Administrador de Clases</h3>
           </div>
-          <div className="col-2">
+           {
+            /*
+                   <div className="col-2">
             <Link to="/Principal">
               <Button variant="success" onClick={() => setModalShow(true)}>
                 Ir al inicio
               </Button>
             </Link>
           </div>
+             */
+           }
+     
+
           <div className="col-2">
             <Button variant="primary" onClick={() => setModalShow(true)}>
               Agregar Clase

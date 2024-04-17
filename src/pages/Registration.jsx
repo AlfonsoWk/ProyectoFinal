@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import {createUser} from "../helpers/apiUsers"
+
 import {
   MDBContainer,
   MDBCard,
@@ -8,7 +11,7 @@ import {
 } from "mdb-react-ui-kit";
 import { Link } from "react-router-dom";
 import "../css/Registration.css";
-import axios from "axios";
+
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 
@@ -16,10 +19,11 @@ const Registration = () => {
   const [formData, setFormData] = useState({
     fname_lname: "",
     email: "",
+ 
     password: "",
     cpassword: "",
-    role: "user",
-    status: "active",
+    role: "USER",
+    status: "true",
   });
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -56,7 +60,17 @@ const Registration = () => {
     }
 
     if (isValid) {
-      try {
+      await createUser(formData)
+
+      alert("Registro exitoso");
+        setFormData({
+          fname_lname: "",
+          email: "",
+          password: "",
+          cpassword: ""
+        });
+     
+      /*try {
         const existingUser = await axios.get(
           `http://localhost:8000/users?email=${formData.email}`
         );
@@ -83,8 +97,9 @@ const Registration = () => {
         setErrorMessage("");
       } catch (error) {
         console.log(error);
-      }
+      }*/
     }
+
   };
 
   return (

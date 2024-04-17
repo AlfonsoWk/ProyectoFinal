@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import {authLogin} from "../helpers/apiLogin"
+
 import { MDBCard, MDBCardBody, MDBInput, MDBContainer } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -7,7 +10,7 @@ import SpinnerImage from "../images/logob.png";
 import  NavBar  from "../components/NavBar";
 import { Footer } from "../components/Footer";
 
-const Login = () => {
+const Login = ({setuser}) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -15,34 +18,56 @@ const Login = () => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
+  let cadena = ""
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try {
-      const response = await axios.get("http://localhost:8000/users");
-      const user = response.data.find((user) => user.email === formData.email);
+
+      const datosEmail = { 
+        email:formData.email,
+        password:formData.password
+      }
+    
+      const userLogin = await authLogin(datosEmail)
+
+    
+
+      
+
+     if (!userLogin){
+      alert("credenciales incorrectas")
+     }
+
+     
+
+      if (userLogin.role === "USER"){
+        cadena = "/Reservar"
+      } else {
+        cadena = "/AdminPage"
+      }
+      
+      if (!userLogin){
+        setError("Credenciales incorrectas")
+      }
+     
 
       if (formData.email.trim() === "" || formData.password.trim() === "") {
         setError("Por favor, ingresa tu email y contraseña");
-      } else if (!user || user.password !== formData.password) {
-        setError("Contraseña o nombre de usuario incorrecto");
-      } else {
+      } 
+       else {
         setError(""); 
         setLoading(true);
+
         setTimeout(() => {
           setLoading(false);
-          localStorage.setItem("loggedInUser", JSON.stringify(user));
-          navigate("/dashboarduser");
+          localStorage.setItem("loggedInUser", JSON.stringify(userLogin));
+          navigate(cadena);
         }, 5000); 
         
         setTimeout(() => setLoading(true), 5000); 
       }
-    } catch (error) {
-      console.error("Error al iniciar sesión:", error);
-      alert("Error al iniciar sesión. Por favor, intenta de nuevo más tarde");
-      setLoading(false);
-    }
+   
   };
 
   return (

@@ -8,6 +8,20 @@ import logonav from "../images/logob1.png";
 import "../css/NavBar.css";
 
 const NavBar = () => {
+  let cadena = ""
+  
+  const user =  JSON.parse(localStorage.getItem("loggedInUser"))
+  if (user.role === "ADMIN" ||
+      user.role ==="SUPERADMIN"){
+    cadena = "/AdminPage"
+  }
+
+  if(user.role ==="USER"){
+    cadena = "/Reservar"
+  }
+
+ console.log("la cadena que se arma es ",cadena)
+
   return (
     <div className="d-flex justify-content-center">
       <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
@@ -22,7 +36,7 @@ const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-0" style={{display:"Flex", margin:"auto", alignItems:"center", marginBottom:"20px", marginTop:"20px"}}>
-                <Link to="/Reservar" className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>
+                <Link to= {cadena} className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>
                   | Clases |
                 </Link>
                 <Link to="/Productos" className="ItemNav" style={{textDecoration: "none", marginRight:"10px"}}>

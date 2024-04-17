@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { deleteUser, getUsers, updateUsers } from "../helpers/apiUsers";
-import Modal from "react-bootstrap/Modal";
+import { deleteUser,getUsers, updateUsers } from "../helpers/apiUsers";
+
+import Modal from "react-bootstrap/Modal"; 
 
 export const UserTable = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -19,14 +20,16 @@ export const UserTable = () => {
   });
 
   const handleDelete = async (id) => {
-    let user = users.find((usuario) => usuario.id === id);
+    let user = users.find((usuario) => usuario._id === id);
+    
+   
 
     let validator = window.confirm(
-      `Estas seguro que quieres eliminar al usuario ${user.fname_lname}`
+      `Estas seguro que quieres eliminar al usuario ${user.fname_lname} `
     );
 
     if (validator) {
-      console.log(`Eliminando el usuario con el id ${user.id}`);
+ 
       await deleteUser(id);
       await actualizarDatos();
     }
@@ -34,6 +37,7 @@ export const UserTable = () => {
 
   const actualizarDatos = async () => {
     const datos = await getUsers();
+    console.log("los usuarios que se deben mostrar son: ",datos)
     setUsers(datos);
   };
 
@@ -42,8 +46,8 @@ export const UserTable = () => {
   }, []);
 
   const handleModify = (id) => {
-    const user = users.find((usuario) => usuario.id === id);
-    console.log("Datos del usuario:", user);
+    const user = users.find((usuario) => usuario._id === id);
+    
     setSelectedUserId(id);
     setShowModal(true);
     setNewUserData(user);
@@ -65,21 +69,25 @@ export const UserTable = () => {
       return;
     }
 
+    /*
     if (newUserData.password !== newUserData.cpassword) {
       setErrorMessage("Las contraseñas no coinciden.");
       return;
     }
+    */
 
+    /*
     if (newUserData.password.length < 6) {
       setErrorMessage("La contraseña debe tener al menos 6 caracteres.");
       return;
-    }
+    }*/
 
+    /*
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(newUserData.email)) {
       setErrorMessage("El correo electrónico no es válido.");
       return;
-    }
+    }*/
 
     await updateUsers(selectedUserId, newUserData);
     await actualizarDatos();
@@ -114,7 +122,7 @@ export const UserTable = () => {
         <tbody>
           {users.map((user) => {
             return (
-              <tr key={user.id}>
+              <tr key={user._id}>
                 <td>{user.fname_lname}</td>
                 <td>{user.email}</td>
                 <td>{user.telefono}</td>
@@ -125,7 +133,7 @@ export const UserTable = () => {
                   <button
                     className="btn btn-danger mr-2 mb-2"
                     onClick={() => {
-                      handleDelete(user.id);
+                      handleDelete(user._id);
                     }}
                   >
                     Borrar
@@ -133,7 +141,7 @@ export const UserTable = () => {
                   <button
                     className="btn btn-success mr-2 mb-2"
                     onClick={() => {
-                      handleModify(user.id);
+                      handleModify(user._id);
                     }}
                     style={{ marginLeft: "10px" }}
                   >
@@ -169,7 +177,11 @@ export const UserTable = () => {
                 required
               />
             </div>
-            <div className="form-group">
+
+            {/* quito el email
+            
+            
+                   <div className="form-group">
               <label>Email:</label>
               <input
                 type="email address"
@@ -184,6 +196,12 @@ export const UserTable = () => {
                 required
               />
             </div>
+            
+            */}
+
+           
+
+
             <div className="form-group">
               <label>Teléfono:</label>
               <input
@@ -218,7 +236,10 @@ export const UserTable = () => {
                 <option value="full">Plan Full</option>
               </select>
             </div>
-            <div className="form-group">
+
+            {/* quito las passwords
+
+                    <div className="form-group">
               <label>Contraseña :</label>
               <input
                 type="password"
@@ -229,6 +250,8 @@ export const UserTable = () => {
                 }
               />
             </div>
+
+            
             <div className="form-group">
               <label>Contraseña Confirmada:</label>
               <input
@@ -243,6 +266,11 @@ export const UserTable = () => {
                 }
               />
             </div>
+            
+            */}
+          
+
+
             <div className="form-group">
               <label>Rol:</label>
               <select

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import {
-  deleteCourse,
-  getCourses,
-  updateCourse,
-  updateCupos,
-} from "../helpers/apiCourses";
+  getClases,
+  deleteClases,
+  updateCupos
+} from "../helpers/apiClases";
 import Modal from "react-bootstrap/Modal";
 
 export const CourseTable = () => {
@@ -24,21 +23,24 @@ export const CourseTable = () => {
   });
 
   const handleDelete = async (id) => {
-    let course = courses.find((curso) => curso.id === id);
+    let course = courses.find((curso) => curso._id === id);
+
+   console.log("el curso es: ", course)
+  
 
     let validator = window.confirm(
       `Estas seguro que quieres eliminar la clase ${course.nombre}`
     );
 
     if (validator) {
-      console.log(`Eliminando la clase con id ${course.id}`);
-      await deleteCourse(id);
+      console.log(`Eliminando la clase con id ${course._id}`);
+      await deleteClases(id);
       await actualizarDatos();
     }
   };
 
   const actualizarDatos = async () => {
-    const datos = await getCourses();
+    const datos = await getClases();
     setCourses(datos);
   };
 
@@ -47,7 +49,7 @@ export const CourseTable = () => {
   }, []);
 
   const handleModify = (id) => {
-    const course = courses.find((curso) => curso.id === id);
+    const course = courses.find((curso) => curso._id === id);
     console.log("Datos del curso:", course);
     setSelectedCourseId(id);
     setShowModal(true);
@@ -69,7 +71,13 @@ export const CourseTable = () => {
       return;
     }
 
-    await updateCourse(selectedCourseId, newCourseData);
+    
+    if (parseInt(newCourseData.inicio) >= parseInt(newCourseData.fin)) {
+      setErrorMessage("La hora de inicio debe ser menor que la hora de fin.");
+      return;
+    }
+
+    await updateCupos(selectedCourseId, newCourseData);
     await actualizarDatos();
     setShowModal(false);
     setNewCourseData({
@@ -114,7 +122,7 @@ export const CourseTable = () => {
           <tbody>
             {courses.map((course) => {
               return (
-                <tr key={course.id}>
+                <tr key={course._id}>
                   <th>{course.nombre}</th>
                   <td style={{ textAlign: "center" }}>{course.inicio}</td>
                   <td>{course.fin}</td>
@@ -130,7 +138,7 @@ export const CourseTable = () => {
                     <button
                       className="btn btn-danger mr-2 mb-2"
                       onClick={() => {
-                        handleDelete(course.id);
+                        handleDelete(course._id);
                       }}
                     >
                       Borrar
@@ -138,7 +146,7 @@ export const CourseTable = () => {
                     <button
                       className="btn btn-success mr-2 mb-2 "
                       onClick={() => {
-                        handleModify(course.id);
+                        handleModify(course._id);
                       }}
                       style={{ marginLeft: "10px" }}
                     >

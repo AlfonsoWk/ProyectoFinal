@@ -1,10 +1,14 @@
 export const getClases = async () => {
+  const token = JSON.parse(localStorage.getItem("token"))
+  const user = JSON.parse(localStorage.getItem("loggedInUser"))
+
+  const role = user.role
    
-    const response = await fetch(`http://localhost:3000/clases`) // fetch(`${import.meta.env.VITE_BACK_URL}/clases`)
+    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases?token=${token}&role=${role}`)
     const data = await response.json();
     
    console.log("los datons que deben mostrase son: ", data)
-    return data/*.results*/;
+    return data.results;
   };
 
 
@@ -16,9 +20,9 @@ export const updateCupos = async (id, datos) => {
     const objeto = JSON.stringify(datos)
   
 
-    const response = await fetch(`http://localhost:3000/clases/${id}`, { //${import.meta.env.VITE_BACK_URL}
+    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases/${id}`, { 
       method: 'PUT',
-      //headers: {'Contentent-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json'},
       body: objeto
      
       
@@ -29,27 +33,50 @@ export const updateCupos = async (id, datos) => {
     return data;
   };
 
+  export const deleteClases = async (id) => {
+    try {
+      const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases/${id}`, { method: 'DELETE' });
+      const data = await response.json();
+      console.log(data);
+  
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  export const crearClases = async (datos) => {
+    
+    const response = fetch(`${import.meta.env.VITE_BACK_URL}/clases`, { 
+      
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(datos),
+    });
+  };
   /******** CLASES RESERVADAS POR USUARIOS ******** */
 
   export const clasesUsuarios = async (datos) => {
-    const response = fetch(`http://localhost:3000/clases_usuarios`, { //${import.meta.env.VITE_BACK_URL}
+    console.log("la clase quedbe crearse es: ", datos)
+    const response = fetch(`${import.meta.env.VITE_BACK_URL}/clases_usuarios`, { 
+      
       method: 'POST',
-    //  headers: {'Contentent-Type': 'application/json'},
+      headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(datos),
     });
   };
 
-  export const getClasesUsuarios = async () => {
-    const response = await fetch ("http://localhost:3000/clases_usuarios") /*(`${import.meta.env.VITE_BACK_URL}/clases_usuarios`);*/
+  export const getClasesUsuarios = async (usuario) => {
+    const response = await fetch (`${import.meta.env.VITE_BACK_URL}/clases_usuarios?usuario=${usuario}`); 
     const data = await response.json();
-    console.log(data);
+   
   
-    return data/*.results*/;
+    return data.results;
   };
 
   export const cancelaReserva = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/clases_usuarios/${id}`, { method: 'DELETE' });
+      const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases_usuarios/${id}`, { method: 'DELETE' });
       const data = await response.json();
       console.log(data);
   

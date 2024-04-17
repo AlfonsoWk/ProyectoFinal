@@ -51,7 +51,7 @@ const ModalCancelar= ({isOpen, closeModal,paramFuncion,actualizarDatos}) => {
       </Modal.Header>
 
       <Modal.Body>
-        <p>Desea cencelar este turno?</p>
+        Desea cencelar este turno?
       </Modal.Body>
 
       <Modal.Footer>

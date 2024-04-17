@@ -2,7 +2,7 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { createCourse } from "../helpers/apiCourses";
+import { crearClases } from "../helpers/apiClases";
 
 export const CreateCourseModal = (props) => {
   const [formValues, setFormValues] = useState({
@@ -37,7 +37,7 @@ export const CreateCourseModal = (props) => {
       return;
     }
 
-    await createCourse(formValues);
+    await crearClases(formValues);
     props.onHide();
   };
 

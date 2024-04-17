@@ -16,7 +16,9 @@ const PanelClases = () => {
   const [openModal, setopenModal] = useState(false);
 
   const actualizarDatos = async () => {
-    const usuario = "fluque"
+    const user = JSON.parse(localStorage.getItem("loggedInUser"))
+    const usuario = user.fname_lname + user.email
+    
     const datos = await getClasesUsuarios(usuario);
     setclasesUsuarios(datos);
 
@@ -24,9 +26,7 @@ const PanelClases = () => {
     const fecha = new Date()
     const hora = fecha.getHours()
     datos.map((dato)=>{
-        console.log("Estoy en .map ",dato)
-        console.log("final de clas: ", dato.fin)
-        console.log("la hora es ", hora)
+        
         if (dato.fin <= hora){
            cancelaReserva(dato._id)
         }
@@ -37,32 +37,7 @@ const PanelClases = () => {
     actualizarDatos();
   }, []);
 
-  /* const handleDelete = async (id) =>{
 
-        const clases = clasesUsuarios.find((claseUsuario)=>{
-            return claseUsuario.id === id
-        })
-
-        const cupo = clases.cupos_disponibles + 1
-       
-
-        let confirmar = confirm("Desea cancelar esta reserva?")
-
-        if (confirmar){
-            await cancelaReserva(id);
-            await  updateCupos(clases.id_clase,{
-
-                "nombre": clases.nombre,
-                "inicio": clases.inicio,
-                "fin": clases.fin,
-                "profesor":clases.profesor,
-                "cupos_disponibles":cupo,
-                "cupos":clases.cupos,
-                "disponible": true
-                })
-            await actualizarDatos();
-        }
-     } */
 
   return (
     <>
@@ -114,7 +89,7 @@ const PanelClases = () => {
             <tbody>
               {clasesUsuarios.map((claseUsuario) => {
                 return (
-                  <tr key={claseUsuario.id}>
+                  <tr key={claseUsuario._id}>
                     <th>{claseUsuario.nombre}</th>
                     <td>{claseUsuario.inicio}</td>
                     <td>{claseUsuario.fin}</td>
@@ -127,7 +102,7 @@ const PanelClases = () => {
                         onClick={() => {
                           setopenModal(true),
                             setparamFuncion({
-                              id: claseUsuario.id,
+                              id: claseUsuario._id,
                               nombre: claseUsuario.nombre,
                               inicio: claseUsuario.inicio,
                               fin: claseUsuario.fin,
@@ -151,6 +126,7 @@ const PanelClases = () => {
           </table>
         </div>
       </div>
+      </div>
 
       <ModalCancelar
         isOpen={openModal}
@@ -158,7 +134,7 @@ const PanelClases = () => {
         paramFuncion={paramFuncion}
         actualizarDatos={() => actualizarDatos()}
       />
-    </div>
+    
 
     <Footer/>
     </div>

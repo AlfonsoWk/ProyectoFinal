@@ -1,4 +1,4 @@
-//import { useState } from "react";
+import { useState } from "react";
 
 import Registration from "./pages/Registration.jsx";
 import Login from "./pages/Login.jsx";
@@ -14,6 +14,7 @@ import PaginaPrincipal from "./pages/PaginaPrincipal.jsx";
 import { AdminPage } from "./pages/AdminPage.jsx";
 import { UserPage } from "./pages/UserPage.jsx";
 
+import RutasProtegidas from "./routes/RutasProtegidas.jsx";
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -22,25 +23,41 @@ import "./App.css";
 
 
 function App() {
-  /* const [count, setCount,] = useState(0) */
 
+
+  const user = JSON.parse(localStorage.getItem("loggedInUser"))
   return (
     <Router>
       <Routes>
-        {/* <Route path="/" element={<PaginaPrincipal />} /> */}
+        
 
         <Route path="/" element={<PaginaPrincipal />} /> 
         <Route path="/Registration" element={<Registration />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login  />} />
         <Route path="/DetallePlan" element={<DetallePlan />} />
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/404" element={<Error404 />} />
         <Route path="/*" element={<Error404 />} />
-        <Route path="/AdminPage" element={<AdminPage />} />
+
+        <Route path="/AdminPage" element={
+          <RutasProtegidas role={"ADMIN"} user={user} >
+              <AdminPage />
+          </RutasProtegidas>
+        
+        } />
+
+
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/Productos" element={<Productos />} />
-        <Route path="/Reservar" element={<ReservarPage />} />
+
+        <Route path="/Reservar" element={
+          <RutasProtegidas  role={"USER"} user={user} > 
+              <ReservarPage  />
+          </RutasProtegidas>
+        
+        } />
+
         <Route path="/Cancelar" element={<PanelClases />} />
       </Routes>
     </Router>

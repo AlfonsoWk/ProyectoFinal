@@ -33,12 +33,16 @@ const ReservaTurno = () => {
     });
 
     /* clases reservadas */
-    const datos1 = await getClasesUsuarios();
+    const user = JSON.parse(localStorage.getItem("loggedInUser"))
+    const usuario = user.fname_lname + user.email
+    const datos1 = await getClasesUsuarios(usuario);
+   
 
     setclasesUsuarios(datos1);
 
     datos1.map((dato) => {
       const boton = document.getElementById(`${dato.id_clase}`);
+      console.log("el id de la clas es:",dato)
       boton.disabled = true;
     });
   };
@@ -101,7 +105,7 @@ const ReservaTurno = () => {
           <tbody>
             {clases.map((clase) => {
               return (
-                <tr key={clase.id}>
+                <tr key={clase._id}>
                   <th>{clase.nombre}</th>
                   <td>{clase.profesor}</td>
                   <td>{clase.inicio}</td>
@@ -111,14 +115,14 @@ const ReservaTurno = () => {
                   <td>
                     {clase.cupos_disponibles > 0 ? (
                       <button
-                        id={clase.id}
+                        id={clase._id}
                         className="btn btn-success mr-2 mb-2"
                         onClick={() => {
                           // reservar(clase.id, clase.nombre, clase.cupos_disponibles, clase.cupos,clase.profesor, clase.inicio, clase.fin)
 
                           setopenModal(true),
                             setparamFuncion({
-                              id: clase.id,
+                              id: clase._id,
                               nombre: clase.nombre,
                               cupos_disponibles: clase.cupos_disponibles,
                               cupos: clase.cupos,
