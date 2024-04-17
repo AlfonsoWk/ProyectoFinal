@@ -81,7 +81,7 @@ function Productos() {
   return (
     <div
       style={{
-        backgroundImage: `${principal}`,
+        backgroundImage: `url(${principal}`,
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
