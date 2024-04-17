@@ -6,6 +6,7 @@ import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import { Link } from "react-router-dom";
 import "../css/productos.css"
+import {proteina} from "../images/proteina1.webp"
 
 function Productos() {
   const variant = "black";
@@ -16,7 +17,7 @@ function Productos() {
       title: "Whey Protein",
       categoria: "Categoria: Proteina",
       precio: "Precio: $15600",
-      img: "src/images/proteina1.webp",
+      img: {proteina},
     },
     {
       id: 2,

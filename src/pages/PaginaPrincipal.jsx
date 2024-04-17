@@ -10,6 +10,7 @@ import indumentaria from "../images/Indumentaria.webp";
 import musculacion from "../images/PlasMusculacion.jpg";
 import clases from "../images/soloclases.jpg";
 import full from "../images/planfull.jpg";
+import principal from "../images/Principal.jpg"
 import "../css/PaginaPrincipal.css";
 
 const PaginaPrincipal = () => {
@@ -29,7 +30,7 @@ const PaginaPrincipal = () => {
         <div
           className="main-container d-flex align-items-center justify-content-center"
           style={{
-            backgroundImage: `url(src/images/Principal.jpg)`, // Utiliza la imagen de spinner como fondo
+            backgroundImage: `${principal} `, // Utiliza la imagen de spinner como fondo
             backgroundSize: "cover",
             backgroundPosition: "center",
             width: "100vw",
