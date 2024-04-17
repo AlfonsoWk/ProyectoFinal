@@ -7,13 +7,14 @@ import { CreateUserModal } from "../components/CreateUserModal";
 
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import userpage2 from "../images/userpage2.jpg";
 
 export const UserPage = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
     <>
-<div style={{ backgroundImage: `url('src/images/userpage2.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+<div style={{ backgroundImage: `url('${userpage2}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar />
       <div className="container mt-4" style={{color:"white", backgroundColor:"black", borderRadius:"50px"}}>
         <div className="row">

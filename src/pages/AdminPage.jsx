@@ -7,12 +7,13 @@ import { CreateCourseModal } from "../components/CreateCourseModal";
 
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import adminpage from "../images/adminpage.jpg"
 
 export const AdminPage = () => {
   const [modalShow, setModalShow] = useState(false);
 
   return (
-    <div style={{ backgroundImage: `url('src/images/adminpage.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundImage: `url('${adminpage}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
       <NavBar/>
       <div className="container" style={{minHeight:"34rem", color:"black", backgroundColor:"white", borderRadius:"50px"}}>
         <div className="row">
