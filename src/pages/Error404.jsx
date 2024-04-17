@@ -11,7 +11,7 @@ export const Error404 = () => {
   };
 
   return (
-    <div style={{ backgroundImage: `${p404}`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div style={{ backgroundImage: `url(${p404})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <div style={{ position: "relative" }}>
       <div
         style={{
