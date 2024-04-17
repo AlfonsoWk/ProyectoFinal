@@ -3,9 +3,12 @@ import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import { Footer } from "./Footer";
 
-
 import { Link } from "react-router-dom";
-import { getClasesUsuarios,cancelaReserva,updateCupos,} from "../helpers/apiClases";
+import {
+  getClasesUsuarios,
+  cancelaReserva,
+  /* updateCupos, */
+} from "../helpers/apiClases";
 import ModalCancelar from "./ModalCancelar";
 
 import "../css/CancelaTurno.css";
@@ -16,143 +19,159 @@ const PanelClases = () => {
   const [openModal, setopenModal] = useState(false);
 
   const actualizarDatos = async () => {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"))
-    const usuario = user.fname_lname + user.email
-    
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    const usuario = user.fname_lname + user.email;
+
     const datos = await getClasesUsuarios(usuario);
     setclasesUsuarios(datos);
 
     /* Si la clase ya finalizo la reserva se elimina */
-    const fecha = new Date()
-    const hora = fecha.getHours()
-    datos.map((dato)=>{
-        
-        if (dato.fin <= hora){
-           cancelaReserva(dato._id)
-        }
-    })
+    const fecha = new Date();
+    const hora = fecha.getHours();
+    datos.map((dato) => {
+      if (dato.fin <= hora) {
+        cancelaReserva(dato._id);
+      }
+    });
   };
 
   useEffect(() => {
     actualizarDatos();
   }, []);
 
-  const indexOfLastClase = currentPage * clasesPerPage;
+/*   const indexOfLastClase = currentPage * clasesPerPage;
   const indexOfFirstClase = indexOfLastClase - clasesPerPage;
-  const currentClases = clasesUsuarios.slice(indexOfFirstClase, indexOfLastClase);
+  const currentClases = clasesUsuarios.slice(
+    indexOfFirstClase,
+    indexOfLastClase
+  );
 
-  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+  const paginate = (pageNumber) => setCurrentPage(pageNumber); */
   return (
     <>
-    <div style={{ backgroundImage: `url('src/images/clases.jpg')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
-    <NavBar/>
-    
-    <div className="container" style={{minHeight: "34rem", color:"white"}}>
-      
-      <div className="row">
-        <div className="col">
-          <h2 className="text-center" style={{backgroundColor:"black"}}>Bienvenido a Rolling Gym</h2>
-          <hr style={{color:"black"}} />
-        </div>
-      </div>
+      <div
+        style={{
+          backgroundImage: `url('src/images/clases.jpg')`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+        }}
+      >
+        <NavBar />
 
-      <div className="row">
-        <div className="col">
-          <div className="clasesReservadas">
+        <div
+          className="container"
+          style={{ minHeight: "34rem", color: "white" }}
+        >
+          <div className="row">
+            <div className="col">
+              <h2 className="text-center" style={{ backgroundColor: "black" }}>
+                Bienvenido a Rolling Gym
+              </h2>
+              <hr style={{ color: "black" }} />
+            </div>
+          </div>
 
-          <h2 id="reservadas" style={{backgroundColor:"black"}} >Clases reservadas</h2>
-       </div>
+          <div className="row">
+            <div className="col">
+              <div className="clasesReservadas">
+                <h2 id="reservadas" style={{ backgroundColor: "black" }}>
+                  Clases reservadas
+                </h2>
+              </div>
 
-       <div className="clasesReservadas">
-         <Link to={"/Reservar"}>
-            <button className="btn btn-primary mr-2 mb-2 mt-3">
-               Clases dispobles 
-            </button>
-          </Link>
-       </div>
-         
-          <hr />
-        </div>
-      </div>
+              <div className="clasesReservadas">
+                <Link to={"/Reservar"}>
+                  <button className="btn btn-primary mr-2 mb-2 mt-3">
+                    Clases dispobles
+                  </button>
+                </Link>
+              </div>
 
-      <div className="table-responsive">
-        <div className="col">
-          <table className="table">
-            <thead>
-              <tr className="table-dark">
-                <th scope="col">Clase</th>
+              <hr />
+            </div>
+          </div>
 
-                <th scope="col">Inicio</th> 
-                <th scope="col">Fin</th>
-                <th scope="col">Alumno</th>
+          <div className="table-responsive">
+            <div className="col">
+              <table className="table">
+                <thead>
+                  <tr className="table-dark">
+                    <th scope="col">Clase</th>
 
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {clasesUsuarios.map((claseUsuario) => {
-                return (
-                  <tr key={claseUsuario._id}>
-                    <th>{claseUsuario.nombre}</th>
-                    <td>{claseUsuario.inicio}</td>
-                    <td>{claseUsuario.fin}</td>
-                    <td>{claseUsuario.usuario}</td>
+                    <th scope="col">Inicio</th>
+                    <th scope="col">Fin</th>
+                    <th scope="col">Alumno</th>
 
-                    <td>
-                      <button  id="buttonCancelar"
-                        className="btn btn-danger mr-2 mb-2"
-                        // onClick={()=> handleDelete(claseUsuario.id)}
-                        onClick={() => {
-                          setopenModal(true),
-                            setparamFuncion({
-                              id: claseUsuario._id,
-                              nombre: claseUsuario.nombre,
-                              inicio: claseUsuario.inicio,
-                              fin: claseUsuario.fin,
-                              profesor: claseUsuario.profesor,
-                              cupos_disponibles: claseUsuario.cupos_disponibles,
-                              cupos: claseUsuario.cupos,
-                              disponible: true,
-                              id_clase: claseUsuario.id_clase,
-                            });
-                        }}
-                      >
-                        Cancelar 
-                      </button>
-                    </td>
-
-                   
+                    <th scope="col"></th>
                   </tr>
-                );
-              })}
-            </tbody>
-          </table>
+                </thead>
+                <tbody>
+                  {clasesUsuarios.map((claseUsuario) => {
+                    return (
+                      <tr key={claseUsuario._id}>
+                        <th>{claseUsuario.nombre}</th>
+                        <td>{claseUsuario.inicio}</td>
+                        <td>{claseUsuario.fin}</td>
+                        <td>{claseUsuario.usuario}</td>
+
+                        <td>
+                          <button
+                            id="buttonCancelar"
+                            className="btn btn-danger mr-2 mb-2"
+                            // onClick={()=> handleDelete(claseUsuario.id)}
+                            onClick={() => {
+                              setopenModal(true),
+                                setparamFuncion({
+                                  id: claseUsuario._id,
+                                  nombre: claseUsuario.nombre,
+                                  inicio: claseUsuario.inicio,
+                                  fin: claseUsuario.fin,
+                                  profesor: claseUsuario.profesor,
+                                  cupos_disponibles:
+                                    claseUsuario.cupos_disponibles,
+                                  cupos: claseUsuario.cupos,
+                                  disponible: true,
+                                  id_clase: claseUsuario.id_clase,
+                                });
+                            }}
+                          >
+                            Cancelar
+                          </button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-      </div>
-      
-      </div>
 
-      <ModalCancelar
-        isOpen={openModal}
-        closeModal={() => setopenModal(false)}
-        paramFuncion={paramFuncion}
-        actualizarDatos={() => actualizarDatos()}
-      />
+        <ModalCancelar
+          isOpen={openModal}
+          closeModal={() => setopenModal(false)}
+          paramFuncion={paramFuncion}
+          actualizarDatos={() => actualizarDatos()}
+        />
 
-        <nav>
-            <ul className="pagination justify-content-center">
-              {Array.from({ length: Math.ceil(clasesUsuarios.length / clasesPerPage) }).map((_, index) => (
-                <li key={index} className={page-item ${index + 1 === currentPage ? 'active' : ''}}>
+{/*         <nav>
+          <ul className="pagination justify-content-center">
+
+          {
+          Array.from({ length: Math.ceil(clasesUsuarios.length / clasesPerPage) })
+          .map((_, index) => (
+                <li key={index} className={ index + 1 === currentPage ? 'active' : ''}>
                   <button onClick={() => paginate(index + 1)} className="page-link">
                     {index + 1}
                   </button>
                 </li>
               ))}
-            </ul>
-          </nav>
+          </ul>
+        </nav> */}
 
-    <Footer/>
-    </div>
+        <Footer />
+      </div>
     </>
   );
 };
