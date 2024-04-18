@@ -83,7 +83,7 @@ const PanelClases = () => {
               <div className="clasesReservadas">
                 <Link to={"/Reservar"}>
                   <button className="btn btn-primary mr-2 mb-2 mt-3">
-                    Clases dispobles
+                    Clases disponibles
                   </button>
                 </Link>
               </div>
