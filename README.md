@@ -14,7 +14,8 @@ Ejecuta `npm install` para instalar los paquetes requeridos.
 
 ## Repositorios
 - Frontend: [Repositorio Front](https://github.com/AlfonsoWk/ProyectoFinal), `git clone https://github.com/AlfonsoWk/ProyectoFinal.git`
-- Backend: [Repositorio Back](https://github.com/AlfonsoWk/ProyectoFinalBack), `git clone https://github.com/AlfonsoWk/ProyectoFinalBack.git`
+- Backend: [Repositorio Back](https://github.com/facundo-luque/backend-rolling), `git clone https://github.com/facundo-luque/ProyectoFinalBack.git`
+
 
 ## Herramientas utilizadas
 - Bootstrap
