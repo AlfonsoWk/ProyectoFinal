@@ -2,12 +2,10 @@ import React from "react";
 import { FaInstagram,FaFacebookF } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
-import { Link } from "react-router-dom";
 
 import "../css/footer.css";
 import logob from "../images/logob.png";
 
-// Componente Footer
 export const Footer = () => {
   return (
     <footer className="footer footer-negro" style={{borderRadius:"50px"}}>
@@ -18,82 +16,98 @@ export const Footer = () => {
             <img
               src={logob}
               alt="Logo Empresa"
-              style={{ width: "11%", marginInline: "-4em",  marginTop: "8px" }}
+              /* style={{ width: "11%", marginInline: "-3em",  marginTop: "50px" }} */
             />
           </div>
-
           {/* Redes Sociales */}
-          <div className="col-sm-12 col-md-6 redes-container">
-            <ul className="redes-sociales d-flex">
-              <li style={{ marginRight: "1em" }}>
-                <Link to="/ruta-facebook">
+          <div
+            className="col-sm-12 col-md-6 redes-container"
+            style={{ marginTop: "50px" }}
+          >
+            <ul
+              className="redes-sociales d-flex"
+              /* style={{ marginTop: "-7em", marginLeft: "4em" }} */
+            >
+              <li style={{ marginRight: "1em"}}>
+                <a href="404">
                   <FaFacebookF />
-                </Link>
+                </a>
               </li>
               <li style={{ marginRight: "1em" }}>
-                <Link to="/ruta-twitter">
+                <a href="404">
                   <FaXTwitter />
-                </Link>
+                </a>
               </li>
               <li style={{ marginRight: "1em" }}>
-                <Link to="/ruta-instagram">
+                <a href="404">
                   <FaInstagram />
-                </Link>
+                </a>
               </li>
               <li>
-                <Link to="/ruta-youtube">
+                <a href="404">
                   <FiYoutube />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
-
           {/* Información de cursos y empresa */}
           <div className="col-sm-12 col-md-6">
-            <div className="container_informacion d-flex" style={{ position: "relative"}}>
+            <div
+              className="container_informacion d-flex"
+              style={{ position: "relative"}}
+            >
               {/* Información de cursos */}
-              <div className="informacion_cursos" style={{ width: "50%", textAlign: "" }}>
+              <div
+                className="informacion_cursos"
+                style={{ width: "50%", textAlign: "" }}
+              >
                 <ul>
                   <li>
-                    <Link to="/sucursales">Sucursales</Link>
+                    <a href="404">Sucursales </a>
                   </li>
                   <li>
-                    <Link to="/elegir-plan">Elegí tu plan</Link>
+                    <a href="DetallePlan">Elegí tu plan </a>
                   </li>
                   <li>
-                    <Link to="/pase-de-prueba">Pase de Prueba</Link>
+                    <a href="404">Pase de Prueba</a>
                   </li>
                   <li>
-                    <Link to="/productos">Productos</Link>
+                    <a href="Productos">Productos</a>
                   </li>
                 </ul>
               </div>
-
               {/* Información de empresa */}
-              <div className="informacion_empresa" style={{ width: "50%", textAlign: "center", position: "absolute"}}>
+              <div
+                className="informacion_empresa"
+                style={{
+                  width: "50%",
+                  textAlign: "center",
+                  position: "absolute",
+                }}
+              >
                 <ul>
                   <li>
-                    <Link to="/nosotros">Acerca de nosotros</Link>
+                    <a href="Nosotros">Acerca de nosotros</a>
                   </li>
                   <li>
-                    <Link to="/contacto">Contacto</Link>
+                    <a href="Contacto">Contacto</a>
                   </li>
                   <li>
-                    <Link to="/politica-privacidad">Política de privacidad</Link>
+                    <a href="404">Política de privacidad</a>
                   </li>
                   <li>
-                    <Link to="/club-beneficios">Club de Beneficios</Link>
+                    <a href="404">Club de Beneficios</a>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           
-          {/* Información de derechos de autor */}
           <p className="copyright" style={{ textAlign: "center" }}>
-            <hr /> {/* Línea horizontal */}
-            &copy; {new Date().getFullYear()} Rolling Gym - Todos los derechos reservados. Gral. Paz 576, San Miguel de Tucumán Tucumán, Argentina, Tel: 0381 578-3030
-          </p>
+          <hr /> {/* Línea horizontal */}
+  &copy; {new Date().getFullYear()} Rolling Gym - Todos los derechos reservados. Gral. Paz 576, San Miguel de Tucumán Tucumán, Argentina, Tel: 0381 578-3030
+  
+</p>
 
         </div>
       </div>

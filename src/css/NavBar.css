@@ -20,6 +20,16 @@
     
 }
 
+.nav-container {
+    display: Flex;
+    margin: auto;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top:20px;
+    margin-left: -100px
+    
+}
+
 #logo{
     margin-right: 55%;
    color: white;
@@ -46,4 +56,17 @@
 .ItemNav:hover {
     background-color: #504f4f;
 }
+
+
+
+@media (max-width: 420px) {
+    .nav-container {
+        align-items: center;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: 120px;
+        
+    }
+  }
   

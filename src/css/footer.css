@@ -24,7 +24,7 @@ footer ul li a {
 }
 
 .informacion_cursos {
-  margin-left: 20%;
+  margin-left: 25%;
   margin-top: -7em;
 }
 
@@ -40,12 +40,17 @@ footer ul li a {
 }
 
 .redes-sociales {
-  margin-left: -46em;
-  margin-top: 6em;
+  margin-left: -22em;
+  margin-top: 7em;
 }
 
 .logo-container {
+  display: flex;
   margin-left: 0;
+  width: 350px;
+  height: 80px;
+  margin-top: 70px;
+  margin-inline: -1em;
 }
 
 /* Agregar línea arriba del texto de derechos de autor */
@@ -74,34 +79,35 @@ footer ul li a:hover{
 
 
 /* Estilos para pantallas más pequeñas */
-@media (max-width: 768px) {
+/* @media (max-width: 1268px) {
   .redes-sociales {
     display: flex;
     justify-content: center;
-    margin-top: 1em;
-    margin-left: 0%;
+    margin-top: em;
+    margin-left: -31em;
   }
 
   .informacion_cursos
    {
     width: 100%;
-    margin-left: -20px;
-    margin-top: 2em;
+    
+    
     text-align: center;
   }
 
   .informacion_empresa {
     width: 100%;
-    margin-left: 180px;
-    margin-top: 2em;
+    margin-bottom: 4em;
     text-align: center;
   }
 
   .logo-container {
-    display: flex;
-    justify-content: center;
-    margin-left: 0;
-    margin-top: 2em;
+    width: 11%;
+    margin-inline: -3em;
+    margin-top: 50px;
+    
+    ;
+
     
   }
 
@@ -110,23 +116,80 @@ footer ul li a:hover{
     font-size: 1em;
     margin-top: em;
   }
+} */
+
+@media (max-width: 768px) {
+  .redes-sociales {
+    display: flex;
+    justify-content: center;
+    margin-top: 0em;
+    margin-left: 0;
+  }
+
+  .informacion_cursos
+   {
+    width: 100%;
+    margin-top: 20px;
+    
+    text-align: center;
+  }
+
+  .informacion_empresa {
+    width: 100%;
+    margin-top: 20px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .logo-container {
+    width: 11%;
+    margin-inline: -3em;
+    margin-top: 50px;
+    
+    ;
+
+    
+  }
+
+  .copyright {
+    text-align: center;
+    font-size: 1em;
+    margin-top: 0em;
+  }
 }
 
-@media (max-width: 320px) {
+@media (max-width: 420px) {
   .logo-container {
-    margin-left: 0;
+    
+    width: 400px;
+    height: 80px;
+    margin-inline: 0;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
+
   }
 
   .redes-container {
-    margin-left: 0;
+    margin-left: 0;;
+    
   }
 
-  .informacion_cursos,
+  
+  .informacion_cursos {
+    width: 100%;
+    margin-left: 9em;
+    text-align:right;
+   
+    
+    ;
+  }
   .informacion_empresa {
     width: 100%;
     margin-left: 0;
     text-align: center;
-    margin-top: 2em;
+  
+    ;
   }
 
   .copyright {

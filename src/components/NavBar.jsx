@@ -39,18 +39,19 @@ const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <div
-                className="d-flex flex-column flex-lg-row gap-2 gap-lg-0"
-                style={{
+                className="d-flex flex-column flex-lg-row gap-2 gap-lg-0 nav-container"
+               /*  style={{
                   display: "Flex",
                   margin: "auto",
                   alignItems: "center",
                   marginBottom: "20px",
                   marginTop: "20px",
-                }}
+                  marginLeft: "-150px",
+                }} */
               >
                 <Link
                   to={cadena}
-                  className="ItemNav"
+                  className="ItemNav clases-nav"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
                   | Clases |
