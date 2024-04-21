@@ -1,9 +1,7 @@
 import "../css/ReservarTurno.css";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-
-
+import { Link, useNavigate } from "react-router-dom";
 
 import {
   getClases,
@@ -12,12 +10,12 @@ import {
 } from "../helpers/apiClases";
 import ModalMensage from "./ModalMensage";
 
-
 const ReservaTurno = () => {
   const [clases, setclases] = useState([]);
   const [clasesUsuarios, setclasesUsuarios] = useState([]);
   const [openModal, setopenModal] = useState(false);
   const [paramFuncion, setparamFuncion] = useState({});
+  const navigate = useNavigate();
 
   const fecha = new Date();
   const hora = fecha.getHours();
@@ -33,16 +31,14 @@ const ReservaTurno = () => {
     });
 
     /* clases reservadas */
-    const user = JSON.parse(localStorage.getItem("loggedInUser"))
-    const usuario = user.fname_lname + user.email
+    const user = JSON.parse(localStorage.getItem("loggedInUser"));
+    const usuario = user.fname_lname + user.email;
     const datos1 = await getClasesUsuarios(usuario);
-   
 
     setclasesUsuarios(datos1);
 
     datos1.map((dato) => {
       const boton = document.getElementById(`${dato.id_clase}`);
-      console.log("el id de la clas es:",dato)
       boton.disabled = true;
     });
   };
@@ -51,16 +47,17 @@ const ReservaTurno = () => {
     actualizarDatos();
   }, []);
 
-  console.log("datos de la hora: ", hora);
+  const cerrarSesion = () => {
+    localStorage.removeItem("loggedInUser");
+    navigate("/login"); // Redireccionar a la página de inicio de sesión
+  };
+
   return (
-    <div className="container" id="contenedor"  style={{minHeight: "34rem", color:"black"}}>
-     
-      
+    <div className="container" style={{ minHeight: "34rem", color: "black" }}>
       <div className="row">
         <div className="col">
           <h2 className="text-center">Bienvenido a Rolling Gym</h2>
         </div>
-
         <hr />
       </div>
 
@@ -70,27 +67,25 @@ const ReservaTurno = () => {
             <h2 id="disponibles" className="text-center">
               Clases disponibles
             </h2>
-
           </div>
         </div>
       </div>
 
       <div className="row">
-        
         <div className="clasesDisponibles">
-            <Link to={"/Cancelar"}>
-              <button className="btn btn-primary mr-2 mb-2" id="redireccion">
-                Clases reservadas
-              </button>
-            </Link>
+          <Link to={"/Cancelar"}>
+            <button className="btn btn-primary mr-2 mb-2" id="redireccion">
+              Clases reservadas
+            </button>
+          </Link>
         </div>
-      
+        
       </div>
 
       <hr />
 
       <div className="table-responsive">
-        <table className="table" >
+        <table className="table">
           <thead>
             <tr className="table-dark">
               <th scope="col">Clase</th>
@@ -144,6 +139,11 @@ const ReservaTurno = () => {
           </tbody>
         </table>
       </div>
+      <div className="position-fixed top-0 end-0 translate-middle-x mt-3">
+        <button className="btn btn-danger" onClick={cerrarSesion}>
+          Cerrar sesión
+        </button>
+      </div>
 
       <div id="modal">
         <ModalMensage
@@ -153,9 +153,6 @@ const ReservaTurno = () => {
           actualizarDatos={() => actualizarDatos()}
         />
       </div>
-
-    
-
     </div>
   );
 };

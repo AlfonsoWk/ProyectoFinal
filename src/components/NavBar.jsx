@@ -2,25 +2,49 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import logonav from "../images/logob1.png";
 import "../css/NavBar.css";
 
 const NavBar = () => {
+  const location = useLocation();
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
   let cadena = "/";
+  const navigate = useNavigate();
 
-  if (JSON.parse(localStorage.getItem("loggedInUser"))) {
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-
-    if (user.role === "ADMIN" || user.role === "SUPERADMIN") {
+  // Determinar la ruta de redireccionamiento dependiendo del tipo de usuario
+  if (loggedInUser) {
+    if (loggedInUser.role === "ADMIN" || loggedInUser.role === "SUPERADMIN") {
       cadena = "/AdminPage";
-    }
-
-    if (user.role === "USER") {
+    } else if (loggedInUser.role === "USER") {
       cadena = "/Reservar";
     }
   }
+ 
+  const cerrarSesion = () => {
+    localStorage.removeItem("loggedInUser");
+    navigate("/login"); // Redireccionar a la página de inicio de sesión
+  };
+  
+  // Determinar si se debe mostrar el botón de inicio de sesión
+  const showLoginButton = () => {
+    return (
+      !loggedInUser ||
+      (loggedInUser &&
+        location.pathname !== "/login" &&
+        location.pathname !== "/registration" &&
+        location.pathname !== "/Reservar" &&
+        location.pathname !== "/userpage" &&
+        location.pathname !== "/Cancelar" &&
+        location.pathname !== "/" &&
+        location.pathname !== "/DetallePlan" &&
+        location.pathname !== "/Contacto" &&
+        location.pathname !== "/Error404" &&
+        location.pathname !== "/Nosotros" &&
+        location.pathname !== "/Productos")
+    );
+  };
 
   return (
     <div className="d-flex justify-content-center">
@@ -38,17 +62,7 @@ const NavBar = () => {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <div
-                className="d-flex flex-column flex-lg-row gap-2 gap-lg-0 nav-container"
-               /*  style={{
-                  display: "Flex",
-                  margin: "auto",
-                  alignItems: "center",
-                  marginBottom: "20px",
-                  marginTop: "20px",
-                  marginLeft: "-150px",
-                }} */
-              >
+              <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-0 nav-container">
                 <Link
                   to={cadena}
                   className="ItemNav clases-nav"
@@ -61,7 +75,7 @@ const NavBar = () => {
                   className="ItemNav"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
-                  | Nuestos Productos |
+                  | Nuestros Productos |
                 </Link>
                 <Link
                   to="/Nosotros"
@@ -75,29 +89,38 @@ const NavBar = () => {
                   className="ItemNav"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
-                  | Contactanos |
+                  | Contáctanos |
                 </Link>
               </div>
             </Nav>
             <div className="d-flex justify-content-center align-items-center">
-              <Link
-                to="/login"
-                className="ItemNav"
-                style={{
-                  textDecoration: "none",
-                  marginRight: "10px",
-                  marginBottom: "20px",
-                  marginTop: "20px",
-                }}
-              >
-                <button className="btn btn-secondary btn-hover">
-                  Inicia Sesión
-                </button>
-              </Link>
+              {showLoginButton() && (
+                <Link
+                  to="/login"
+                  className="ItemNav"
+                  style={{
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    marginBottom: "20px",
+                    marginTop: "20px",
+                  }}
+                >
+                  <button className="btn btn-secondary btn-hover">
+                    Iniciar Sesión
+                  </button>
+                </Link>
+              )}
             </div>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      {loggedInUser && (
+        <div className="position-fixed top-0 end-0 translate-middle-x mt-3">
+          <button className="btn btn-danger" onClick={cerrarSesion}>
+            Cerrar sesión
+          </button>
+        </div>
+      )}
     </div>
   );
 };
