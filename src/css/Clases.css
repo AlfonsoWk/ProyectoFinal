@@ -1,0 +1,28 @@
+.table-container {
+  max-width: 1200px; 
+  margin: 0 auto; 
+  margin-top: 5px;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table th, .table td {
+  border: 1px solid black ;
+  padding: 8px;
+  text-align: center; 
+}
+
+.table th {
+  background-color: black ;
+}
+
+.table tr:hover {
+  background-color: black;
+}
+
+.table a {
+  text-decoration: none;
+}

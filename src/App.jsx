@@ -10,6 +10,7 @@ import Productos from "./pages/Productos.jsx";
 import ReservarPage from "./pages/ReservarPage.jsx"
 import PanelClases from "./components/PanelClases.jsx"
 import PaginaPrincipal from "./pages/PaginaPrincipal.jsx";
+import Clases from "./pages/Clases.jsx";
 
 import { AdminPage } from "./pages/AdminPage.jsx";
 import { UserPage } from "./pages/UserPage.jsx";
@@ -38,6 +39,7 @@ function App() {
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/404" element={<Error404 />} />
         <Route path="/*" element={<Error404 />} />
+        <Route path="/Clases" element={<Clases />} />
 
         <Route path="/AdminPage" element={
           <RutasProtegidas role={"ADMIN"} user={user} >
