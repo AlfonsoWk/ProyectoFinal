@@ -77,7 +77,7 @@ const NavBar = () => {
             <Nav className="me-auto">
               <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-0 nav-container">
                 <Link
-                  to={cadena}
+                  to="/Clases"
                   className="ItemNav clases-nav class-1"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
