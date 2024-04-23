@@ -1,4 +1,4 @@
-import Productos from '../components/Productos.jsx'
+/* import Productos from '../components/Productos.jsx'
 import '../App.css'
 
 function PaginaProductos() {
@@ -9,4 +9,4 @@ function PaginaProductos() {
   )
 }
 
-export default PaginaProductos
+export default PaginaProductos */

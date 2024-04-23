@@ -10,7 +10,7 @@ import indumentaria from "../images/Indumentaria.webp";
 import musculacion from "../images/PlasMusculacion.jpg";
 import clases from "../images/soloclases.jpg";
 import full from "../images/planfull.jpg";
-import principal from "../images/Principal.jpg"
+import principal from "../images/Principal.jpg";
 import "../css/PaginaPrincipal.css";
 
 const PaginaPrincipal = () => {
@@ -50,16 +50,23 @@ const PaginaPrincipal = () => {
         </div>
       ) : (
         <>
-        
           <div className="main-container">
-          <NavBar />
+            <NavBar />
 
             <Carrusel />
 
             <div className="container">
               <div className="row justify-content-center">
                 <div className="col-md-4">
-                  <div className="planes" style={{ color: "white", backgroundColor:"black", textAlign:"center", borderRadius:"50px"}}>
+                  <div
+                    className="planes"
+                    style={{
+                      color: "white",
+                      backgroundColor: "black",
+                      textAlign: "center",
+                      borderRadius: "50px",
+                    }}
+                  >
                     <h3>PLAN: MUSCULACION</h3>
                     <Link to="/detalleplan">
                       <img src={musculacion} alt="" />
@@ -67,7 +74,15 @@ const PaginaPrincipal = () => {
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="planes" style={{ color: "white", backgroundColor:"black", textAlign:"center",borderRadius:"50px" }}>
+                  <div
+                    className="planes"
+                    style={{
+                      color: "white",
+                      backgroundColor: "black",
+                      textAlign: "center",
+                      borderRadius: "50px",
+                    }}
+                  >
                     <h3>PLAN: SOLO CLASES</h3>
                     <Link to="/detalleplan">
                       <img src={clases} alt="" />
@@ -75,7 +90,15 @@ const PaginaPrincipal = () => {
                   </div>
                 </div>
                 <div className="col-md-4">
-                  <div className="planes" style={{ color: "white", backgroundColor:"black", textAlign:"center", borderRadius:"50px" }}>
+                  <div
+                    className="planes"
+                    style={{
+                      color: "white",
+                      backgroundColor: "black",
+                      textAlign: "center",
+                      borderRadius: "50px",
+                    }}
+                  >
                     <h3>PLAN: FULL</h3>
                     <Link to="/detalleplan">
                       <img src={full} alt="" />
@@ -86,7 +109,15 @@ const PaginaPrincipal = () => {
 
               <div className="row justify-content-center">
                 <div className="col-md-6">
-                  <div className="ventas" style={{ color: "white", backgroundColor:"black", textAlign:"center",borderRadius:"50px" }}>
+                  <div
+                    className="ventas"
+                    style={{
+                      color: "white",
+                      backgroundColor: "black",
+                      textAlign: "center",
+                      borderRadius: "50px",
+                    }}
+                  >
                     <div id="suplementos">
                       <h3>SUPLEMENTOS</h3>
                       <Link to="/productos">
@@ -97,7 +128,15 @@ const PaginaPrincipal = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <div className="ventas" style={{ color: "white", backgroundColor:"black", textAlign:"center",borderRadius:"50px" }}>
+                  <div
+                    className="ventas"
+                    style={{
+                      color: "white",
+                      backgroundColor: "black",
+                      textAlign: "center",
+                      borderRadius: "50px",
+                    }}
+                  >
                     <div id="indumentaria">
                       <h3>ROPA DEPORTIVA</h3>
                       <Link to="/productos">
