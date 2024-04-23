@@ -7,6 +7,7 @@ import { CreateUserModal } from "../components/CreateUserModal";
 
 import { Footer } from "../components/Footer";
 import userpage2 from "../images/userpage2.jpg";
+import NavBar from "../components/NavBar";
 
 export const UserPage = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -32,7 +33,7 @@ export const UserPage = () => {
                 Administrador de Usuarios
               </h3>
             </div>
-            <div className="col-md-auto mb-3 mb-md-0">
+            <div className="col-md-auto mb-3 mb-md-0" style={{ backgroundImage:"url()"}}>
               <Button variant="primary" onClick={() => setModalShow(true)} block>
                 Agregar Usuario
               </Button>

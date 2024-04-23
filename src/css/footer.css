@@ -66,16 +66,24 @@ footer ul li a {
   
 }
 
-footer ul li a:hover{
-  color: white;
-  border-radius: 20% 30% 10% 30%;
-  /* border-style:outset; */ /* Agregamos bordes redondeados */
-  transition: background-color 1.5s ease; /* Hacemos la transición más suave y lenta */
-}
-
-.footer ul li a:hover{
-  background-color: #504f4f;
-}
+footer ul li a {
+  display: inline-block;
+  position: relative;
+  color: #ffffff;
+  text-decoration: none;
+  }
+  footer ul li a:after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 2px;
+  width: 0px;
+  transition: all .8s;
+  }
+  footer ul li a:hover:after {
+  width: 100%;
+  background: #ffffff;
+  }
 
 
 /* Estilos para pantallas más pequeñas */
@@ -122,29 +130,37 @@ footer ul li a:hover{
   .redes-sociales {
     display: flex;
     justify-content: center;
-    margin-top: 0em;
+    margin-top: 0;
     margin-left: 0;
   }
 
   .informacion_cursos
    {
+    display: flex;
     width: 100%;
     margin-top: 20px;
+    margin-inline: 3em;
     
     text-align: center;
   }
 
   .informacion_empresa {
-    width: 100%;
+    
+    display: flex;
     margin-top: 20px;
     text-align: center;
-    justify-content: center;
+    margin-inline: 19em;
+    
+    
   }
 
   .logo-container {
-    width: 11%;
-    margin-inline: -3em;
-    margin-top: 50px;
+    width: 400px;
+    height: 80px;
+    margin-inline: 4em;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 0;
     
     ;
 
@@ -177,9 +193,13 @@ footer ul li a:hover{
 
   
   .informacion_cursos {
+    display: flex;
+    margin-left: 14em;
     width: 100%;
-    margin-left: 9em;
-    text-align:right;
+   text-align:center;
+
+    
+    
    
     
     ;

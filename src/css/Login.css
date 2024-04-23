@@ -11,13 +11,15 @@
   }
 
   
-  .spinner img {
-    /* Estilo de la imagen */
-    width: 100%;
-    height: 100%;
-    /* Animación de rotación */
-    animation: spin 1s linear infinite;
+  .spinner-rotate {
+    animation: spin 1s linear infinite; /* Define la animación de rotación */
   }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); } /* Define el inicio de la rotación */
+    100% { transform: rotate(360deg); } /* Define el final de la rotación */
+  }
+  
 
   .spinner-container {
     position: fixed;

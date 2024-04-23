@@ -41,12 +41,12 @@ export const AdminPage = () => {
            }
      
 
-          <div className="col-2">
+          <div className="col-2 d-flex justify-content-end">
             <Button variant="primary" onClick={() => setModalShow(true)}>
               Agregar Clase
             </Button>
           </div>
-          <div className="col-2">
+          <div className="col-2 d-flex justify-content-end">
             <Link to="/UserPage">
               <Button variant="warning">Ir a Usuarios</Button>
             </Link>
@@ -54,7 +54,11 @@ export const AdminPage = () => {
         </div>
         <hr />
         <div className="row">
-          <CourseTable />
+          <div className="col">
+            <div className="table-responsive">
+              <CourseTable />
+            </div>
+          </div>
         </div>
       </div>
       <CreateCourseModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -62,3 +66,4 @@ export const AdminPage = () => {
     </div>
   );
 };
+

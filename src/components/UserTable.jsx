@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { deleteUser,getUsers, updateUsers } from "../helpers/apiUsers";
+import { deleteUser, getUsers, updateUsers } from "../helpers/apiUsers";
 
-import Modal from "react-bootstrap/Modal"; 
+import Modal from "react-bootstrap/Modal";
+import iconborrar from "../icons/boton-x.png";
 
 export const UserTable = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,15 +22,12 @@ export const UserTable = () => {
 
   const handleDelete = async (id) => {
     let user = users.find((usuario) => usuario._id === id);
-    
-   
 
     let validator = window.confirm(
       `Estas seguro que quieres eliminar al usuario ${user.fname_lname} `
     );
 
     if (validator) {
- 
       await deleteUser(id);
       await actualizarDatos();
     }
@@ -37,7 +35,7 @@ export const UserTable = () => {
 
   const actualizarDatos = async () => {
     const datos = await getUsers();
-    console.log("los usuarios que se deben mostrar son: ",datos)
+    console.log("los usuarios que se deben mostrar son: ", datos);
     setUsers(datos);
   };
 
@@ -47,7 +45,7 @@ export const UserTable = () => {
 
   const handleModify = (id) => {
     const user = users.find((usuario) => usuario._id === id);
-    
+
     setSelectedUserId(id);
     setShowModal(true);
     setNewUserData(user);
@@ -131,13 +129,19 @@ export const UserTable = () => {
                 <td>{user.status}</td>
                 <td>
                   <button
-                    className="btn btn-danger mr-2 mb-2"
+                    className="btn btn-danger "
+                    style={{
+                      backgroundImage: `url(${iconborrar})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      height: "40px",
+                      width: "40px",
+                      borderRadius: "50%",
+                    }}
                     onClick={() => {
                       handleDelete(user._id);
                     }}
-                  >
-                    Borrar
-                  </button>
+                  ></button>
                   <button
                     className="btn btn-success mr-2 mb-2"
                     onClick={() => {
@@ -198,9 +202,6 @@ export const UserTable = () => {
             </div>
             
             */}
-
-           
-
 
             <div className="form-group">
               <label>Teléfono:</label>
@@ -268,8 +269,6 @@ export const UserTable = () => {
             </div>
             
             */}
-          
-
 
             <div className="form-group">
               <label>Rol:</label>
@@ -320,5 +319,3 @@ export const UserTable = () => {
     </div>
   );
 };
-
-

@@ -27,9 +27,13 @@ const NavBar = () => {
     navigate("/login"); // Redireccionar a la página de inicio de sesión
   };
   
+  
   // Determinar si se debe mostrar el botón de inicio de sesión
-  const showLoginButton = () => {
+  const showLoginButton = () => { 
+   
+    
     return (
+      
       !loggedInUser ||
       (loggedInUser &&
         location.pathname !== "/login" &&
@@ -42,10 +46,19 @@ const NavBar = () => {
         location.pathname !== "/Contacto" &&
         location.pathname !== "/Error404" &&
         location.pathname !== "/Nosotros" &&
-        location.pathname !== "/Productos")
+        location.pathname !== "/Productos"
+        &&
+        location.pathname !== "/AdminPage"
+        &&
+        location.pathname !== "/UserPage"
+      )
+      
     );
+    
+    
   };
-
+  
+   
   return (
     <div className="d-flex justify-content-center">
       <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
@@ -65,28 +78,28 @@ const NavBar = () => {
               <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-0 nav-container">
                 <Link
                   to={cadena}
-                  className="ItemNav clases-nav"
+                  className="ItemNav clases-nav class-1"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
                   | Clases |
                 </Link>
                 <Link
                   to="/Productos"
-                  className="ItemNav"
+                  className="ItemNav class-2"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
                   | Nuestros Productos |
                 </Link>
                 <Link
                   to="/Nosotros"
-                  className="ItemNav"
+                  className="ItemNav class-3"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
                   | Acerca de nosotros |
                 </Link>
                 <Link
                   to="/Contacto"
-                  className="ItemNav"
+                  className="ItemNav class-4"
                   style={{ textDecoration: "none", marginRight: "10px" }}
                 >
                   | Contáctanos |
@@ -105,22 +118,18 @@ const NavBar = () => {
                     marginTop: "20px",
                   }}
                 >
-                  <button className="btn btn-secondary btn-hover">
-                    Iniciar Sesión
-                  </button>
+                 <button class="pulse">Iniciar Sesion</button>
                 </Link>
               )}
             </div>
+            {loggedInUser && (
+        <button class="raise" onClick={cerrarSesion}>Cerrar Sesion</button>
+      )}  
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      {loggedInUser && (
-        <div className="position-fixed top-0 end-0 translate-middle-x mt-3">
-          <button className="btn btn-danger" onClick={cerrarSesion}>
-            Cerrar sesión
-          </button>
-        </div>
-      )}
+      
+      
     </div>
   );
 };

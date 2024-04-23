@@ -138,7 +138,7 @@ const Login = ({setuser}) => {
             <img
               src={SpinnerImage}
               alt="Spinner"
-              className="spinner rotate" // Aplica la clase "rotate" para la animación de rotación
+              className="spinner-rotate" // Aplica la clase "rotate" para la animación de rotación
               style={{
                 width: "200px",
                 height: "200px",
