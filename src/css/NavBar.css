@@ -122,9 +122,9 @@
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
-    margin-left: -120px;
+    margin-left: -300px;
   }
-  .btn-cerrar {
+  .raise {
     align-items: center;
     margin-bottom: 20px;
     margin-top: 20px;
@@ -226,19 +226,20 @@
 
 
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .nav-container {
     align-items: center;
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
-    margin-left: -300px;
+    margin-left: 300px;
   }
-  .btn-cerrar {
+  .raise {
     align-items: center;
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
+    margin-left: 300px;
   }
 }
 
@@ -251,10 +252,12 @@
     text-align: center;
     margin-left: 120px;
   }
-  .btn-cerrar {
+  .raise {
     align-items: center;
     margin-bottom: 20px;
     margin-top: 20px;
     text-align: center;
+    margin-inline: 115px;
+    background-color: #f80404;
   }
 }
