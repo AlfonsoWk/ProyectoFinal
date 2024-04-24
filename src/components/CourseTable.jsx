@@ -124,8 +124,8 @@ export const CourseTable = () => {
               return (
                 <tr key={course._id}>
                   <th>{course.nombre}</th>
-                  <td style={{ textAlign: "center" }}>{course.inicio}</td>
-                  <td>{course.fin}</td>
+                  <td style={{ textAlign: "center" }}>{course.inicio+" hs"}</td>
+                  <td>{course.fin+" hs"}</td>
                   <td>{course.profesor}</td>
                   <td style={{ textAlign: "center" }}>
                     {course.cupos_disponibles}
