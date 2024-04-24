@@ -70,28 +70,28 @@ const NavBar = () => {
                 <Link
                   to="/Clases"
                   className="ItemNav clases-nav class-1"
-                  style={{ textDecoration: "none", marginRight: "10px" }}
+                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
                 >
                   | Clases |
                 </Link>
                 <Link
                   to="/Productos"
                   className="ItemNav class-2"
-                  style={{ textDecoration: "none", marginRight: "10px" }}
+                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
                 >
                   | Nuestros Productos |
                 </Link>
                 <Link
                   to="/Nosotros"
                   className="ItemNav class-3"
-                  style={{ textDecoration: "none", marginRight: "10px" }}
+                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
                 >
                   | Acerca de nosotros |
                 </Link>
                 <Link
                   to="/Contacto"
                   className="ItemNav class-4"
-                  style={{ textDecoration: "none", marginRight: "10px" }}
+                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
                 >
                   | Contáctanos |
                 </Link>
