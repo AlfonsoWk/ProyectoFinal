@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import {createUser} from "../helpers/apiUsers"
+import { createUser } from "../helpers/apiUsers";
 
 import {
   MDBContainer,
@@ -9,7 +9,7 @@ import {
   MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../css/Registration.css";
 
 import NavBar from "../components/NavBar";
@@ -20,12 +20,13 @@ const Registration = () => {
   const [formData, setFormData] = useState({
     fname_lname: "",
     email: "",
- 
+
     password: "",
     cpassword: "",
     role: "USER",
     status: "true",
   });
+  const navigate = useNavigate();
 
   const [errorMessage, setErrorMessage] = useState("");
   const [termsAccepted, setTermsAccepted] = useState(false);
@@ -47,9 +48,9 @@ const Registration = () => {
     } else if (formData.password.trim() === "") {
       isValid = false;
       setErrorMessage("Por favor, ingresa tu contraseña");
-    } else if (formData.password.length < 8) {
+    } else if (formData.password.length < 6) {
       isValid = false;
-      setErrorMessage("La contraseña debe tener al menos 8 caracteres");
+      setErrorMessage("La contraseña debe tener al menos 6 caracteres");
     } else if (formData.cpassword.trim() !== formData.password.trim()) {
       isValid = false;
       setErrorMessage("Las contraseñas no coinciden");
@@ -61,16 +62,18 @@ const Registration = () => {
     }
 
     if (isValid) {
-      await createUser(formData)
+      await createUser(formData);
 
       alert("Registro exitoso");
-        setFormData({
-          fname_lname: "",
-          email: "",
-          password: "",
-          cpassword: ""
-        });
-     
+      setFormData({
+        fname_lname: "",
+        email: "",
+        password: "",
+        cpassword: "",
+      });
+
+      navigate("/login");
+
       /*try {
         const existingUser = await axios.get(
           `http://localhost:8000/users?email=${formData.email}`
@@ -100,129 +103,136 @@ const Registration = () => {
         console.log(error);
       }*/
     }
-
   };
 
   return (
     <>
-    <div style={{ backgroundImage: `url(${fondogym5})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
-      <NavBar />
       <div
-        className="registration-container d-flex align-items-center justify-content-center"
+        style={{
+          backgroundImage: `url(${fondogym5})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "100vh",
+        }}
       >
-        <MDBContainer>
-          <div
-            className="mask gradient-custom-3"
-            style={{ marginTop: "1em" }}
-          ></div>
-          <div className="registration-form-container">
-            <MDBCard
-              className="m-5"
-              style={{ maxWidth: "600px", backgroundColor: "black" }}
-            >
-              <MDBCardBody className="px-5" style={{ color: "white" }}>
-                <h2 className="text-uppercase text-center mb-5">
-                  Crear cuenta en Rolling Gym
-                </h2>
-                {errorMessage && (
-                  <div className="text-danger mb-4">{errorMessage}</div>
-                )}
-                <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <MDBInput
-                      label={
-                        <span className="required">Nombre y Apellido</span>
-                      }
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          fname_lname: event.target.value,
-                        })
-                      }
-                      value={formData.fname_lname}
-                      size="sm"
-                      id="fname_lname"
-                      type="text"
-                    />
-                  </div>
+        <NavBar />
+        <div className="registration-container d-flex align-items-center justify-content-center">
+          <MDBContainer>
+            <div
+              className="mask gradient-custom-3"
+              style={{ marginTop: "1em" }}
+            ></div>
+            <div className="registration-form-container">
+              <MDBCard
+                className="m-5"
+                style={{ maxWidth: "600px", backgroundColor: "black" }}
+              >
+                <MDBCardBody className="px-5" style={{ color: "white" }}>
+                  <h2 className="text-uppercase text-center mb-5">
+                    Crear cuenta en Rolling Gym
+                  </h2>
+                  {errorMessage && (
+                    <div className="text-danger mb-4">{errorMessage}</div>
+                  )}
+                  <form onSubmit={handleSubmit}>
+                    <div className="mb-4">
+                      <MDBInput
+                        label={
+                          <span className="required">Nombre y Apellido</span>
+                        }
+                        onChange={(event) =>
+                          setFormData({
+                            ...formData,
+                            fname_lname: event.target.value,
+                          })
+                        }
+                        value={formData.fname_lname}
+                        size="sm"
+                        id="fname_lname"
+                        type="text"
+                      />
+                    </div>
 
-                  <div className="mb-4">
-                    <MDBInput
-                      label={
-                        <span className="required">Correo Electronico</span>
-                      }
-                      onChange={(event) =>
-                        setFormData({ ...formData, email: event.target.value })
-                      }
-                      value={formData.email}
-                      size="sm"
-                      id="email"
-                      type="email"
-                    />
-                  </div>
+                    <div className="mb-4">
+                      <MDBInput
+                        label={
+                          <span className="required">Correo Electronico</span>
+                        }
+                        onChange={(event) =>
+                          setFormData({
+                            ...formData,
+                            email: event.target.value,
+                          })
+                        }
+                        value={formData.email}
+                        size="sm"
+                        id="email"
+                        type="email"
+                      />
+                    </div>
 
-                  <div className="mb-4">
-                    <MDBInput
-                      label={<span className="required">Contraseña</span>}
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          password: event.target.value,
-                        })
-                      }
-                      value={formData.password}
-                      size="sm"
-                      id="password"
-                      type="password"
-                    />
-                  </div>
+                    <div className="mb-4">
+                      <MDBInput
+                        label={<span className="required">Contraseña</span>}
+                        onChange={(event) =>
+                          setFormData({
+                            ...formData,
+                            password: event.target.value,
+                          })
+                        }
+                        value={formData.password}
+                        size="sm"
+                        id="password"
+                        type="password"
+                      />
+                    </div>
 
-                  <div className="mb-4">
-                    <MDBInput
-                      label={
-                        <span className="required">Repeti tu Contraseña</span>
-                      }
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          cpassword: event.target.value,
-                        })
-                      }
-                      value={formData.cpassword}
-                      size="sm"
-                      id="cpassword"
-                      type="password"
-                    />
-                  </div>
+                    <div className="mb-4">
+                      <MDBInput
+                        label={
+                          <span className="required">Repeti tu Contraseña</span>
+                        }
+                        onChange={(event) =>
+                          setFormData({
+                            ...formData,
+                            cpassword: event.target.value,
+                          })
+                        }
+                        value={formData.cpassword}
+                        size="sm"
+                        id="cpassword"
+                        type="password"
+                      />
+                    </div>
 
-                  <div className="d-flex flex-row justify-content-center mb-4">
-                    <MDBCheckbox
-                      name="termsCheckbox"
-                      id="termsCheckbox"
-                      label="Acepto los términos y condiciones"
-                      checked={termsAccepted}
-                      onChange={() => setTermsAccepted(!termsAccepted)}
-                    />
-                  </div>
+                    <div className="d-flex flex-row justify-content-center mb-4">
+                      <MDBCheckbox
+                        name="termsCheckbox"
+                        id="termsCheckbox"
+                        label="Acepto los términos y condiciones"
+                        checked={termsAccepted}
+                        onChange={() => setTermsAccepted(!termsAccepted)}
+                      />
+                    </div>
 
-                  <div className="text-center">
-                    <button
-                      className="btn btn-primary btn-register"
-                      type="submit"
-                    >
-                      Registrarse
-                    </button>
-                  </div>
-                </form>
-                <p className="text-center mt-3 text-secondary">
-                  ¿Ya tienes cuenta? <Link to="/login">Iniciar Sesión</Link>
-                </p>
-              </MDBCardBody>
-            </MDBCard>
-          </div>
-        </MDBContainer>
-      </div>
-      <Footer />
+                    <div className="text-center">
+                      <button
+                        className="btn btn-primary btn-register"
+                        type="submit"
+                      >
+                        Registrarse
+                      </button>
+                    </div>
+                  </form>
+                  <p className="text-center mt-3 text-secondary">
+                    ¿Ya tienes cuenta? <Link to="/login">Iniciar Sesión</Link>
+                  </p>
+                </MDBCardBody>
+              </MDBCard>
+            </div>
+          </MDBContainer>
+        </div>
+        <Footer />
       </div>
     </>
   );
