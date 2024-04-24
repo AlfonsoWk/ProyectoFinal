@@ -8,6 +8,7 @@ import Card from "react-bootstrap/Card";
 import emailjs from "@emailjs/browser";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import { useNavigate } from "react-router-dom";
 import fotogym2 from "../images/fotogym2.jpg";
 
 
@@ -17,6 +18,8 @@ export const Contacto = () => {
     user_email: "",
     message: "",
   });
+
+  const navigate = useNavigate();
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -36,33 +39,38 @@ export const Contacto = () => {
       alert("Por favor, complete todos los campos");
       return;
     }
-
+  
     const templateParams = {
       from_name: formValues.user_name,
       to_email: formValues.user_email,
       message: formValues.message,
     };
-
+  
     emailjs
       .send("service_v2ejebu", "template_nyxv7yt", templateParams, {
         publicKey: "d_jN8aMQHAitz_XK4",
       })
       .then(
         (result) => {
-          console.log("Email enviado con éxito", result.text);
-
+          alert("Email enviado con éxito", result.text);
+  
           setFormValues({
             user_name: "",
             user_email: "",
             message: "",
           });
+  
+          // Agregar un retraso de 2 segundos antes de redirigir
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
         },
         (error) => {
           console.error("Error al enviar el email", error.text);
         }
       );
   };
-
+  
   return (
     <>
     <div style={{ backgroundImage: `url(${fotogym2})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>

@@ -108,13 +108,13 @@ export const UserTable = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr className="table-dark">
-            <th scope="col">Nombre y Apellido</th>
-            <th scope="col">Email</th>
-            <th scope="col">Teléfono</th>
-            <th scope="col">Plan Contratado</th>
-            <th scope="col">Rol</th>
-            <th scope="col">Status</th>
-            <th scope="col"></th>
+            <th scope="col" style={{backgroundColor: "black"}}>Nombre y Apellido</th>
+            <th scope="col" style={{backgroundColor: "black"}}>Email</th>
+            <th scope="col" style={{backgroundColor: "black"}}>Teléfono</th>
+            <th scope="col" style={{backgroundColor: "black"}}>Plan Contratado</th>
+            <th scope="col" style={{backgroundColor: "black"}}>Rol</th>
+            <th scope="col" style={{backgroundColor: "black"}}>Status</th>
+            <th scope="col" style={{backgroundColor: "black"}}></th>
           </tr>
         </thead>
         <tbody>
