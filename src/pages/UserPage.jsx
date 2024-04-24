@@ -18,7 +18,7 @@ export const UserPage = () => {
       <div style={{ backgroundImage: `url('${userpage2}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
         {/* NavBar sin el botón de inicio de sesión */}
         {location.pathname !== "/" && <NavBar />}
-        <div className="container mt-4" style={{color:"white", backgroundColor:"black", borderRadius:"50px"}}>
+        <div className="container mt-4" style={{color:"black", backgroundColor:"white", borderRadius:"50px"}}>
           <div className="row">
             <div className="col">
               <h2 className="text-center">
@@ -39,8 +39,8 @@ export const UserPage = () => {
               </Button>
             </div>
             <div className="col-md-auto">
-              <Link to="/AdminPage">
-                <Button variant="warning" block>
+              <Link to="/AdminPage" style={{color : "black"}}>
+                <Button variant="warning">
                   Ir a Clases
                 </Button>
               </Link>

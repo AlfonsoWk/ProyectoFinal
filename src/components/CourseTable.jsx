@@ -109,14 +109,14 @@ export const CourseTable = () => {
         <table className="table">
           <thead className="thead-dark">
             <tr className="table-dark">
-              <th scope="col">Nombre de la Clase</th>
-              <th scope="col">Inicio</th>
-              <th scope="col">Fin</th>
-              <th scope="col">Profesor</th>
-              <th scope="col">Cupos Disponibles</th>
-              <th scope="col">Cupos</th>
-              <th scope="col">Disponible</th>
-              <th scope="col"></th>
+              <th scope="col" style={{backgroundColor: "black"}}>Nombre de la Clase</th>
+              <th scope="col" style={{backgroundColor: "black"}}>Inicio</th>
+              <th scope="col" style={{backgroundColor: "black"}}>Fin</th>
+              <th scope="col" style={{backgroundColor: "black"}}>Profesor</th>
+              <th scope="col" style={{backgroundColor: "black"}}>Cupos Disponibles</th>
+              <th scope="col" style={{backgroundColor: "black"}}>Cupos</th>
+              <th scope="col" style={{backgroundColor: "black"}}>Disponible</th>
+              <th scope="col" style={{backgroundColor: "black"}}></th>
             </tr>
           </thead>
           <tbody>

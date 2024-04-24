@@ -74,13 +74,13 @@ const Clases = () => {
         <table className="table">
           <thead className="thead-dark">
             <tr className="table-dark">
-              <th style={{ textAlign: "center" }}>Hora</th>
-              <th style={{ textAlign: "center" }}>Lunes</th>
-              <th style={{ textAlign: "center" }}>Martes</th>
-              <th style={{ textAlign: "center" }}>Miércoles</th>
-              <th style={{ textAlign: "center" }}>Jueves</th>
-              <th style={{ textAlign: "center" }}>Viernes</th>
-              <th></th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>Hora</th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>Lunes</th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>Martes</th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>Miércoles</th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>Jueves</th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>Viernes</th>
+              <th style={{ backgroundColor: "black" }}></th>
             </tr>
           </thead>
           <tbody>
@@ -107,7 +107,7 @@ const Clases = () => {
           </tbody>
         </table>
         <div className="todo-el-dia">
-          <p>{comment}</p>
+          <p style={{ fontWeight: "bold" }}>{comment}</p>
         </div>
       </div>
       <Footer />
