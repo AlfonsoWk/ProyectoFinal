@@ -21,19 +21,15 @@ const NavBar = () => {
       cadena = "/Reservar";
     }
   }
- 
+
   const cerrarSesion = () => {
     localStorage.removeItem("loggedInUser");
     navigate("/login"); // Redireccionar a la página de inicio de sesión
   };
-  
-  
+
   // Determinar si se debe mostrar el botón de inicio de sesión
-  const showLoginButton = () => { 
-   
-    
+  const showLoginButton = () => {
     return (
-      
       !loggedInUser ||
       (loggedInUser &&
         location.pathname !== "/login" &&
@@ -46,19 +42,14 @@ const NavBar = () => {
         location.pathname !== "/Contacto" &&
         location.pathname !== "/Error404" &&
         location.pathname !== "/Nosotros" &&
-        location.pathname !== "/Productos"
-        &&
-        location.pathname !== "/AdminPage"
-        &&
+        location.pathname !== "/Productos" &&
+        location.pathname !== "/AdminPage" &&
         location.pathname !== "/UserPage"
-      )
-      
+        &&
+        location.pathname !== "/Clases")
     );
-    
-    
   };
-  
-   
+
   return (
     <div className="d-flex justify-content-center">
       <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
@@ -118,18 +109,18 @@ const NavBar = () => {
                     marginTop: "20px",
                   }}
                 >
-                 <button class="pulse">Iniciar Sesion</button>
+                  <button class="pulse">Iniciar Sesion</button>
                 </Link>
               )}
             </div>
             {loggedInUser && (
-        <button class="raise" onClick={cerrarSesion}>Cerrar Sesion</button>
-      )}  
+              <button class="raise" onClick={cerrarSesion}>
+                Cerrar Sesion
+              </button>
+            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      
-      
     </div>
   );
 };
