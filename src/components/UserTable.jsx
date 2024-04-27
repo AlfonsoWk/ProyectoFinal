@@ -35,7 +35,7 @@ export const UserTable = () => {
   };
 
   const actualizarDatos = async () => {
-    const datos = await getUsers(setUsers);
+    const datos = await getUsers(setpaginacion);
 
     console.log("los datos de la paginacion son : ", paginacion);
 

@@ -13,7 +13,7 @@ export const getUsersByEmail = async (email) => {
 
 };*/
 
-export const getUsers = async () => {
+export const getUsers = async (setpaginacion) => {
 
     const token = JSON.parse(localStorage.getItem("token"))
     const user = JSON.parse(localStorage.getItem("loggedInUser"))
@@ -24,6 +24,9 @@ export const getUsers = async () => {
     const data = await response.json();
    
     console.log("estoy en apy user ----> data result", data.results)
+
+    setpaginacion(data.paginacion)
+
     return data.results;
   
 };
