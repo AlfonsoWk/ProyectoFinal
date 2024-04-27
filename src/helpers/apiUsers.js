@@ -23,7 +23,7 @@ export const getUsers = async (setpaginacion) => {
     const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user?token=${token}&role=${role}`);
     const data = await response.json();
    
-    console.log("estoy en apy user ----> data result", data.results)
+    console.log("estoy en apy user ----> data result", data)
 
     setpaginacion(data.paginacion)
 
