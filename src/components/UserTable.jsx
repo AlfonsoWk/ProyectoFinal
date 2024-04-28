@@ -5,7 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import iconborrar from "../icons/boton-x.png";
 
 export const UserTable = () => {
-  const [paginacion, setpaginacion] = useState({})
+  const [paginacion, setpaginacion] = useState(null)
   const [errorMessage, setErrorMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
