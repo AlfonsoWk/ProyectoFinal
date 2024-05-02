@@ -37,6 +37,18 @@ export const CreateCourseModal = (props) => {
       return;
     }
 
+    const inicioHora = parseInt(formValues.inicio);
+    if (inicioHora < 7 ) {
+      setErrorMessage("La hora de inicio debe ser posterior a las 7hs.");
+      return;
+    }
+
+    const finHora = parseInt(formValues.fin);
+    if (finHora > 23) {
+      setErrorMessage("La hora de fin debe ser anterior a las 23hs.");
+      return;
+    }
+
     await crearClases(formValues);
     props.onHide();
   };
@@ -67,7 +79,7 @@ export const CreateCourseModal = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="inicio">
-            <Form.Label>Inicio</Form.Label>
+            <Form.Label>Hora Inicio</Form.Label>
             <Form.Control
               type="number"
               name="inicio"
@@ -77,7 +89,7 @@ export const CreateCourseModal = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="fin">
-            <Form.Label>Fin</Form.Label>
+            <Form.Label>Hora Fin</Form.Label>
             <Form.Control
               type="number"
               name="fin"
