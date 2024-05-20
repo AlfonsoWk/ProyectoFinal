@@ -57,7 +57,7 @@ const PaginaPrincipal = () => {
 
             <div className="container">
               <div className="row justify-content-center">
-                <div className="col-md-4">
+                <div className="col-md-4 mb-3">
                   <div
                     className="planes"
                     style={{
@@ -73,7 +73,7 @@ const PaginaPrincipal = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 mb-3">
                   <div
                     className="planes"
                     style={{
@@ -89,7 +89,7 @@ const PaginaPrincipal = () => {
                     </Link>
                   </div>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-4 mb-3">
                   <div
                     className="planes"
                     style={{
@@ -108,7 +108,7 @@ const PaginaPrincipal = () => {
               </div>
 
               <div className="row justify-content-center">
-                <div className="col-md-6">
+                <div className="col-md-6 mb-3">
                   <div
                     className="ventas"
                     style={{
@@ -127,7 +127,7 @@ const PaginaPrincipal = () => {
                   </div>
                 </div>
 
-                <div className="col-md-6">
+                <div className="col-md-6 mb-3">
                   <div
                     className="ventas"
                     style={{
