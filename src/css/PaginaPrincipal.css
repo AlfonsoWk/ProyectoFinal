@@ -20,6 +20,8 @@
 .planes img {
     max-width: 450px;
     max-height: 250px;
+    border-radius: 0.5rem;
+
 }
 .planes img {
     width: 100%;
@@ -28,21 +30,13 @@
     position: relative;
 }
 
-.planes img:hover{
-    transform: scale(1.15);
-}
 
 
 .ventas img{
     transition: all 300ms;
     position: relative;
+    border-radius: 0.4rem;
 }
-
-.ventas img:hover{
-    transform: scale(1.15);
-}
-
-
 
 
 h3{
@@ -78,3 +72,12 @@ h3{
     ;
   }
   
+@media screen and (min-width: 1024px) {
+    .planes img:hover{
+        transform: scale(1.05);
+    }
+
+    .ventas img:hover{
+        transform: scale(1.05);
+    }
+}

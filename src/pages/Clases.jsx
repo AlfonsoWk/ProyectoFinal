@@ -2,6 +2,7 @@ import React from "react";
 import "../css/Clases.css";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
+import { Link } from "react-router-dom";
 
 const comment = "* Musculación: Todo el día";
 
@@ -93,14 +94,14 @@ const Clases = () => {
                 <td style={{ textAlign: "center" }}>{item.Jueves}</td>
                 <td style={{ textAlign: "center" }}>{item.Viernes}</td>
                 <td>
-                  <a
-                    href={item.link}
+                  <Link to="/login"
+/*                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ fontWeight: "bold" }}
-                  >
+                     */
+                    style={{ fontWeight: "bold" }}>
                     Reservar
-                  </a>
+                  </Link>
                 </td>
               </tr>
             ))}
