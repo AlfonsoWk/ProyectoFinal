@@ -25,8 +25,9 @@ import "./App.css";
 
 function App() {
 
+  const user =  JSON.parse(localStorage.getItem("loggedInUser")) 
 
-  const user = JSON.parse(localStorage.getItem("loggedInUser"))
+  
   return (
     <Router>
       <Routes>

@@ -1,4 +1,3 @@
-
 /*
 export const getUsersByEmail = async (email) => {
   const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user?email=${email}`);
@@ -13,52 +12,57 @@ export const getUsersByEmail = async (email) => {
 
 };*/
 
-export const getUsers = async (setpaginacion) => {
+export const getUsers = async (pagina) => {
+  const token = JSON.parse(localStorage.getItem("token"));
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
 
-    const token = JSON.parse(localStorage.getItem("token"))
-    const user = JSON.parse(localStorage.getItem("loggedInUser"))
+  const role = user.role;
+  let pagina1 = pagina;
 
-    const role = user.role
+  //http://localhost:4000/api
+  //${import.meta.env.VITE_BACK_URL}
 
-    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user?token=${token}&role=${role}`);
-    const data = await response.json();
-   
-    console.log("estoy en apy user ----> data result", data)
+  if (!pagina) {
+    pagina1 = 1;
+  }
 
-    setpaginacion(data.paginacion)
+  const response = await fetch(
+    `${import.meta.env.VITE_BACK_URL}/user?token=${token}&role=${role}&pagina=${pagina1}`
+  );
+  const data = await response.json();
 
-    return data.results;
-  
+  localStorage.setItem("paginacion", JSON.stringify(data.paginacion));
+
+  return data.results;
 };
 
 export const createUser = async (datos) => {
-    console.log("lo que se va a crear es: ", datos)
-    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user`, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(datos),
+  console.log("lo que se va a crear es: ", datos);
+  const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(datos),
   });
 
-  const data =response.json()
-  console.log("la respuesta es: ", data)
-
+  const data = response.json();
+  console.log("la respuesta es: ", data);
 };
 
 export const deleteUser = async (id) => {
- 
-    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user/${id}`, {method: "DELETE",});
-    const data = await response.json();
-    console.log(data);
+  const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user/${id}`, {
+    method: "DELETE",
+  });
+  const data = await response.json();
+  console.log(data);
 
-    return data;
- 
+  return data;
 };
 
 export const updateUsers = async (id, datos) => {
-  console.log("llegue al put")
+  console.log("llegue al put");
   const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user/${id}`, {
     method: "PUT",
-    headers: {'Content-Type': 'application/json'},
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(datos),
   });
 

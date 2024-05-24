@@ -3,6 +3,7 @@ import React from 'react'
 import { Navigate } from 'react-router-dom';
 
 export const RutasProtegidas = ({ children,user, role }) => {
+ 
 
 console.log("role de entrada es: ",role)
 

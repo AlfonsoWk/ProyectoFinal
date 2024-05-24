@@ -1,13 +1,17 @@
-export const getClases = async () => {
+export const getClases = async (pagina) => {
   const token = JSON.parse(localStorage.getItem("token"))
   const user = JSON.parse(localStorage.getItem("loggedInUser"))
 
   const role = user.role
+  let pagina1 = pagina;
+  if (!pagina) {
+    pagina1 = 1;
+  }
    
-    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases?token=${token}&role=${role}`)
+    const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases?token=${token}&role=${role}&pagina=${pagina1}`)
     const data = await response.json();
     
-   console.log("los datons que deben mostrase son: ", data)
+    localStorage.setItem("paginacion", JSON.stringify(data.paginacion));
     return data.results;
   };
 

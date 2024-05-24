@@ -3,9 +3,16 @@ import { deleteUser, getUsers, updateUsers } from "../helpers/apiUsers";
 
 import Modal from "react-bootstrap/Modal";
 import iconborrar from "../icons/boton-x.png";
+import Pagination from "react-bootstrap/Pagination";
+
+
 
 export const UserTable = () => {
-  const [paginacion, setpaginacion] = useState(null)
+  let item = []
+  
+  const [itemPaginacion, setitemPaginacion] = useState([])
+ 
+  
   const [errorMessage, setErrorMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -34,16 +41,58 @@ export const UserTable = () => {
     }
   };
 
+  const getUserPaginacion = async (pagina) =>{
+   
+      const usersPaginacion = await getUsers(pagina)
+      setUsers(usersPaginacion)
+  }
+
+
   const actualizarDatos = async () => {
-    const datos = await getUsers(setpaginacion);
+    let pagina = 1
+    if (localStorage.paginacion){
+      const paginacion = JSON.parse(localStorage.getItem("paginacion"))
+       pagina = paginacion.page
+    
+    }
 
-    console.log("los datos de la paginacion son : ", paginacion);
+      const datos = await getUsers(pagina);
 
+    
     setUsers(datos);
+     
+    /* inicio *** paginacion**** */
+    const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+      const longitud = datosPaginacion.totalPages
+
+
+    
+    for (let index = 1; index <= longitud ; index++) {
+     
+      item.push(
+       <Pagination.Item   key={index}  onClick={()=>{
+ 
+
+        
+        getUserPaginacion(index)} 
+       } >
+            {index}
+        </Pagination.Item>
+        
+      ) 
+
+      setitemPaginacion(item)
+    }
+
+    /* fin *** paginacion**** */
+   
+    
+    
   };
 
   useEffect(() => {
     actualizarDatos();
+    
   }, []);
 
   const handleModify = (id) => {
@@ -111,13 +160,25 @@ export const UserTable = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr className="table-dark">
-            <th scope="col" style={{backgroundColor: "black"}}>Nombre y Apellido</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Email</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Teléfono</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Plan Contratado</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Rol</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Status</th>
-            <th scope="col" style={{backgroundColor: "black"}}></th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Nombre y Apellido
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Email
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Teléfono
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Plan Contratado
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Rol
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Status
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}></th>
           </tr>
         </thead>
         <tbody>
@@ -159,7 +220,46 @@ export const UserTable = () => {
             );
           })}
         </tbody>
-      </table>
+   </table>
+
+
+   <div  style={{display:"flex", justifyContent:"center"}} >
+          <Pagination >
+            
+            
+            < Pagination.Prev onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaAnte= datosPaginacion.prevPage
+
+                if(!paginaAnte){
+                  paginaAnte= datosPaginacion.page
+                }
+                
+                getUserPaginacion(paginaAnte)
+            } } 
+             />  
+            
+              {itemPaginacion.map((item)=>{return item  })}
+            
+
+            <Pagination.Next
+               onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaSig=datosPaginacion.nextPage  
+                
+                if(!paginaSig){
+                  paginaSig = datosPaginacion.page
+                }
+                
+                getUserPaginacion(paginaSig)
+            } }
+            />
+           
+          </Pagination>
+
+          </div>
+
+
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Modificar usuario</Modal.Title>
