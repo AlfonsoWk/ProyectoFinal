@@ -67,6 +67,7 @@ const data = [
   { Hora: 21, Lunes: "GAP", Miercoles: "GAP", Viernes: "GAP", link: "/login" },
 ];
 
+
 const Clases = () => {
   return (
     <>

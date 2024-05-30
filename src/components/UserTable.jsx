@@ -31,6 +31,10 @@ export const UserTable = () => {
   const handleDelete = async (id) => {
     let user = users.find((usuario) => usuario._id === id);
 
+    if (user.role === "SUPERADMIN") {
+      return alert("No se puede eliminar este usuario") 
+    }
+
     let validator = window.confirm(
       `Estas seguro que quieres eliminar al usuario ${user.fname_lname} `
     );
@@ -98,6 +102,10 @@ export const UserTable = () => {
   const handleModify = (id) => {
     const user = users.find((usuario) => usuario._id === id);
 
+    if (user.role === "SUPERADMIN"){
+      return alert("No se puede modificar este usuario")
+    }
+
     setSelectedUserId(id);
     setShowModal(true);
     setNewUserData(user);
@@ -114,8 +122,13 @@ export const UserTable = () => {
       return;
     }
 
-    if (newUserData.telefono === "") {
+    if (!newUserData.telefono) {
       setErrorMessage("Por favor completa el campo 'Teléfono'.");
+      return;
+    }
+
+    if (!newUserData.planContratado){
+      setErrorMessage("!Por favor completa el campo 'Plan Contratado'.");
       return;
     }
 
@@ -183,6 +196,19 @@ export const UserTable = () => {
         </thead>
         <tbody>
           {users.map((user) => {
+
+           let estado = "" 
+           if (user.status === true){
+            estado ="Activo"
+           } else{
+            estado = "Inactivo"
+           }
+
+           let habilitaBoton = ""
+           if(user.role ==="SUPERADMIN"){
+            habilitaBoton="true"
+           }
+
             return (
               <tr key={user._id}>
                 <td>{user.fname_lname}</td>
@@ -190,9 +216,11 @@ export const UserTable = () => {
                 <td>{user.telefono}</td>
                 <td>{user.planContratado}</td>
                 <td>{user.role}</td>
-                <td>{user.status}</td>
+                <td>{estado} </td>
                 <td>
-                  <button
+                  
+                  
+                    <button disabled={`${habilitaBoton}`}
                     className="btn btn-danger "
                     style={{
                       backgroundImage: `url(${iconborrar})`,
@@ -206,7 +234,7 @@ export const UserTable = () => {
                       handleDelete(user._id);
                     }}
                   ></button>
-                  <button
+                  <button disabled={`${habilitaBoton}`}
                     className="btn btn-success mr-2 mb-2"
                     onClick={() => {
                       handleModify(user._id);
@@ -215,6 +243,12 @@ export const UserTable = () => {
                   >
                     Modificar
                   </button>
+
+                
+                
+
+                  
+
                 </td>
               </tr>
             );
@@ -335,8 +369,9 @@ export const UserTable = () => {
                 }
                 required
               >
-                <option value="soloMusculacion">Plan solo musculación</option>
-                <option value="soloClases">Plan Clases</option>
+                <option value={null}>Elinge un plan</option>
+                <option value="solo Musculacion">Plan solo musculación</option>
+                <option value="solo Clases">Plan Clases</option>
                 <option value="full">Plan Full</option>
               </select>
             </div>
@@ -401,8 +436,8 @@ export const UserTable = () => {
                   })
                 }
               >
-                <option value="ACTIVE">Activo</option>
-                <option value="INACTIVE">Inactivo</option>
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
               </select>
             </div>
           </form>

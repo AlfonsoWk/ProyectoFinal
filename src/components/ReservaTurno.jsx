@@ -238,7 +238,7 @@ const ReservaTurno = () => {
           closeModal={() => setopenModal(false)}
           paramFuncion={paramFuncion}
           actualizarDatos={() => actualizarDatos()} 
-          datosPaginacion =  {JSON.parse(localStorage.getItem("paginacion"))} 
+          datosPaginacion =  {JSON.parse(localStorage.getItem("paginacion")) } 
         />
       </div>
     </div>

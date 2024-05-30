@@ -11,6 +11,7 @@ export const getClases = async (pagina) => {
     const response = await fetch(`${import.meta.env.VITE_BACK_URL}/clases?token=${token}&role=${role}&pagina=${pagina1}`)
     const data = await response.json();
     
+   
     localStorage.setItem("paginacion", JSON.stringify(data.paginacion));
     return data.results;
   };

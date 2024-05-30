@@ -59,7 +59,7 @@ export const deleteUser = async (id) => {
 };
 
 export const updateUsers = async (id, datos) => {
-  console.log("llegue al put");
+  console.log("llegue al put",datos);
   const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
