@@ -24,18 +24,19 @@ const Login = ({setuser}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    console.log("submit: ", formData)
 
       const datosEmail = { 
         email:formData.email,
         password:formData.password
       }
     
-      const userLogin = await authLogin(datosEmail)
+    //  const userLogin = await authLogin(datosEmail)
 
     
 
       
-
+/*
      if (!userLogin){
       alert("credenciales incorrectas")
      }
@@ -56,7 +57,32 @@ const Login = ({setuser}) => {
       if (formData.email.trim() === "" || formData.password.trim() === "") {
         setError("Por favor, ingresa tu email y contraseña");
       } 
-       else {
+
+      if (error){
+        return
+      }*/
+
+      if (formData.email.trim() === "" || formData.password.trim() === "") {
+       return setError("Por favor, ingresa tu email y contraseña");
+        
+      } 
+
+      const userLogin = await authLogin(datosEmail)
+      if (!userLogin){
+        setError("Credenciales incorrectas")
+      }
+
+      if(error){
+        return 
+      }
+         else {
+         
+      if (userLogin.role === "USER"){
+        cadena = "/Reservar"
+      } else {
+        cadena = "/AdminPage"
+      } 
+      console.log("la cadena es: ",cadena)
         setError(""); 
         setLoading(true);
 

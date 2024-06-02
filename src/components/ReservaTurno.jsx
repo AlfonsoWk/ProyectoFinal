@@ -9,8 +9,13 @@ import {
   getClasesUsuarios,
 } from "../helpers/apiClases";
 import ModalMensage from "./ModalMensage";
+import Pagination from "react-bootstrap/Pagination";
 
 const ReservaTurno = () => {
+  let item = []
+  
+  const [itemPaginacion, setitemPaginacion] = useState([])
+
   const [clases, setclases] = useState([]);
   const [clasesUsuarios, setclasesUsuarios] = useState([]);
   const [openModal, setopenModal] = useState(false);
@@ -20,8 +25,24 @@ const ReservaTurno = () => {
   const fecha = new Date();
   const hora = fecha.getHours();
 
+  const getReservaPaginacion = async (pagina) =>{
+   
+    const clasesPaginacion = await getClases(pagina)
+    setclases(clasesPaginacion)
+  
+}
+
   const actualizarDatos = async () => {
-    const datos = await getClases();
+  
+    let pagina =1
+    if (localStorage.paginacion){
+      const paginacion = JSON.parse(localStorage.getItem("paginacion"))
+       pagina =  paginacion.page
+     
+    } 
+
+
+    const datos = await getClases(pagina);
     setclases(datos);
 
     datos.map((dat) => {
@@ -30,17 +51,45 @@ const ReservaTurno = () => {
       }
     });
 
-    /* clases reservadas */
-    const user = JSON.parse(localStorage.getItem("loggedInUser"));
-    const usuario = user.fname_lname + user.email;
-    const datos1 = await getClasesUsuarios(usuario);
+   
+    /* inicio *** paginacion**** */
+    const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+    const longitud = datosPaginacion.totalPages
 
-    setclasesUsuarios(datos1);
 
-    datos1.map((dato) => {
-      const boton = document.getElementById(`${dato.id_clase}`);
-      boton.disabled = true;
-    });
+  
+  for (let index = 1; index <= longitud ; index++) {
+   
+    item.push(
+     <Pagination.Item   key={index}  onClick={()=>{
+        getReservaPaginacion(index)} 
+     } >
+          {index}
+      </Pagination.Item>
+      
+    ) 
+
+    setitemPaginacion(item)
+  }
+
+  /* fin *** paginacion**** */
+
+   /* clases reservadas */
+   const user = JSON.parse(localStorage.getItem("loggedInUser"));
+   const usuario = user.fname_lname + user.email;
+   const datos1 = await getClasesUsuarios(usuario);
+
+  
+   setclasesUsuarios(datos1);
+  
+   datos1.map((dato) => {
+   
+     const boton = document.getElementById(`${dato.id_clase}`);
+     console.log("los botones seran: ",boton)
+     boton.disabled = true;
+   });
+
+
   };
 
   useEffect(() => {
@@ -138,7 +187,45 @@ const ReservaTurno = () => {
             })}
           </tbody>
         </table>
+
+        <div  style={{display:"flex", justifyContent:"center"}} >
+          <Pagination >
+            
+            
+            < Pagination.Prev onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaAnte= datosPaginacion.prevPage
+
+                if(!paginaAnte){
+                  paginaAnte= datosPaginacion.page
+                }
+                
+                getReservaPaginacion(paginaAnte)
+            } } 
+             />  
+            
+              {itemPaginacion.map((item)=>{return item  })}
+            
+
+            <Pagination.Next
+               onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaSig=datosPaginacion.nextPage  
+                
+                if(!paginaSig){
+                  paginaSig = datosPaginacion.page
+                }
+                
+                getReservaPaginacion(paginaSig)
+            } }
+            />
+           
+          </Pagination>
+
+          </div>
       </div>
+
+
       <div className="position-fixed top-0 end-0 translate-middle-x mt-3">
         <button className="btn btn-danger" onClick={cerrarSesion}>
           Cerrar sesión
@@ -150,7 +237,8 @@ const ReservaTurno = () => {
           isOpen={openModal}
           closeModal={() => setopenModal(false)}
           paramFuncion={paramFuncion}
-          actualizarDatos={() => actualizarDatos()}
+          actualizarDatos={() => actualizarDatos()} 
+          datosPaginacion =  {JSON.parse(localStorage.getItem("paginacion")) } 
         />
       </div>
     </div>

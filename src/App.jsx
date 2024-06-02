@@ -25,8 +25,9 @@ import "./App.css";
 
 function App() {
 
+ // const user =  JSON.parse(localStorage.getItem("loggedInUser")) 
 
-  const user = JSON.parse(localStorage.getItem("loggedInUser"))
+
   return (
     <Router>
       <Routes>
@@ -42,7 +43,7 @@ function App() {
         <Route path="/Clases" element={<Clases />} />
 
         <Route path="/AdminPage" element={
-          <RutasProtegidas role={"ADMIN"} user={user} >
+          <RutasProtegidas role={"ADMIN"}/* user={user}*/ >
               <AdminPage />
           </RutasProtegidas>
         
@@ -54,7 +55,7 @@ function App() {
         <Route path="/Productos" element={<Productos />} />
 
         <Route path="/Reservar" element={
-          <RutasProtegidas  role={"USER"} user={user} > 
+          <RutasProtegidas  role={"USER"} /*user={user} */> 
               <ReservarPage  />
           </RutasProtegidas>
         

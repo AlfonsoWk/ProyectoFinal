@@ -6,7 +6,13 @@ import {
 } from "../helpers/apiClases";
 import Modal from "react-bootstrap/Modal";
 
+import Pagination from "react-bootstrap/Pagination";
+
 export const CourseTable = () => {
+
+  let item = []
+  
+  const [itemPaginacion, setitemPaginacion] = useState([])
   const [errorMessage, setErrorMessage] = useState("");
   const [paramFuncion, setparamFuncion] = useState({});
   const [courses, setCourses] = useState([]);
@@ -39,9 +45,54 @@ export const CourseTable = () => {
     }
   };
 
+  const getClasesPaginacion = async (pagina) =>{
+   
+    const clasesPaginacion = await getClases(pagina)
+    setCourses(clasesPaginacion)
+}
+
+
   const actualizarDatos = async () => {
-    const datos = await getClases();
+    let pagina = 1
+    if (localStorage.paginacion){
+      const paginacion = JSON.parse(localStorage.getItem("paginacion"))
+       pagina = paginacion.page
+    
+    }
+    const datos = await getClases(pagina);
+    
+
+    datos.map((dato)=>{
+        if(dato.cupos_disponibles ===0){
+          updateCupos(dato._id,{disponible:false})
+        }
+    })
+
     setCourses(datos);
+
+     /* inicio *** paginacion**** */
+     const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+     const longitud = datosPaginacion.totalPages
+
+
+   
+   for (let index = 1; index <= longitud ; index++) {
+    
+     item.push(
+      <Pagination.Item   key={index}  onClick={()=>{
+         getClasesPaginacion(index)} 
+      } >
+           {index}
+       </Pagination.Item>
+       
+     ) 
+
+     setitemPaginacion(item)
+   }
+
+   /* fin *** paginacion**** */
+
+
   };
 
   useEffect(() => {
@@ -104,13 +155,21 @@ export const CourseTable = () => {
     setErrorMessage("");
   };
 
-  const resetCupos = async () => {
+  const resetCupos = async (paramFuncion) => {/*
     setparamFuncion((prevParamFuncion) => ({
       ...prevParamFuncion,
       cupos_disponibles: prevParamFuncion.cupos,
-    }));
+    }));*/
 
-    await updateCupos(paramFuncion.id, paramFuncion);
+    
+   /* console.log("reset cupos antes: ",paramFuncion)*/
+    const resetCupo = paramFuncion.cupos
+    const resetDisponible = true
+    paramFuncion.cupos_disponibles = resetCupo
+    paramFuncion.disponible = resetDisponible  
+    console.log("reset cupos despues : ",paramFuncion)
+
+    await updateCupos(paramFuncion._id, paramFuncion);
 
     await actualizarDatos();
   };
@@ -167,7 +226,7 @@ export const CourseTable = () => {
                     <button
                       className="btn btn-secondary mr-2 mb-2"
                       onClick={() => {
-                        setparamFuncion((prevParamFuncion) => ({
+                       /* setparamFuncion((prevParamFuncion) => ({
                           ...prevParamFuncion,
                           id: course.id,
                           nombre: course.nombre,
@@ -176,8 +235,22 @@ export const CourseTable = () => {
                           profesor: course.profesor,
                           inicio: course.inicio,
                           fin: course.fin,
-                        }));
-                        resetCupos();
+                        }));*/
+
+                       /* setparamFuncion(
+                          {
+                          id: course._id,
+                          nombre: course.nombre,
+                          cupos_disponibles: course.cupos,
+                          cupos: course.cupos,
+                          profesor: course.profesor,
+                          inicio: course.inicio,
+                          fin: course.fin,
+                          disponible:true
+                          }
+                        )*/
+                       // console.log("on click clases ", course)
+                        resetCupos(course);
                       }}
                       style={{ marginLeft: "10px" }}
                     >
@@ -188,7 +261,44 @@ export const CourseTable = () => {
               );
             })}
           </tbody>
-        </table>
+      </table>
+
+      <div  style={{display:"flex", justifyContent:"center"}} >
+          <Pagination >
+            
+            
+            < Pagination.Prev onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaAnte= datosPaginacion.prevPage
+
+                if(!paginaAnte){
+                  paginaAnte= datosPaginacion.page
+                }
+                
+                getClasesPaginacion(paginaAnte)
+            } } 
+             />  
+            
+              {itemPaginacion.map((item)=>{return item  })}
+            
+
+            <Pagination.Next
+               onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaSig=datosPaginacion.nextPage  
+                
+                if(!paginaSig){
+                  paginaSig = datosPaginacion.page
+                }
+                
+                getClasesPaginacion(paginaSig)
+            } }
+            />
+           
+          </Pagination>
+
+          </div>
+
       </div>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
