@@ -21,80 +21,43 @@ const Login = ({setuser}) => {
   const navigate = useNavigate();
   let cadena = ""
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log("submit: ", formData)
-
-      const datosEmail = { 
+    setError("")
+    
+    const datosEmail = { 
         email:formData.email,
         password:formData.password
       }
     
-    //  const userLogin = await authLogin(datosEmail)
-
-    
-
-      
-/*
-     if (!userLogin){
-      alert("credenciales incorrectas")
-     }
-
-     
-
-      if (userLogin.role === "USER"){
-        cadena = "/Reservar"
-      } else {
-        cadena = "/AdminPage"
-      }
-      
-      if (!userLogin){
-        setError("Credenciales incorrectas")
-      }
-     
-
-      if (formData.email.trim() === "" || formData.password.trim() === "") {
-        setError("Por favor, ingresa tu email y contraseña");
-      } 
-
-      if (error){
-        return
-      }*/
-
-      if (formData.email.trim() === "" || formData.password.trim() === "") {
-       return setError("Por favor, ingresa tu email y contraseña");
+    if (formData.email.trim() === "" || formData.password.trim() === "") {
+       return  setError("Por favor, ingresa tu email y contraseña");
+           } 
+           
+    const userLogin = await authLogin(datosEmail)
         
-      } 
-
-      const userLogin = await authLogin(datosEmail)
-      if (!userLogin){
-        setError("Credenciales incorrectas")
-      }
-
-      if(error){
-        return 
-      }
-         else {
-         
-      if (userLogin.role === "USER"){
+    if (!userLogin){
+        return setError("Credenciales incorrectas")
+           }
+      
+    if (userLogin.role === "USER"){
         cadena = "/Reservar"
       } else {
         cadena = "/AdminPage"
       } 
-      console.log("la cadena es: ",cadena)
-        setError(""); 
-        setLoading(true);
+      
+    setError(""); 
+    setLoading(true);
 
-        setTimeout(() => {
+    setTimeout(() => {
           setLoading(false);
           localStorage.setItem("loggedInUser", JSON.stringify(userLogin));
           navigate(cadena);
         }, 5000); 
         
-        setTimeout(() => setLoading(true), 5000); 
-      }
-   
+    setTimeout(() => setLoading(true), 5000); 
+      
   };
 
   return (
