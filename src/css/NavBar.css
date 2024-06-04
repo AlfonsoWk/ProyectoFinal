@@ -112,9 +112,9 @@
   transition: background-color 0.8s, color 0.8s;}
   
 
-.btn-cerrar {
+/* .btn-cerrar {
   margin-inline: 20px;
-}
+} */
 
 @media (max-width: 1399px) {
   .nav-container {

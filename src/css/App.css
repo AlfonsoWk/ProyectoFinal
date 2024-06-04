@@ -1,0 +1,12 @@
+/* Eliminar efectos hover y transiciones en pantallas pequeñas */
+@media (max-width: 768px) {
+    .no-hover:hover,
+    .no-hover:focus,
+    .no-hover:active {
+      /* background-color: initial; */
+      color: initial;
+      transform: none; /* Desactiva cualquier transformación */
+      transition: none; /* Desactiva cualquier transición */
+    }
+  }
+  

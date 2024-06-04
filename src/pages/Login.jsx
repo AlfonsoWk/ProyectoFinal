@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 
-import {authLogin} from "../helpers/apiLogin"
+import { authLogin } from "../helpers/apiLogin";
 
 import { MDBCard, MDBCardBody, MDBInput, MDBContainer } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../css/Login.css";
 import SpinnerImage from "../images/logob.png";
-import  NavBar  from "../components/NavBar";
+import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import rollingGin from "../images/rollingGimAsset.jpg";
 
-const Login = ({setuser}) => {
+const Login = ({ setuser }) => {
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     email: "",
@@ -19,65 +19,65 @@ const Login = ({setuser}) => {
   });
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  let cadena = ""
+  let cadena = "";
 
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError("")
-    
-    const datosEmail = { 
-        email:formData.email,
-        password:formData.password
-      }
-    
+    setError("");
+
+    const datosEmail = {
+      email: formData.email,
+      password: formData.password,
+    };
+
     if (formData.email.trim() === "" || formData.password.trim() === "") {
-       return  setError("Por favor, ingresa tu email y contraseña");
-           } 
-           
-    const userLogin = await authLogin(datosEmail)
-        
-    if (!userLogin){
-        return setError("Credenciales incorrectas")
-           }
-      
-    if (userLogin.role === "USER"){
-        cadena = "/Reservar"
-      } else {
-        cadena = "/AdminPage"
-      } 
-      
-    setError(""); 
+      return setError("Por favor, ingresa tu email y contraseña");
+    }
+
+    const userLogin = await authLogin(datosEmail);
+
+    if (!userLogin) {
+      return setError("Credenciales incorrectas");
+    }
+
+    if (userLogin.role === "USER") {
+      cadena = "/Reservar";
+    } else {
+      cadena = "/AdminPage";
+    }
+
+    setError("");
     setLoading(true);
 
     setTimeout(() => {
-          setLoading(false);
-          localStorage.setItem("loggedInUser", JSON.stringify(userLogin));
-          navigate(cadena);
-        }, 5000); 
-        
-    setTimeout(() => setLoading(true), 5000); 
-      
+      setLoading(false);
+      localStorage.setItem("loggedInUser", JSON.stringify(userLogin));
+      navigate(cadena);
+    }, 5000);
+
+    setTimeout(() => setLoading(true), 5000);
   };
 
   return (
-    <>
-    <div style={{ backgroundImage: `url(${rollingGin})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
-    
+    <div
+      style={{
+        backgroundImage: `url(${rollingGin})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+      }}
+    >
+      {!loading && <NavBar />}
 
-    {!loading && <NavBar />}
-
-    {!loading ? (
+      {!loading ? (
         <MDBContainer style={{ color: "white" }}>
           <MDBCard
             className="m-5"
             style={{ maxWidth: "600px", backgroundColor: "black" }}
           >
             {" "}
-            
             <MDBCardBody className="px-5" style={{ color: "white" }}>
               {" "}
-            
               <h2 className="text-uppercase text-center mb-5">
                 Iniciar Sesión en Rolling Gym
               </h2>
@@ -123,21 +123,23 @@ const Login = ({setuser}) => {
           </MDBCard>
         </MDBContainer>
       ) : (
-          <div className="spinner-container" style={{ textAlign: "center", paddingTop: "20vh" }}>
-            <img
-              src={SpinnerImage}
-              alt="Spinner"
-              className="spinner-rotate" // Aplica la clase "rotate" para la animación de rotación
-              style={{
-                width: "200px",
-                height: "200px",
-              }}
-            />
-          </div>
-        )}
-        {!loading && <Footer />}
-      </div>
-    </>
+        <div
+          className="spinner-container"
+          style={{ textAlign: "center", paddingTop: "20vh" }}
+        >
+          <img
+            src={SpinnerImage}
+            alt="Spinner"
+            className="spinner-rotate" // Aplica la clase "rotate" para la animación de rotación
+            style={{
+              width: "200px",
+              height: "200px",
+            }}
+          />
+        </div>
+      )}
+      {!loading && <Footer />}
+    </div>
   );
 };
 

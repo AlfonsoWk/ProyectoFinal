@@ -10,7 +10,7 @@ import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import fotogym2 from "../images/fotogym2.jpg";
-
+import '../css/App.css'; 
 
 export const Contacto = () => {
   const [formValues, setFormValues] = useState({
@@ -39,13 +39,13 @@ export const Contacto = () => {
       alert("Por favor, complete todos los campos");
       return;
     }
-  
+
     const templateParams = {
       from_name: formValues.user_name,
       to_email: formValues.user_email,
       message: formValues.message,
     };
-  
+
     emailjs
       .send("service_v2ejebu", "template_nyxv7yt", templateParams, {
         publicKey: "d_jN8aMQHAitz_XK4",
@@ -53,13 +53,13 @@ export const Contacto = () => {
       .then(
         (result) => {
           alert("Email enviado con éxito", result.text);
-  
+
           setFormValues({
             user_name: "",
             user_email: "",
             message: "",
           });
-  
+
           // Agregar un retraso de 2 segundos antes de redirigir
           setTimeout(() => {
             navigate("/");
@@ -70,21 +70,23 @@ export const Contacto = () => {
         }
       );
   };
-  
+
   return (
-    <>
-    <div style={{ backgroundImage: `url(${fotogym2})`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+    <div
+      style={{
+        backgroundImage: `url(${fotogym2})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        minHeight: "100vh",
+      }}
+    >
       <NavBar />
-    
-      
-        <Container
-        fluid
-        
-      >
+
+      <Container fluid>
         <Row className="vh-100 d-flex justify-content-center align-items-center">
           <Col md={8} lg={6} xs={12}>
-            <div className="border border-3 rounded border-primary"></div>
-            <Card className="shadow">
+            <div className="border border-3 rounded border-dark bg-light"></div>
+            <Card className="shadow no-hover">
               <Card.Body>
                 <div className="mb-3 mt-1">
                   <h1 className="fw-bold mb-4 text-uppercase">Contacto</h1>
@@ -132,7 +134,7 @@ export const Contacto = () => {
                     </Form.Group>
 
                     <div className="d-grid">
-                      <Button variant="primary" type="submit">
+                      <Button variant="dark bg-dark" type="submit">
                         Enviar
                       </Button>
                     </div>
@@ -145,7 +147,6 @@ export const Contacto = () => {
       </Container>
 
       <Footer />
-      </div>
-    </>
+    </div>
   );
 };

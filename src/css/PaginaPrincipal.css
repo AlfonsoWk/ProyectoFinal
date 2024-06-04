@@ -80,13 +80,13 @@ h3{
     
   }
   
-<<<<<<< HEAD
+
   @media only screen and (max-width: 767px) {
     .planes img:hover {
         transform: scale(1); /* Desactivar el efecto hover */
     }
 }
-=======
+
 @media screen and (min-width: 1024px) {
     .planes img:hover{
         transform: scale(1.05);
@@ -96,4 +96,4 @@ h3{
         transform: scale(1.05);
     }
 }
->>>>>>> 76a7f90c1e10c6467fabb24a1bdb742e5fdf45fd
+
