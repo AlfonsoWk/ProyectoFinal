@@ -35,11 +35,13 @@ const consultarClima = (ubicacion) => {
             icono = data.weather[0].icon;
 
             // Ajustar el formato del icono
-            const letra = obtenerLetraIcono(data.weather[0].description);
+            /* const letra = obtenerLetraIcono(data.weather[0].description);
             const numero = icono.substring(0, 2);
             const momento = icono.charAt(2) === 'd' ? 'd' : 'n'; // 'd' para día, 'n' para noche
-            const iconoFormateado = `${letra}${numero}${momento}`;
-            logo = `../src/icons/${iconoFormateado}.png`;
+            const iconoFormateado = `${letra}${numero}${momento}`; */
+            /* logo = `../src/icons/${iconoFormateado}.png`; */
+            logo = `http://openweathermap.org/img/wn/${icono}.png`;
+
             console.log('logo: ',logo);
 
             const descripcion = traducirDescripcion(data.weather[0].description);
