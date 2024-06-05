@@ -23,7 +23,7 @@ const consultarClima = (ubicacion) => {
     let icono = "";
     let logo = "";
     const infoClima = document.getElementById("infoClima");
-    const api_key = "34765feb8963fd6cd54f08c7797249bd";
+    const api_key = import.meta.env.VITE_OPENWEATHER_API_KEY;
     const { lat, lon } = ubicacion;
     const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${api_key}&units=metric`;
     fetch(url)
