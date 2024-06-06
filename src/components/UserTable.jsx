@@ -3,9 +3,16 @@ import { deleteUser, getUsers, updateUsers } from "../helpers/apiUsers";
 
 import Modal from "react-bootstrap/Modal";
 import iconborrar from "../icons/boton-x.png";
+import Pagination from "react-bootstrap/Pagination";
+
+
 
 export const UserTable = () => {
-  const [paginacion, setpaginacion] = useState(null)
+  let item = []
+  
+  const [itemPaginacion, setitemPaginacion] = useState([])
+ 
+  
   const [errorMessage, setErrorMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -24,6 +31,10 @@ export const UserTable = () => {
   const handleDelete = async (id) => {
     let user = users.find((usuario) => usuario._id === id);
 
+    if (user.role === "SUPERADMIN") {
+      return alert("No se puede eliminar este usuario") 
+    }
+
     let validator = window.confirm(
       `Estas seguro que quieres eliminar al usuario ${user.fname_lname} `
     );
@@ -34,20 +45,66 @@ export const UserTable = () => {
     }
   };
 
+  const getUserPaginacion = async (pagina) =>{
+   
+      const usersPaginacion = await getUsers(pagina)
+      setUsers(usersPaginacion)
+  }
+
+
   const actualizarDatos = async () => {
-    const datos = await getUsers(setpaginacion);
+    let pagina = 1
+    if (localStorage.paginacion){
+      const paginacion = JSON.parse(localStorage.getItem("paginacion"))
+       pagina = paginacion.page
+    
+    }
 
-    console.log("los datos de la paginacion son : ", paginacion);
+      const datos = await getUsers(pagina);
 
+    
     setUsers(datos);
+     
+    /* inicio *** paginacion**** */
+    const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+      const longitud = datosPaginacion.totalPages
+
+
+    
+    for (let index = 1; index <= longitud ; index++) {
+     
+      item.push(
+       <Pagination.Item   key={index}  onClick={()=>{
+ 
+
+        
+        getUserPaginacion(index)} 
+       } >
+            {index}
+        </Pagination.Item>
+        
+      ) 
+
+      setitemPaginacion(item)
+    }
+
+    /* fin *** paginacion**** */
+   
+    
+    
   };
 
   useEffect(() => {
     actualizarDatos();
+    
   }, []);
 
   const handleModify = (id) => {
     const user = users.find((usuario) => usuario._id === id);
+
+    if (user.role === "SUPERADMIN"){
+      return alert("No se puede modificar este usuario")
+    }
 
     setSelectedUserId(id);
     setShowModal(true);
@@ -65,8 +122,13 @@ export const UserTable = () => {
       return;
     }
 
-    if (newUserData.telefono === "") {
+    if (!newUserData.telefono) {
       setErrorMessage("Por favor completa el campo 'Teléfono'.");
+      return;
+    }
+
+    if (!newUserData.planContratado){
+      setErrorMessage("!Por favor completa el campo 'Plan Contratado'.");
       return;
     }
 
@@ -111,17 +173,42 @@ export const UserTable = () => {
       <table className="table">
         <thead className="thead-dark">
           <tr className="table-dark">
-            <th scope="col" style={{backgroundColor: "black"}}>Nombre y Apellido</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Email</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Teléfono</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Plan Contratado</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Rol</th>
-            <th scope="col" style={{backgroundColor: "black"}}>Status</th>
-            <th scope="col" style={{backgroundColor: "black"}}></th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Nombre y Apellido
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Email
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Teléfono
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Plan Contratado
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Rol
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}>
+              Status
+            </th>
+            <th scope="col" style={{ backgroundColor: "black" }}></th>
           </tr>
         </thead>
         <tbody>
           {users.map((user) => {
+
+           let estado = "" 
+           if (user.status === true){
+            estado ="Activo"
+           } else{
+            estado = "Inactivo"
+           }
+
+           let habilitaBoton = ""
+           if(user.role ==="SUPERADMIN"){
+            habilitaBoton="true"
+           }
+
             return (
               <tr key={user._id}>
                 <td>{user.fname_lname}</td>
@@ -129,9 +216,11 @@ export const UserTable = () => {
                 <td>{user.telefono}</td>
                 <td>{user.planContratado}</td>
                 <td>{user.role}</td>
-                <td>{user.status}</td>
+                <td>{estado} </td>
                 <td>
-                  <button
+                  
+                  
+                    <button disabled={`${habilitaBoton}`}
                     className="btn btn-danger "
                     style={{
                       backgroundImage: `url(${iconborrar})`,
@@ -145,7 +234,7 @@ export const UserTable = () => {
                       handleDelete(user._id);
                     }}
                   ></button>
-                  <button
+                  <button disabled={`${habilitaBoton}`}
                     className="btn btn-success mr-2 mb-2"
                     onClick={() => {
                       handleModify(user._id);
@@ -154,12 +243,57 @@ export const UserTable = () => {
                   >
                     Modificar
                   </button>
+
+                
+                
+
+                  
+
                 </td>
               </tr>
             );
           })}
         </tbody>
-      </table>
+   </table>
+
+
+   <div  style={{display:"flex", justifyContent:"center"}} >
+          <Pagination >
+            
+            
+            < Pagination.Prev onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaAnte= datosPaginacion.prevPage
+
+                if(!paginaAnte){
+                  paginaAnte= datosPaginacion.page
+                }
+                
+                getUserPaginacion(paginaAnte)
+            } } 
+             />  
+            
+              {itemPaginacion.map((item)=>{return item  })}
+            
+
+            <Pagination.Next
+               onClick={()=>{
+                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
+                let paginaSig=datosPaginacion.nextPage  
+                
+                if(!paginaSig){
+                  paginaSig = datosPaginacion.page
+                }
+                
+                getUserPaginacion(paginaSig)
+            } }
+            />
+           
+          </Pagination>
+
+          </div>
+
+
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
           <Modal.Title>Modificar usuario</Modal.Title>
@@ -235,8 +369,9 @@ export const UserTable = () => {
                 }
                 required
               >
-                <option value="soloMusculacion">Plan solo musculación</option>
-                <option value="soloClases">Plan Clases</option>
+                <option value={null}>Elinge un plan</option>
+                <option value="solo Musculacion">Plan solo musculación</option>
+                <option value="solo Clases">Plan Clases</option>
                 <option value="full">Plan Full</option>
               </select>
             </div>
@@ -301,8 +436,8 @@ export const UserTable = () => {
                   })
                 }
               >
-                <option value="ACTIVE">Activo</option>
-                <option value="INACTIVE">Inactivo</option>
+                <option value="true">Activo</option>
+                <option value="false">Inactivo</option>
               </select>
             </div>
           </form>

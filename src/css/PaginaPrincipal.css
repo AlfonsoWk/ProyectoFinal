@@ -20,6 +20,8 @@
 .planes img {
     max-width: 450px;
     max-height: 250px;
+    border-radius: 0.5rem;
+
 }
 .planes img {
     width: 100%;
@@ -28,22 +30,22 @@
     position: relative;
 }
 
-.planes img:hover{
-    transform: scale(1.15);
-}
 
 
 .ventas img{
     transition: all 300ms;
     position: relative;
+    border-radius: 0.4rem;
 }
 
+<<<<<<< HEAD
 .ventas img:hover{
     transform: scale(1.15);
 }
 
 
-
+=======
+>>>>>>> 76a7f90c1e10c6467fabb24a1bdb742e5fdf45fd
 
 h3{
     text-align: center;
@@ -75,6 +77,23 @@ h3{
     background-image: url('../images/Principal.jpg');
     background-size: cover;
     background-position: center;
-    ;
+    
   }
   
+
+  @media only screen and (max-width: 767px) {
+    .planes img:hover {
+        transform: scale(1); /* Desactivar el efecto hover */
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .planes img:hover{
+        transform: scale(1.05);
+    }
+
+    .ventas img:hover{
+        transform: scale(1.05);
+    }
+}
+

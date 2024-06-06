@@ -6,13 +6,11 @@ import reservar from "../images/reservar.jpg"
 
 const ReservarPage = () => {
   return (
-   <>
-        <div style={{ backgroundImage: `url('${reservar}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
+   <div style={{ backgroundImage: `url('${reservar}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '100vh' }}>
     <NavBar/>
     <ReservaTurno/>
     <Footer/>
     </div>
-   </>
   )
 }
 

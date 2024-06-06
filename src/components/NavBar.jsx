@@ -23,7 +23,7 @@ const NavBar = () => {
   }
 
   const cerrarSesion = () => {
-    localStorage.removeItem("loggedInUser");
+    localStorage.clear();
     navigate("/login"); // Redireccionar a la página de inicio de sesión
   };
 
@@ -54,14 +54,28 @@ const NavBar = () => {
     <div className="d-flex justify-content-center">
       <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
         <Container id="container-nav">
-          <Navbar.Brand href="/" id="logo">
+        
+
+          {
+              /* <Navbar.Brand href={cadena} id="logo">
             {" "}
             <img
               src={logonav}
               alt=""
               style={{ width: "50px", marginLeft: "10px" }}
             />{" "}
-          </Navbar.Brand>
+          </Navbar.Brand>*/
+
+          }
+
+
+          <Link to={cadena} id="logo">
+          <img
+              src={logonav}
+              alt=""
+              style={{ width: "50px", marginLeft: "10px" }}
+            />
+          </Link>
 
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

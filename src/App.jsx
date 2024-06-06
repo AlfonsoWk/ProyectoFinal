@@ -7,8 +7,8 @@ import { Contacto } from "./pages/Contacto";
 import { Error404 } from "./pages/Error404";
 import Nosotros from "./pages/Nosotros";
 import Productos from "./pages/Productos.jsx";
-import ReservarPage from "./pages/ReservarPage.jsx"
-import PanelClases from "./components/PanelClases.jsx"
+import ReservarPage from "./pages/ReservarPage.jsx";
+import PanelClases from "./components/PanelClases.jsx";
 import PaginaPrincipal from "./pages/PaginaPrincipal.jsx";
 import Clases from "./pages/Clases.jsx";
 
@@ -22,43 +22,42 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
-
 function App() {
+  // const user =  JSON.parse(localStorage.getItem("loggedInUser"))
 
-
-  const user = JSON.parse(localStorage.getItem("loggedInUser"))
   return (
     <Router>
       <Routes>
-        
-
-        <Route path="/" element={<PaginaPrincipal />} /> 
+        <Route path="/" element={<PaginaPrincipal />} />
         <Route path="/Registration" element={<Registration />} />
-        <Route path="/login" element={<Login  />} />
+        <Route path="/login" element={<Login />} />
         <Route path="/DetallePlan" element={<DetallePlan />} />
         <Route path="/Contacto" element={<Contacto />} />
         <Route path="/404" element={<Error404 />} />
         <Route path="/*" element={<Error404 />} />
         <Route path="/Clases" element={<Clases />} />
 
-        <Route path="/AdminPage" element={
-          <RutasProtegidas role={"ADMIN"} user={user} >
+        <Route
+          path="/AdminPage"
+          element={
+            <RutasProtegidas role={"ADMIN"} /* user={user}*/>
               <AdminPage />
-          </RutasProtegidas>
-        
-        } />
-
+            </RutasProtegidas>
+          }
+        />
 
         <Route path="/userpage" element={<UserPage />} />
         <Route path="/Nosotros" element={<Nosotros />} />
         <Route path="/Productos" element={<Productos />} />
 
-        <Route path="/Reservar" element={
-          <RutasProtegidas  role={"USER"} user={user} > 
-              <ReservarPage  />
-          </RutasProtegidas>
-        
-        } />
+        <Route
+          path="/Reservar"
+          element={
+            <RutasProtegidas role={"USER"} /*user={user} */>
+              <ReservarPage />
+            </RutasProtegidas>
+          }
+        />
 
         <Route path="/Cancelar" element={<PanelClases />} />
       </Routes>

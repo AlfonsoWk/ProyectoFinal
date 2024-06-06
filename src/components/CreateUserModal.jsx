@@ -117,9 +117,9 @@ export const CreateUserModal = (props) => {
               onChange={handleOnChange}
               required
             >
-              <option value="">Selecciona un Plan</option>
-              <option value="soloMusculacion">Plan solo musculación</option>
-              <option value="soloClases">Plan solo clases</option>
+              <option value={null}>Selecciona un Plan</option>
+              <option value="solo Musculacion">Plan solo musculación</option>
+              <option value="solo Clases">Plan solo clases</option>
               <option value="full">Plan full</option>
             </Form.Control>
           </Form.Group>

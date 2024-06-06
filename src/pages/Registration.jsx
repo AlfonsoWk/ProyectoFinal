@@ -63,7 +63,6 @@ const Registration = () => {
 
     if (isValid) {
       await createUser(formData);
-
       alert("Registro exitoso");
       setFormData({
         fname_lname: "",

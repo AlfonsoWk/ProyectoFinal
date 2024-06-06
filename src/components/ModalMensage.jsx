@@ -8,6 +8,7 @@ const ModalMensage = ({
   closeModal,
   paramFuncion,
   actualizarDatos,
+  datosPaginacion
 }) => {
   let reserva = true;
   const user = JSON.parse(localStorage.getItem("loggedInUser"))
@@ -18,7 +19,10 @@ const ModalMensage = ({
   }
 
   const reservar = async () => {
+
+    
     const nuevoCupo = paramFuncion.cupos_disponibles - 1;
+    
 
     const fecha = new Date();
     const hora = Number(fecha.getHours());
@@ -31,7 +35,7 @@ const ModalMensage = ({
 
       if (hora >= obtener.inicio) {
         reserva = false;
-        console.log("estado ", reserva);
+       
       }
     });
 
@@ -47,10 +51,6 @@ const ModalMensage = ({
 
     await updateCupos(paramFuncion.id, { cupos_disponibles: nuevoCupo });
 
-   
-
-    actualizarDatos();
-
     await clasesUsuarios({
       id_clase: paramFuncion.id,
       nombre: paramFuncion.nombre,
@@ -62,9 +62,16 @@ const ModalMensage = ({
       disponible: true,
       usuario: usuario,
     });
+
+
+
+    localStorage.setItem("paginacion",JSON.stringify(datosPaginacion) );
+   
+    actualizarDatos();
+
     closeModal();
   };
-
+  
   return (
     <div
       className="modal show"

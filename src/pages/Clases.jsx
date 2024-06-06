@@ -75,12 +75,24 @@ const Clases = () => {
         <table className="table">
           <thead className="thead-dark">
             <tr className="table-dark">
-              <th style={{ textAlign: "center", backgroundColor: "black" }}>Hora</th>
-              <th style={{ textAlign: "center", backgroundColor: "black" }}>Lunes</th>
-              <th style={{ textAlign: "center", backgroundColor: "black" }}>Martes</th>
-              <th style={{ textAlign: "center", backgroundColor: "black" }}>Miércoles</th>
-              <th style={{ textAlign: "center", backgroundColor: "black" }}>Jueves</th>
-              <th style={{ textAlign: "center", backgroundColor: "black" }}>Viernes</th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>
+                Hora
+              </th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>
+                Lunes
+              </th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>
+                Martes
+              </th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>
+                Miércoles
+              </th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>
+                Jueves
+              </th>
+              <th style={{ textAlign: "center", backgroundColor: "black" }}>
+                Viernes
+              </th>
               <th style={{ backgroundColor: "black" }}></th>
             </tr>
           </thead>
@@ -94,13 +106,15 @@ const Clases = () => {
                 <td style={{ textAlign: "center" }}>{item.Jueves}</td>
                 <td style={{ textAlign: "center" }}>{item.Viernes}</td>
                 <td>
-                  <Link to="/login"
-/*                     href={item.link}
+                  <Link
+                    to="/login"
+                    /*                     href={item.link}
                     target="_blank"
                     rel="noopener noreferrer"
                      */
-                    style={{ fontWeight: "bold" }}>
-                    Reservar
+                    style={{ fontWeight: "bold" }}
+                  >
+                    Reservar Clase
                   </Link>
                 </td>
               </tr>
