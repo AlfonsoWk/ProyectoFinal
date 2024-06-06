@@ -71,6 +71,18 @@ export const CourseTable = () => {
       return;
     }
 
+    const inicioHora = parseInt(newCourseData.inicio);
+    if (inicioHora < 7 ) {
+      setErrorMessage("La hora de inicio debe ser posterior a las 7hs.");
+      return;
+    }
+
+    const finHora = parseInt(newCourseData.fin);
+    if (finHora > 23) {
+      setErrorMessage("La hora de fin debe ser anterior a las 23hs.");
+      return;
+    }
+
     
     if (parseInt(newCourseData.inicio) >= parseInt(newCourseData.fin)) {
       setErrorMessage("La hora de inicio debe ser menor que la hora de fin.");
@@ -200,7 +212,7 @@ export const CourseTable = () => {
               />
             </div>
             <div className="form-group">
-              <label>Inicio:</label>
+              <label>Hora Inicio:</label>
               <input
                 type="number"
                 className="form-control"
@@ -215,7 +227,7 @@ export const CourseTable = () => {
               />
             </div>
             <div className="form-group">
-              <label>Fin:</label>
+              <label>Hora Fin:</label>
               <input
                 type="number"
                 className="form-control"

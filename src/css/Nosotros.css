@@ -1,0 +1,342 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:300);
+
+.badge {
+  display: block;
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  cursor: pointer;
+  background: url() no-repeat 100% 50%;
+  background-size: 120%;
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.75);
+}
+
+.badge:hover {
+  box-shadow: 0px 0.5rem 2rem rgba(0, 0, 0, 0.75);
+  background-position: 0% 50%;
+}
+
+.badge:hover .text {
+  transform: rotate(-45deg) translate(0px) rotate(-315deg);
+  background: rgba(102, 51, 153, 0.5);
+  width: 20rem;
+  letter-spacing: 1rem;
+  line-height: 20rem;
+  height: 20rem;
+  margin-top: -10rem;
+  margin-left: -10rem;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1),
+    letter-spacing 1.5s ease-out;
+}
+
+.badge .text {
+  display: flex;
+  position: absolute;
+  width: 10rem;
+  height: 10rem;
+  line-height: 10rem;
+  left: 50%;
+  top: 50%;
+  margin-top: -5rem;
+  margin-left: -5rem;
+  font-size: 2rem;
+  font-family: Raleway, sans-serif;
+  text-align: center;
+  color: #fff;
+  border-radius: 50%;
+  background: rebeccapurple;
+  transform: rotate(-180deg) translate(-10rem) rotate(180deg);
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.5);
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.badge:hover {
+  -webkit-filter: none;
+}
+
+.badge {
+  -webkit-filter: blur(3px);
+  filter: blur(3px);
+  -webkit-transition: 0.3s ease-in-out;
+  transition: 0.3s ease-in-out;
+}
+.card1 {
+  margin-top: 500px;
+  left: 150px;
+  background-image: url(../images/Alfonso.webp);
+  background-size: 99%;
+}
+
+.card2 {
+  left: -300px;
+  background-image: url(../images/FacundoLuque.webp);
+  background-size: cover;
+}
+
+.card3 {
+  margin-top: 500px;
+  left: 150px;
+  background-image: url(../images/german1.jpeg);
+  background-size: 100%;
+}
+
+.card4 {
+  background-image: url(../images/Esteban.webp);
+}
+
+.nosotros-container {
+  color: hsla(0, 0%, 0%, 0.9);
+  font: normal 100px Varela Round, sans-serif;
+  height: 140px;
+  left: 0;
+  letter-spacing: 5px;
+  margin: -80px 0 0 0;
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  top: 60%;
+  width: 100%;
+  animation: move linear 2000ms infinite;
+}
+
+.linkedin1 {
+  display: block;
+  position: relative;
+  width: 20rem;
+  height: 20rem;
+  cursor: pointer;
+
+  border-radius: 50%;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+  box-shadow: 0px 0.5rem 1rem rgba(0, 0, 0, 0.75);
+}
+
+.linkedin1:hover {
+  box-shadow: 0px 0.5rem 2rem rgba(0, 0, 0, 0.75);
+  background: none;
+}
+
+.text {
+  /* position: absolute; */
+  width: 100%;
+  height: 100%;
+  line-height: 20rem;
+  text-align: center;
+  color: #fff;
+  font-size: 1.5rem;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.linkedin1:hover .text {
+  transform: scale(0.8);
+  opacity: 0;
+}
+
+.github-link .icon {
+  margin-left: -50px;
+  color: #000000;
+}
+
+.facebook-link .icon {
+  margin-left: 50px;
+  color: #0003ca;
+}
+
+.badge .facebook-link .icon:hover {
+  color: #1c1caf;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.badge .linkedin-link .icon:hover {
+  color: #3068cf;
+  background-color: #fff;
+  border-radius: 5px;
+}
+.badge .github-link .icon:hover {
+  color: #0d0d0e;
+}
+
+.icon {
+  display: none;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.5); /* Icono de LinkedIn transparente */
+  font-size: 2rem;
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+.badge:hover .icon {
+  display: block;
+  color: #fff; /* Icono de LinkedIn visible al hacer hover */
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+/* Nosotros.css */
+
+@keyframes move {
+  0% {
+    text-shadow: 4px 4px 0 rgb(255, 255, 255), 3px 3px 0 rgb(253, 255, 255),
+      2px 2px 0 rgb(244, 247, 247), 1px 1px 0 rgb(253, 255, 255),
+      -4px -4px 0 rgb(162, 201, 199), -3px -3px 0 rgb(162, 201, 199),
+      -2px -2px 0 rgb(162, 201, 199), -1px -1px 0 rgb(162, 201, 199);
+  }
+  25% {
+    text-shadow: -4px -4px 0 rgb(254, 255, 255), -3px -3px 0 rgb(255, 255, 255),
+      -2px -2px 0 rgb(255, 255, 255), -1px -1px 0 rgb(255, 255, 255),
+      4px 4px 0 rgb(162, 201, 199), 3px 3px 0 rgb(162, 201, 199),
+      2px 2px 0 rgb(162, 201, 199), 1px 1px 0 rgb(162, 201, 199);
+  }
+  50% {
+    text-shadow: -4px 4px 0 rgb(162, 201, 199), -3px 3px 0 rgb(162, 201, 199),
+      -2px 2px 0 rgb(162, 201, 199), -1px 1px 0 rgb(255, 255, 255),
+      4px -4px 0 rgb(255, 255, 255), 3px -3px 0 rgb(255, 255, 255),
+      2px -2px 0 rgb(255, 255, 255), 1px -1px 0 rgb(255, 255, 255);
+  }
+  75% {
+    text-shadow: 4px 4px 0 rgb(255, 255, 255), 3px 3px 0 rgb(253, 255, 255),
+      2px 2px 0 rgb(244, 247, 247), 1px 1px 0 rgb(253, 255, 255),
+      -4px -4px 0 rgb(162, 201, 199), -3px -3px 0 rgb(162, 201, 199),
+      -2px -2px 0 rgb(162, 201, 199), -1px -1px 0 rgb(162, 201, 199);
+  }
+  100% {
+    text-shadow: 4px -4px 0 rgb(162, 201, 199), 3px -3px 0 rgb(162, 201, 199),
+      2px -2px 0 rgb(162, 201, 199), 1px -1px 0 rgb(162, 201, 199),
+      -4px 4px 0 rgb(255, 255, 255), -3px 3px 0 rgb(255, 255, 255),
+      -2px 2px 0 rgb(255, 255, 255), -1px 1px 0 rgb(255, 255, 255);
+  }
+}
+
+@media (max-width: 768px) {
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    margin: 0px;
+    display: flex;
+    width: 100%;
+
+    /* Espacio entre tarjetas */
+  }
+
+  /* Desactivar el efecto hover en dispositivos móviles */
+  .badge:hover {
+    box-shadow: none;
+    background-position: 100% 50%;
+  }
+
+  .badge:hover .text {
+    transform: none;
+    background: none;
+    width: 10rem;
+    letter-spacing: 0;
+    line-height: 10rem;
+    height: 10rem;
+    margin-top: -5rem;
+    margin-left: -5rem;
+  }
+
+  .badge:hover .icon {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .card1,
+  .card2,
+  .card3,
+  .card4 {
+    display: flex;
+    width: 100%;
+    /* Espacio entre tarjetas */
+  }
+
+  .card1 {
+    margin-top: 65rem;
+    margin-bottom: 180px;
+    background-size: cover;
+    height: 100px;
+    scale: 1.5;
+  }
+
+  .card2 {
+    left: 60px;
+    height: 100px;
+    scale: 1.5;
+    top: 7rem;
+  }
+
+  .card3 {
+    left: -19px;
+    top: 26rem;
+    background-size: cover;
+    height: 100px;
+    scale: 1.5;
+  }
+
+  .card4 {
+    margin-top: 45rem;
+    left: -120px;
+    background-size: cover;
+    height: 100px;
+    scale: 1.5;
+  }
+  .text .icon {
+    display: flex;
+    left: 50px;
+  }
+
+  .text .icon:hover {
+    transition: none;
+  }
+
+  .github-link .icon, .facebook-link .icon  {
+    background-color: antiquewhite;
+    border-radius: 40px ;
+  }
+  .nosotros-container {
+    height: 14px;
+    display:contents;
+    letter-spacing: 5px;
+    margin: -300px 0 0 0;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    font-size: 40px;
+  }
+
+  .badge .text {
+    display: flex;
+    background: none;
+    width: 0;
+    left: -90px;
+    top: 120px;
+    font-size: 15px;
+  }
+
+  /* Desactivar el efecto hover en dispositivos móviles */
+  .badge {
+    box-shadow: none;
+    background-position: 100% 50%;
+    -webkit-filter: blur(0px);
+    filter: blur(0px);
+  }
+
+  .badge:hover .text {
+    transform: none;
+    background: none;
+    width: 10rem;
+    letter-spacing: 0;
+    line-height: 10rem;
+    height: 10rem;
+    margin-top: -5rem;
+    margin-left: -5rem;
+    transition: none;
+    display: none;;
+  }
+}

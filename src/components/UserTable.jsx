@@ -5,6 +5,7 @@ import Modal from "react-bootstrap/Modal";
 import iconborrar from "../icons/boton-x.png";
 
 export const UserTable = () => {
+  const [paginacion, setpaginacion] = useState(null)
   const [errorMessage, setErrorMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -34,8 +35,10 @@ export const UserTable = () => {
   };
 
   const actualizarDatos = async () => {
-    const datos = await getUsers();
-    console.log("los usuarios que se deben mostrar son: ", datos);
+    const datos = await getUsers(setpaginacion);
+
+    console.log("los datos de la paginacion son : ", paginacion);
+
     setUsers(datos);
   };
 

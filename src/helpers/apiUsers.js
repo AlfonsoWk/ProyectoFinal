@@ -13,7 +13,7 @@ export const getUsersByEmail = async (email) => {
 
 };*/
 
-export const getUsers = async () => {
+export const getUsers = async (setpaginacion) => {
 
     const token = JSON.parse(localStorage.getItem("token"))
     const user = JSON.parse(localStorage.getItem("loggedInUser"))
@@ -23,7 +23,10 @@ export const getUsers = async () => {
     const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user?token=${token}&role=${role}`);
     const data = await response.json();
    
-    console.log("estoy en apy user ----> data result", data.results)
+    console.log("estoy en apy user ----> data result", data)
+
+    setpaginacion(data.paginacion)
+
     return data.results;
   
 };
