@@ -4,7 +4,7 @@ import { authLogin } from "../helpers/apiLogin";
 
 import { MDBCard, MDBCardBody, MDBInput, MDBContainer } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+
 import "../css/Login.css";
 import SpinnerImage from "../images/logob.png";
 import NavBar from "../components/NavBar";
@@ -38,6 +38,10 @@ const Login = ({ setuser }) => {
 
     if (!userLogin) {
       return setError("Credenciales incorrectas");
+    }
+
+    if (!userLogin.status){
+      return setError("El usuario no tiene un estado valido.");
     }
 
     if (userLogin.role === "USER") {
