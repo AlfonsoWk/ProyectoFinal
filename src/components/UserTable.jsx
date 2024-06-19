@@ -101,7 +101,10 @@ export const UserTable = () => {
   }, []);
 
   const handleModify = (id) => {
-    const user = users.find((usuario) => usuario._id === id);
+    let user = users.find((usuario) => usuario._id === id);
+    
+    delete user.password
+  
 
     if (user.role === "SUPERADMIN"){
       return alert("No se puede modificar este usuario")
