@@ -54,11 +54,9 @@ export const CreateUserModal = (props) => {
       return;
     }
 
-     
-
     const newUser = { ...formValues };
-   
-    console.log("el usuario de admin page es: ",newUser)
+
+    console.log("el usuario de admin page es: ", newUser);
     await createUser(newUser);
     props.onHide();
   };

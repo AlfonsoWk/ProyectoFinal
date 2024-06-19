@@ -38,7 +38,7 @@ export const CreateCourseModal = (props) => {
     }
 
     const inicioHora = parseInt(formValues.inicio);
-    if (inicioHora < 7 ) {
+    if (inicioHora < 7) {
       setErrorMessage("La hora de inicio debe ser posterior a las 7hs.");
       return;
     }

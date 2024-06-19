@@ -12,7 +12,7 @@
 .pulse:hover,
 .pulse:focus {
   -webkit-animation: pulse 1s;
-          animation: pulse 1s;
+  animation: pulse 1s;
   box-shadow: 0 0 0 2em transparent;
 }
 
@@ -29,45 +29,45 @@
 }
 
 .pulse {
-    --color: #ffffff;
-    --hover: #d9d8eb;
-  }
+  --color: #ffffff;
+  --hover: #d9d8eb;
+}
 
-  button {
-    color: var(--color);
-    transition: 0.25s;
-  }
-  button:hover, button:focus {
-    border-color: var(--hover);
-    color: #fff;
-  }
-  
- 
-  button {
-    background: none;
-    border: 2px solid;
-    font: inherit;
-    line-height: 1;
-    margin: 0.5em;
-    padding: 1em 2em;
-    border-radius: 20px;
-  }
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover,
+button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
 
-  .pulse:hover{
-    background-color: rgb(255, 255, 255);
-    color: black;
-    border: 2px solid black;
-    transition: background-color 0.8s, color 0.8s;
-  }
-  
-  h1 {
-    font-weight: 400;
-  }
-  
-  code {
-    color: #fcfcfc;
-    font: inherit;
-  }
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+  border-radius: 20px;
+}
+
+.pulse:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  border: 2px solid black;
+  transition: background-color 0.8s, color 0.8s;
+}
+
+h1 {
+  font-weight: 400;
+}
+
+code {
+  color: #fcfcfc;
+  font: inherit;
+}
 #container-nav {
   margin: 0;
   padding: 0;
@@ -102,15 +102,15 @@
 }
 
 .raise {
-    --color: #fcf8f8;
-    --hover: #f80404;
-  }
-.raise:hover{
+  --color: #fcf8f8;
+  --hover: #f80404;
+}
+.raise:hover {
   background-color: rgb(255, 0, 0);
   color: rgb(5, 5, 5);
   border: 2px solid rgb(224, 75, 75);
-  transition: background-color 0.8s, color 0.8s;}
-  
+  transition: background-color 0.8s, color 0.8s;
+}
 
 /* .btn-cerrar {
   margin-inline: 20px;
@@ -224,7 +224,32 @@
   transform: rotateX(-90deg) translateY(100%);
 }
 
+.custom-dropdown .dropdown-toggle {
+  background-color: transparent !important;
+  border: none !important;
+  color: white;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
 
+.custom-dropdown .dropdown-toggle:focus,
+.custom-dropdown .dropdown-toggle:hover {
+  background-color: transparent !important;
+  color: white;
+}
+
+.custom-dropdown .dropdown-menu {
+  background-color: #343a40; /* Cambia esto al color de fondo deseado */
+}
+
+.custom-dropdown .dropdown-item {
+  color: white;
+}
+
+.custom-dropdown .dropdown-item:hover {
+  background-color: #495057; /* Cambia esto al color de fondo deseado */
+}
 
 @media (max-width: 768px) {
   .nav-container {
@@ -242,7 +267,6 @@
     margin-left: 300px;
   }
 }
-
 
 @media (max-width: 420px) {
   .nav-container {

@@ -35,7 +35,7 @@ const Clima = () => {
 
   return (
     <>
-  {/*     <Form onSubmit={handleSubmit}>
+      {/*     <Form onSubmit={handleSubmit}>
         <Button variant="outline-light" type="submit">
           Consultar clima
         </Button>

@@ -4,6 +4,7 @@ import { deleteUser, getUsers, updateUsers } from "../helpers/apiUsers";
 import Modal from "react-bootstrap/Modal";
 import iconborrar from "../icons/boton-x.png";
 import Pagination from "react-bootstrap/Pagination";
+import { FaCheckCircle } from "react-icons/fa";
 
 
 
@@ -235,13 +236,27 @@ export const UserTable = () => {
                     }}
                   ></button>
                   <button disabled={`${habilitaBoton}`}
-                    className="btn btn-success mr-2 mb-2"
+                    className="btn mr-2 mb-2"
                     onClick={() => {
                       handleModify(user._id);
                     }}
-                    style={{ marginLeft: "10px" }}
+/*                     style={{ 
+                      backgroundImage: `url(${FaCheckCircle})`,
+                      backgroundSize: "cover",
+                      backgroundPosition: "center",
+                      fontColor: "green",
+                      height: "40px",
+                      width: "40px",
+                      borderRadius: "50%",marginLeft: "10px" }} */
                   >
-                    Modificar
+                    <FaCheckCircle style={{ color: "green", fontSize: "24px",                       backgroundSize: "cover",
+                      /* backgroundPosition: "center", */
+                      /* fontColor: "transparent", */
+                      height: "40px",
+                      width: "40px",
+                      borderRadius: "50%",
+                      marginLeft: "10px"}} />
+                    {/* Modificar */}
                   </button>
 
                 
@@ -369,7 +384,7 @@ export const UserTable = () => {
                 }
                 required
               >
-                <option value={null}>Elinge un plan</option>
+                <option value={null}>Elige un plan</option>
                 <option value="solo Musculacion">Plan solo musculación</option>
                 <option value="solo Clases">Plan Clases</option>
                 <option value="full">Plan Full</option>

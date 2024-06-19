@@ -152,15 +152,15 @@ const ReservaTurno = () => {
                         onClick={() => {
                           // reservar(clase.id, clase.nombre, clase.cupos_disponibles, clase.cupos,clase.profesor, clase.inicio, clase.fin)
                           setopenModal(true);
-                            setparamFuncion({
-                              id: clase._id,
-                              nombre: clase.nombre,
-                              cupos_disponibles: clase.cupos_disponibles,
-                              cupos: clase.cupos,
-                              profesor: clase.profesor,
-                              inicio: clase.inicio,
-                              fin: clase.fin,
-                            });
+                          setparamFuncion({
+                            id: clase._id,
+                            nombre: clase.nombre,
+                            cupos_disponibles: clase.cupos_disponibles,
+                            cupos: clase.cupos,
+                            profesor: clase.profesor,
+                            inicio: clase.inicio,
+                            fin: clase.fin,
+                          });
                         }}
                       >
                         Reservar

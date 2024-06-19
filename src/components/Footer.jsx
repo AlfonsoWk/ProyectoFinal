@@ -1,5 +1,5 @@
 import React from "react";
-import { FaInstagram,FaFacebookF } from "react-icons/fa";
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 import { FiYoutube } from "react-icons/fi";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -8,8 +8,8 @@ import logob from "../images/logob.png";
 
 export const Footer = () => {
   return (
-    <footer className="footer footer-negro" style={{borderRadius:"50px"}}>
-      <div className="container" >
+    <footer className="footer footer-negro" style={{ borderRadius: "50px" }}>
+      <div className="container">
         <div className="row">
           {/* Logo */}
           <div className="col-sm-12 col-md-6 logo-container">
@@ -28,7 +28,7 @@ export const Footer = () => {
               className="redes-sociales d-flex"
               /* style={{ marginTop: "-7em", marginLeft: "4em" }} */
             >
-              <li style={{ marginRight: "1em"}}>
+              <li style={{ marginRight: "1em" }}>
                 <a href="404">
                   <FaFacebookF />
                 </a>
@@ -54,7 +54,7 @@ export const Footer = () => {
           <div className="col-sm-12 col-md-6">
             <div
               className="container_informacion d-flex"
-              style={{ position: "relative"}}
+              style={{ position: "relative" }}
             >
               {/* Información de cursos */}
               <div
@@ -102,13 +102,13 @@ export const Footer = () => {
               </div>
             </div>
           </div>
-          
-          <p className="copyright" style={{ textAlign: "center" }}>
-          <hr /> {/* Línea horizontal */}
-  &copy; {new Date().getFullYear()} Rolling Gym - Todos los derechos reservados. Gral. Paz 576, San Miguel de Tucumán Tucumán, Argentina, Tel: 0381 578-3030
-  
-</p>
 
+          <p className="copyright" style={{ textAlign: "center" }}>
+            <hr /> {/* Línea horizontal */}
+            &copy; {new Date().getFullYear()} Rolling Gym - Todos los derechos
+            reservados. Gral. Paz 576, San Miguel de Tucumán Tucumán, Argentina,
+            Tel: 0381 578-3030
+          </p>
         </div>
       </div>
     </footer>

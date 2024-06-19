@@ -2,6 +2,8 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import logonav from "../images/logob1.png";
@@ -10,6 +12,7 @@ import "../css/NavBar.css";
 const NavBar = () => {
   const location = useLocation();
   const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+  console.log("Logged in user:", loggedInUser);
   let cadena = "/";
   const navigate = useNavigate();
 
@@ -44,33 +47,31 @@ const NavBar = () => {
         location.pathname !== "/Nosotros" &&
         location.pathname !== "/Productos" &&
         location.pathname !== "/AdminPage" &&
-        location.pathname !== "/UserPage"
-        &&
+        location.pathname !== "/UserPage" &&
         location.pathname !== "/Clases")
     );
   };
+
+  // Obtener la URL del avatar del usuario
+  const avatarUrl = loggedInUser ? loggedInUser.avatarUrl : null;
+
+  // Obtener el nombre completo del usuario
+  const fullName = loggedInUser ? loggedInUser.fname_lname : "Usuario";
+
+  // Obtener la leyenda del menú basado en el rol del usuario
+  const menuLegend = loggedInUser
+    ? `${fullName} (${loggedInUser.role === "USER" ? "Usuario" : "Administrador"})`
+    : "Usuario";
+
+  // Determinar la página de redireccionamiento del perfil
+  const profilePage = loggedInUser && loggedInUser.role === "USER" ? "/Reservar" : "/userpage";
 
   return (
     <div className="d-flex justify-content-center">
       <Navbar expand="lg" className="navbar navbar-dark bg-dark" id="Navbar">
         <Container id="container-nav">
-        
-
-          {
-              /* <Navbar.Brand href={cadena} id="logo">
-            {" "}
-            <img
-              src={logonav}
-              alt=""
-              style={{ width: "50px", marginLeft: "10px" }}
-            />{" "}
-          </Navbar.Brand>*/
-
-          }
-
-
           <Link to={cadena} id="logo">
-          <img
+            <img
               src={logonav}
               alt=""
               style={{ width: "50px", marginLeft: "10px" }}
@@ -84,35 +85,51 @@ const NavBar = () => {
                 <Link
                   to="/Clases"
                   className="ItemNav clases-nav class-1"
-                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
+                  style={{
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    textAlign: "center",
+                  }}
                 >
                   | Clases |
                 </Link>
                 <Link
                   to="/Productos"
                   className="ItemNav class-2"
-                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
+                  style={{
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    textAlign: "center",
+                  }}
                 >
                   | Nuestros Productos |
                 </Link>
                 <Link
                   to="/Nosotros"
                   className="ItemNav class-3"
-                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
+                  style={{
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    textAlign: "center",
+                  }}
                 >
                   | Acerca de nosotros |
                 </Link>
                 <Link
                   to="/Contacto"
                   className="ItemNav class-4"
-                  style={{ textDecoration: "none", marginRight: "10px", textAlign: "center" }}
+                  style={{
+                    textDecoration: "none",
+                    marginRight: "10px",
+                    textAlign: "center",
+                  }}
                 >
                   | Contáctanos |
                 </Link>
               </div>
             </Nav>
             <div className="d-flex justify-content-center align-items-center">
-              {showLoginButton() && (
+              {showLoginButton() ? (
                 <Link
                   to="/login"
                   className="ItemNav"
@@ -123,15 +140,40 @@ const NavBar = () => {
                     marginTop: "20px",
                   }}
                 >
-                  <button class="pulse">Iniciar Sesion</button>
+                  <button className="pulse">Iniciar Sesion</button>
                 </Link>
+              ) : (
+                <DropdownButton
+                  align="end"
+                  className="custom-dropdown"
+                  title={
+                    <span className="d-flex align-items-center">
+                      {avatarUrl && (
+                        <img
+                          src={avatarUrl}
+                          alt="Avatar"
+                          style={{
+                            width: "30px",
+                            height: "30px",
+                            borderRadius: "50%",
+                            marginRight: "10px",
+                          }}
+                        />
+                      )}
+                      <span>{menuLegend}</span>
+                    </span>
+                  }
+                  id="dropdown-menu-align-end"
+                >
+                  <Dropdown.Item as={Link} to={profilePage}>
+                    {loggedInUser && loggedInUser.role === "USER" ? "Reservar" : "Perfil"}
+                  </Dropdown.Item>
+                  <Dropdown.Item onClick={cerrarSesion}>
+                    Cerrar Sesion
+                  </Dropdown.Item>
+                </DropdownButton>
               )}
             </div>
-            {loggedInUser && (
-              <button class="raise" onClick={cerrarSesion}>
-                Cerrar Sesion
-              </button>
-            )}
           </Navbar.Collapse>
         </Container>
       </Navbar>

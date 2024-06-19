@@ -1,8 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../css/Clases.css";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 
 const comment = "* Musculación: Todo el día";
 
@@ -68,6 +69,17 @@ const data = [
 ];
 
 const Clases = () => {
+  const navigate = useNavigate();
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+
+  const handleReserveClick = () => {
+    if (user) {
+      navigate("/Reservar");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <>
       <NavBar />
@@ -106,16 +118,18 @@ const Clases = () => {
                 <td style={{ textAlign: "center" }}>{item.Jueves}</td>
                 <td style={{ textAlign: "center" }}>{item.Viernes}</td>
                 <td>
-                  <Link
-                    to="/login"
-                    /*                     href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                     */
-                    style={{ fontWeight: "bold" }}
+                  <button
+                    onClick={() => handleReserveClick(item.link)}
+                    style={{
+                      fontWeight: "bold",
+                      border: "none",
+                      background: "none",
+                      color: "blue",
+                      cursor: "pointer",
+                    }}
                   >
                     Reservar Clase
-                  </Link>
+                  </button>
                 </td>
               </tr>
             ))}

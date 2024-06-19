@@ -8,21 +8,18 @@ const ModalMensage = ({
   closeModal,
   paramFuncion,
   actualizarDatos,
-  datosPaginacion
+  datosPaginacion,
 }) => {
   let reserva = true;
-  const user = JSON.parse(localStorage.getItem("loggedInUser"))
-  const usuario = user.fname_lname + user.email
+  const user = JSON.parse(localStorage.getItem("loggedInUser"));
+  const usuario = user.fname_lname + user.email;
 
   if (!isOpen) {
     return null;
   }
 
   const reservar = async () => {
-
-    
     const nuevoCupo = paramFuncion.cupos_disponibles - 1;
-    
 
     const fecha = new Date();
     const hora = Number(fecha.getHours());
@@ -35,7 +32,6 @@ const ModalMensage = ({
 
       if (hora >= obtener.inicio) {
         reserva = false;
-       
       }
     });
 
@@ -47,7 +43,6 @@ const ModalMensage = ({
         closeModal()
       );
     }
-   
 
     await updateCupos(paramFuncion.id, { cupos_disponibles: nuevoCupo });
 
@@ -63,15 +58,13 @@ const ModalMensage = ({
       usuario: usuario,
     });
 
+    localStorage.setItem("paginacion", JSON.stringify(datosPaginacion));
 
-
-    localStorage.setItem("paginacion",JSON.stringify(datosPaginacion) );
-   
     actualizarDatos();
 
     closeModal();
   };
-  
+
   return (
     <div
       className="modal show"
