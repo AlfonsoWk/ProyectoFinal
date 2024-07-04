@@ -174,22 +174,36 @@ const NavBar = () => {
                 >
                   {loggedInUser && (
                     <>
-                      <Dropdown.Item as={Link} to="/Clases">
-                        Clases
-                      </Dropdown.Item>
-                      <Dropdown.Item as={Link} to="/AdminPage">
-                        Ir a Clases
+                      {(loggedInUser.role === "ADMIN" ||
+                        loggedInUser.role === "SUPERADMIN" ||
+                        loggedInUser.role === "USER") && (
+                        <>
+                          <Dropdown.Item as={Link} to="/Clases">
+                            Clases
+                          </Dropdown.Item>
+                        </>
+                      )}
+                      {(loggedInUser.role === "ADMIN" ||
+                        loggedInUser.role === "SUPERADMIN") && (
+                        <>
+                          <Dropdown.Item as={Link} to="/AdminPage">
+                            Ir a Clases
+                          </Dropdown.Item>
+                          <Dropdown.Item as={Link} to="/UserPage">
+                            Ir a Usuarios
+                          </Dropdown.Item>
+                        </>
+                      )}
+                      {loggedInUser.role === "USER" && (
+                        <Dropdown.Item as={Link} to={profilePage}>
+                          Reservar
+                        </Dropdown.Item>
+                      )}
+                      <Dropdown.Item onClick={cerrarSesion}>
+                        Cerrar Sesion
                       </Dropdown.Item>
                     </>
                   )}
-                  <Dropdown.Item as={Link} to={profilePage}>
-                    {loggedInUser && loggedInUser.role === "USER"
-                      ? "Reservar"
-                      : "Ir a Usuarios"}
-                  </Dropdown.Item>
-                  <Dropdown.Item onClick={cerrarSesion}>
-                    Cerrar Sesion
-                  </Dropdown.Item>
                 </DropdownButton>
               )}
             </div>
