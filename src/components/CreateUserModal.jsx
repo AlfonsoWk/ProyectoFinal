@@ -76,7 +76,7 @@ export const CreateUserModal = (props) => {
       <Modal.Body>
         <Form>
           <Form.Group className="mb-3" controlId="fname_lname">
-            <Form.Label>Nombre</Form.Label>
+            <Form.Label>Nombre y Apellido</Form.Label>
             <Form.Control
               type="text"
               name="fname_lname"
@@ -87,7 +87,7 @@ export const CreateUserModal = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="email">
-            <Form.Label>Email</Form.Label>
+            <Form.Label>Correo Electrónico</Form.Label>
             <Form.Control
               type="email"
               name="email"
@@ -132,7 +132,7 @@ export const CreateUserModal = (props) => {
             />
           </Form.Group>
           <Form.Group className="mb-3" controlId="cpassword">
-            <Form.Label>Contraseña Confirmada</Form.Label>
+            <Form.Label>Repeti tu contraseña</Form.Label>
             <Form.Control
               type="password"
               name="cpassword"

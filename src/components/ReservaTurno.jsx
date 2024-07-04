@@ -140,8 +140,8 @@ const ReservaTurno = () => {
                 <tr key={clase._id}>
                   <th>{clase.nombre}</th>
                   <td>{clase.profesor}</td>
-                  <td>{clase.inicio}</td>
-                  <td>{clase.fin}</td>
+                  <td>{clase.inicio+"hs"}</td>
+                  <td>{clase.fin+"hs"}</td>
                   <td>{clase.cupos_disponibles}</td>
 
                   <td>

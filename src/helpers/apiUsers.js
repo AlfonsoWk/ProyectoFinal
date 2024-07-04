@@ -1,4 +1,3 @@
-/*
 export const getUsersByEmail = async (email) => {
   const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user?email=${email}`);
   
@@ -8,9 +7,7 @@ export const getUsersByEmail = async (email) => {
     return null;
   }
   return user;
-
-
-};*/
+};
 
 export const getUsers = async (pagina) => {
   const token = JSON.parse(localStorage.getItem("token"));
@@ -18,9 +15,6 @@ export const getUsers = async (pagina) => {
 
   const role = user.role;
   let pagina1 = pagina;
-
-  //http://localhost:4000/api
-  //${import.meta.env.VITE_BACK_URL}
 
   if (!pagina) {
     pagina1 = 1;
@@ -59,7 +53,7 @@ export const deleteUser = async (id) => {
 };
 
 export const updateUsers = async (id, datos) => {
-  console.log("llegue al put",datos);
+  console.log("llegue al put", datos);
   const response = await fetch(`${import.meta.env.VITE_BACK_URL}/user/${id}`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },

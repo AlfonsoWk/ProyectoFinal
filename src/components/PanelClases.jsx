@@ -10,6 +10,7 @@ import {
   /* updateCupos, */
 } from "../helpers/apiClases";
 import ModalCancelar from "./ModalCancelar";
+import clases from "../images/clases.jpg";
 
 import "../css/CancelaTurno.css";
 
@@ -50,7 +51,7 @@ const PanelClases = () => {
   return (
     <div
       style={{
-        backgroundImage: `url('src/images/clases.jpg')`,
+        backgroundImage: `url('${clases}')`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
@@ -107,8 +108,8 @@ const PanelClases = () => {
                   return (
                     <tr key={claseUsuario._id}>
                       <th>{claseUsuario.nombre}</th>
-                      <td>{claseUsuario.inicio}</td>
-                      <td>{claseUsuario.fin}</td>
+                      <td>{claseUsuario.inicio+"hs"}</td>
+                      <td>{claseUsuario.fin+"hs"}</td>
                       <td>{claseUsuario.usuario}</td>
 
                       <td>

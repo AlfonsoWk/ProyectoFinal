@@ -46,11 +46,11 @@ export const AdminPage = () => {
               Agregar Clase
             </Button>
           </div>
-          <div className="col-2 d-flex justify-content-end">
+{/*           <div className="col-2 d-flex justify-content-end">
             <Link to="/UserPage">
               <Button variant="warning">Ir a Usuarios</Button>
             </Link>
-          </div>
+          </div> */}
         </div>
         <hr />
         <div className="row">

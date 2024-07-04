@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createUser } from "../helpers/apiUsers";
+import { createUser, getUsersByEmail } from "../helpers/apiUsers";
 import {
   MDBContainer,
   MDBCard,
@@ -57,16 +57,24 @@ const Registration = () => {
     }
 
     if (isValid) {
-      console.log("formData before submit:", formData);
-      await createUser(formData);
-      alert("Registro exitoso");
-      setFormData({
-        fname_lname: "",
-        email: "",
-        password: "",
-        cpassword: "",
-      });
-      navigate("/login");
+      try {
+        const existingUser = await getUsersByEmail(formData.email);
+        if (existingUser) {
+          setErrorMessage("Ya existe un usuario con ese email");
+        } else {
+          await createUser(formData);
+          alert("Registro exitoso");
+          setFormData({
+            fname_lname: "",
+            email: "",
+            password: "",
+            cpassword: "",
+          });
+          navigate("/login");
+        }
+      } catch (error) {
+        setErrorMessage("Ya existe un usuario con este email. Por favor, inicia sesión");
+      }
     }
   };
 

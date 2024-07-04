@@ -132,7 +132,7 @@ export const UserTable = () => {
     }
 
     if (!newUserData.planContratado){
-      setErrorMessage("!Por favor completa el campo 'Plan Contratado'.");
+      setErrorMessage("Por favor completa el campo 'Plan Contratado'.");
       return;
     }
 

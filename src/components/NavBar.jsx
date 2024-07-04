@@ -32,24 +32,26 @@ const NavBar = () => {
 
   // Determinar si se debe mostrar el botón de inicio de sesión
   const showLoginButton = () => {
-    return (
-      !loggedInUser ||
-      (loggedInUser &&
-        location.pathname !== "/login" &&
-        location.pathname !== "/registration" &&
-        location.pathname !== "/Reservar" &&
-        location.pathname !== "/userpage" &&
-        location.pathname !== "/Cancelar" &&
-        location.pathname !== "/" &&
-        location.pathname !== "/DetallePlan" &&
-        location.pathname !== "/Contacto" &&
-        location.pathname !== "/Error404" &&
-        location.pathname !== "/Nosotros" &&
-        location.pathname !== "/Productos" &&
-        location.pathname !== "/AdminPage" &&
-        location.pathname !== "/UserPage" &&
-        location.pathname !== "/Clases")
-    );
+    if (!loggedInUser) {
+      return true;
+    }
+    const loggedInPaths = [
+      "/login",
+      "/registration",
+      "/Reservar",
+      "/userpage",
+      "/Cancelar",
+      "/",
+      "/DetallePlan",
+      "/Contacto",
+      "/Error404",
+      "/Nosotros",
+      "/Productos",
+      "/AdminPage",
+      "/UserPage",
+      "/Clases",
+    ];
+    return !loggedInPaths.includes(location.pathname);
   };
 
   // Obtener la URL del avatar del usuario
@@ -60,11 +62,14 @@ const NavBar = () => {
 
   // Obtener la leyenda del menú basado en el rol del usuario
   const menuLegend = loggedInUser
-    ? `${fullName} (${loggedInUser.role === "USER" ? "Usuario" : "Administrador"})`
+    ? `${fullName} (${
+        loggedInUser.role === "USER" ? "Usuario" : "Administrador"
+      })`
     : "Usuario";
 
   // Determinar la página de redireccionamiento del perfil
-  const profilePage = loggedInUser && loggedInUser.role === "USER" ? "/Reservar" : "/userpage";
+  const profilePage =
+    loggedInUser && loggedInUser.role === "USER" ? "/Reservar" : "/userpage";
 
   return (
     <div className="d-flex justify-content-center">
@@ -82,17 +87,19 @@ const NavBar = () => {
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
               <div className="d-flex flex-column flex-lg-row gap-2 gap-lg-0 nav-container">
-                <Link
-                  to="/Clases"
-                  className="ItemNav clases-nav class-1"
-                  style={{
-                    textDecoration: "none",
-                    marginRight: "10px",
-                    textAlign: "center",
-                  }}
-                >
-                  | Clases |
-                </Link>
+                {!loggedInUser && (
+                  <Link
+                    to="/Clases"
+                    className="ItemNav clases-nav class-1"
+                    style={{
+                      textDecoration: "none",
+                      marginRight: "10px",
+                      textAlign: "center",
+                    }}
+                  >
+                    | Clases |
+                  </Link>
+                )}
                 <Link
                   to="/Productos"
                   className="ItemNav class-2"
@@ -165,8 +172,20 @@ const NavBar = () => {
                   }
                   id="dropdown-menu-align-end"
                 >
+                  {loggedInUser && (
+                    <>
+                      <Dropdown.Item as={Link} to="/Clases">
+                        Clases
+                      </Dropdown.Item>
+                      <Dropdown.Item as={Link} to="/AdminPage">
+                        Ir a Clases
+                      </Dropdown.Item>
+                    </>
+                  )}
                   <Dropdown.Item as={Link} to={profilePage}>
-                    {loggedInUser && loggedInUser.role === "USER" ? "Reservar" : "Perfil"}
+                    {loggedInUser && loggedInUser.role === "USER"
+                      ? "Reservar"
+                      : "Ir a Usuarios"}
                   </Dropdown.Item>
                   <Dropdown.Item onClick={cerrarSesion}>
                     Cerrar Sesion

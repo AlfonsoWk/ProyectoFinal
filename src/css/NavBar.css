@@ -240,7 +240,7 @@ code {
 }
 
 .custom-dropdown .dropdown-menu {
-  background-color: #343a40; /* Cambia esto al color de fondo deseado */
+  background-color: black; /* Cambia esto al color de fondo deseado */
 }
 
 .custom-dropdown .dropdown-item {
@@ -248,7 +248,7 @@ code {
 }
 
 .custom-dropdown .dropdown-item:hover {
-  background-color: #495057; /* Cambia esto al color de fondo deseado */
+  background-color: black; /* Cambia esto al color de fondo deseado */
 }
 
 @media (max-width: 768px) {

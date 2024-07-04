@@ -39,11 +39,11 @@ export const UserPage = () => {
               </Button>
             </div>
             <div className="col-md-auto">
-              <Link to="/AdminPage" style={{color : "black"}}>
+{/*               <Link to="/AdminPage" style={{color : "black"}}>
                 <Button variant="warning">
                   Ir a Clases
                 </Button>
-              </Link>
+              </Link> */}
             </div>
           </div>
           <hr />
