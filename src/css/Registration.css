@@ -1,37 +1,37 @@
+.registration-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.registration-form-container {
+  max-height: 100vh; /* Limita la altura máxima */
+  overflow-y: auto; /* Agrega el scroll vertical */
+  /* display: flex; */
+  flex-direction: column; /* Permite que el contenido se alinee verticalmente */
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 180px; */
+  padding: 20px; /* Agrega un poco de espacio alrededor del contenido */
+  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones totales */
+}
+
+/* Botones */
+.btn-register {
+  background-color: rgb(104, 98, 98);
+  color: black;
+  border: 2px solid black;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-register:hover {
+  background-color: black;
+  color: rgb(248, 234, 234);
+}
+
+/* Requerido */
 .required::after {
-    content: '*';
-    color: red;
-  }
-  
-
-  .registration-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
- /*  .registration-form-container {
-    position: relative;
-    z-index: 1; 
-  } */
-
-  .btn-register {
-    background-color: rgb(104, 98, 98);
-    color: black;
-    border: 2px solid black;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .btn-register:hover {
-    background-color: black;
-    color: rgb(248, 234, 234);
-  }
-  
-  .registration-form-container {
-    min-height: 80vh; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
+  content: '*';
+  color: red;
+}
