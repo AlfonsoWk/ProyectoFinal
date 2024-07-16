@@ -6,14 +6,11 @@ import iconborrar from "../icons/boton-x.png";
 import Pagination from "react-bootstrap/Pagination";
 import { FaCheckCircle } from "react-icons/fa";
 
-
-
 export const UserTable = () => {
-  let item = []
-  
-  const [itemPaginacion, setitemPaginacion] = useState([])
- 
-  
+  let item = [];
+
+  const [itemPaginacion, setitemPaginacion] = useState([]);
+
   const [errorMessage, setErrorMessage] = useState("");
   const [users, setUsers] = useState([]);
   const [showModal, setShowModal] = useState(false);
@@ -33,7 +30,7 @@ export const UserTable = () => {
     let user = users.find((usuario) => usuario._id === id);
 
     if (user.role === "SUPERADMIN") {
-      return alert("No se puede eliminar este usuario") 
+      return alert("No se puede eliminar este usuario");
     }
 
     let validator = window.confirm(
@@ -46,68 +43,55 @@ export const UserTable = () => {
     }
   };
 
-  const getUserPaginacion = async (pagina) =>{
-   
-      const usersPaginacion = await getUsers(pagina)
-      setUsers(usersPaginacion)
-  }
-
+  const getUserPaginacion = async (pagina) => {
+    const usersPaginacion = await getUsers(pagina);
+    setUsers(usersPaginacion);
+  };
 
   const actualizarDatos = async () => {
-    let pagina = 1
-    if (localStorage.paginacion){
-      const paginacion = JSON.parse(localStorage.getItem("paginacion"))
-       pagina = paginacion.page
-    
+    let pagina = 1;
+    if (localStorage.paginacion) {
+      const paginacion = JSON.parse(localStorage.getItem("paginacion"));
+      pagina = paginacion.page;
     }
 
-      const datos = await getUsers(pagina);
+    const datos = await getUsers(pagina);
 
-    
     setUsers(datos);
-     
+
     /* inicio *** paginacion**** */
-    const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
-      const longitud = datosPaginacion.totalPages
+    const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"));
+    const longitud = datosPaginacion.totalPages;
 
-
-    
-    for (let index = 1; index <= longitud ; index++) {
-     
+    for (let index = 1; index <= longitud; index++) {
       item.push(
-       <Pagination.Item   key={index}  onClick={()=>{
- 
-
-        
-        getUserPaginacion(index)} 
-       } >
-            {index}
+        <Pagination.Item
+          key={index}
+          onClick={() => {
+            getUserPaginacion(index);
+          }}
+        >
+          {index}
         </Pagination.Item>
-        
-      ) 
+      );
 
-      setitemPaginacion(item)
+      setitemPaginacion(item);
     }
 
     /* fin *** paginacion**** */
-   
-    
-    
   };
 
   useEffect(() => {
     actualizarDatos();
-    
   }, []);
 
   const handleModify = (id) => {
     let user = users.find((usuario) => usuario._id === id);
-    
-    delete user.password
-  
 
-    if (user.role === "SUPERADMIN"){
-      return alert("No se puede modificar este usuario")
+    delete user.password;
+
+    if (user.role === "SUPERADMIN") {
+      return alert("No se puede modificar este usuario");
     }
 
     setSelectedUserId(id);
@@ -131,7 +115,7 @@ export const UserTable = () => {
       return;
     }
 
-    if (!newUserData.planContratado){
+    if (!newUserData.planContratado) {
       setErrorMessage("Por favor completa el campo 'Plan Contratado'.");
       return;
     }
@@ -200,18 +184,17 @@ export const UserTable = () => {
         </thead>
         <tbody>
           {users.map((user) => {
+            let estado = "";
+            if (user.status === true) {
+              estado = "Activo";
+            } else {
+              estado = "Inactivo";
+            }
 
-           let estado = "" 
-           if (user.status === true){
-            estado ="Activo"
-           } else{
-            estado = "Inactivo"
-           }
-
-           let habilitaBoton = ""
-           if(user.role ==="SUPERADMIN"){
-            habilitaBoton="true"
-           }
+            let habilitaBoton = "";
+            if (user.role === "SUPERADMIN") {
+              habilitaBoton = "true";
+            }
 
             return (
               <tr key={user._id}>
@@ -222,95 +205,110 @@ export const UserTable = () => {
                 <td>{user.role}</td>
                 <td>{estado} </td>
                 <td>
-                  
-                  
-                    <button disabled={`${habilitaBoton}`}
-                    className="btn btn-danger "
-                    style={{
-                      backgroundImage: `url(${iconborrar})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      height: "40px",
-                      width: "40px",
-                      borderRadius: "50%",
-                    }}
-                    onClick={() => {
-                      handleDelete(user._id);
-                    }}
-                  ></button>
-                  <button disabled={`${habilitaBoton}`}
-                    className="btn mr-2 mb-2"
-                    onClick={() => {
-                      handleModify(user._id);
-                    }}
-/*                     style={{ 
-                      backgroundImage: `url(${FaCheckCircle})`,
-                      backgroundSize: "cover",
-                      backgroundPosition: "center",
-                      fontColor: "green",
-                      height: "40px",
-                      width: "40px",
-                      borderRadius: "50%",marginLeft: "10px" }} */
-                  >
-                    <FaCheckCircle style={{ color: "green", fontSize: "24px",                       backgroundSize: "cover",
-                      /* backgroundPosition: "center", */
-                      /* fontColor: "transparent", */
-                      height: "40px",
-                      width: "40px",
-                      borderRadius: "50%",
-                      marginLeft: "10px"}} />
-                    {/* Modificar */}
-                  </button>
+                  <div className="d-md-flex justify-content-between align-items-center flex-md-row flex-column">
+                    <button
+                      disabled={`${habilitaBoton}`}
+                      className="btn btn-danger d-block d-sm-none"
+                      style={{
+                        backgroundImage: `url(${iconborrar})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        height: "40px",
+                        width: "40px",
+                        borderRadius: "50%",
+                        margin: "auto",
+                        marginBottom: "10px",
+                      }}
+                      onClick={() => {
+                        handleDelete(user._id);
+                      }}
+                    ></button>
+                    <button
+                      disabled={`${habilitaBoton}`}
+                      className="btn btn-danger d-none d-sm-block"
+                      onClick={() => {
+                        handleDelete(user._id);
+                      }}
+                    >
+                      Borrar
+                    </button>
 
-                
-                
-
-                  
-
+                    <button
+                      disabled={`${habilitaBoton}`}
+                      className="btn mr-2 mb-2 d-block d-sm-none"
+                      style={{
+                        backgroundImage: `url(${FaCheckCircle})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        color: "green",
+                        height: "60px",
+                        width: "60px",
+                        borderRadius: "50%",
+                        margin: "auto",
+                        marginBottom: "10px",
+                        marginRight: "10px",
+                        border: "1px solid transparent",
+                      }}
+                      onClick={() => {
+                        handleModify(user._id);
+                      }}
+                    >
+                      <FaCheckCircle style={{ fontSize: "42px" }} />
+                    </button>
+                    <button
+                      disabled={`${habilitaBoton}`}
+                      className="btn btn-success mr-2 mb-2 d-none d-sm-block"
+                      onClick={() => {
+                        handleModify(user._id);
+                      }}
+                    >
+                      Modificar
+                    </button>
+                  </div>
                 </td>
               </tr>
             );
           })}
         </tbody>
-   </table>
+      </table>
 
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <Pagination>
+          <Pagination.Prev
+            onClick={() => {
+              const datosPaginacion = JSON.parse(
+                localStorage.getItem("paginacion")
+              );
+              let paginaAnte = datosPaginacion.prevPage;
 
-   <div  style={{display:"flex", justifyContent:"center"}} >
-          <Pagination >
-            
-            
-            < Pagination.Prev onClick={()=>{
-                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
-                let paginaAnte= datosPaginacion.prevPage
+              if (!paginaAnte) {
+                paginaAnte = datosPaginacion.page;
+              }
 
-                if(!paginaAnte){
-                  paginaAnte= datosPaginacion.page
-                }
-                
-                getUserPaginacion(paginaAnte)
-            } } 
-             />  
-            
-              {itemPaginacion.map((item)=>{return item  })}
-            
+              getUserPaginacion(paginaAnte);
+            }}
+          />
 
-            <Pagination.Next
-               onClick={()=>{
-                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
-                let paginaSig=datosPaginacion.nextPage  
-                
-                if(!paginaSig){
-                  paginaSig = datosPaginacion.page
-                }
-                
-                getUserPaginacion(paginaSig)
-            } }
-            />
-           
-          </Pagination>
+          {itemPaginacion.map((item) => {
+            return item;
+          })}
 
-          </div>
+          <Pagination.Next
+            onClick={() => {
+              const datosPaginacion = JSON.parse(
+                localStorage.getItem("paginacion")
+              );
+              let paginaSig = datosPaginacion.nextPage;
 
+              if (!paginaSig) {
+                paginaSig = datosPaginacion.page;
+              }
+
+              getUserPaginacion(paginaSig);
+            }}
+          />
+        </Pagination>
+      </div>
 
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>

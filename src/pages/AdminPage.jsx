@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+/* import { Link } from "react-router-dom"; */
 
 import { CourseTable } from "../components/CourseTable";
 import { CreateCourseModal } from "../components/CreateCourseModal";
@@ -66,4 +66,3 @@ export const AdminPage = () => {
     </div>
   );
 };
-
