@@ -4,7 +4,6 @@ import Modal from "react-bootstrap/Modal";
 import { FaCheckCircle } from "react-icons/fa";
 import iconborrar from "../icons/boton-x.png";
 import { GrPowerReset } from "react-icons/gr";
-
 import Pagination from "react-bootstrap/Pagination";
 
 export const CourseTable = () => {
@@ -144,22 +143,10 @@ export const CourseTable = () => {
     setErrorMessage("");
   };
 
-  const resetCupos = async (paramFuncion) => {
-    /*
-    setparamFuncion((prevParamFuncion) => ({
-      ...prevParamFuncion,
-      cupos_disponibles: prevParamFuncion.cupos,
-    }));*/
-
-    /* console.log("reset cupos antes: ",paramFuncion)*/
-    const resetCupo = paramFuncion.cupos;
-    const resetDisponible = true;
-    paramFuncion.cupos_disponibles = resetCupo;
-    paramFuncion.disponible = resetDisponible;
-    console.log("reset cupos despues : ", paramFuncion);
-
-    await updateCupos(paramFuncion._id, paramFuncion);
-
+  const resetCupos = async (course) => {
+    course.cupos_disponibles = course.cupos;
+    course.disponible = true;
+    await updateCupos(course._id, course);
     await actualizarDatos();
   };
 
@@ -286,7 +273,7 @@ export const CourseTable = () => {
                           /* border: "1px solid transparent", */
                         }}
                         onClick={() => {
-                          handleModify(course._id);
+                          resetCupos(course);
                         }}
                       >
                         <GrPowerReset style={{ fontSize: "42px" }} />
@@ -294,30 +281,6 @@ export const CourseTable = () => {
                       <button
                         className="btn btn-secondary mr-2 mb-2 d-none d-sm-block"
                         onClick={() => {
-                          /* setparamFuncion((prevParamFuncion) => ({
-                          ...prevParamFuncion,
-                          id: course.id,
-                          nombre: course.nombre,
-                          cupos_disponibles: course.cupos,
-                          cupos: course.cupos,
-                          profesor: course.profesor,
-                          inicio: course.inicio,
-                          fin: course.fin,
-                        }));*/
-
-                          /* setparamFuncion(
-                          {
-                          id: course._id,
-                          nombre: course.nombre,
-                          cupos_disponibles: course.cupos,
-                          cupos: course.cupos,
-                          profesor: course.profesor,
-                          inicio: course.inicio,
-                          fin: course.fin,
-                          disponible:true
-                          }
-                        )*/
-                          // console.log("on click clases ", course)
                           resetCupos(course);
                         }}
                         style={{ marginLeft: "10px" }}
