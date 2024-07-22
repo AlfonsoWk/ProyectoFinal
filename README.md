@@ -30,7 +30,6 @@ Ejecuta `npm install` para instalar los paquetes requeridos.
 
 ## Desarrolladores
 - Facundo Luque
-- Esteban Frias
 - German Valoy
 - Alfonso Wenk
 
