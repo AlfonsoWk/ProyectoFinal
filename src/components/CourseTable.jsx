@@ -1,18 +1,15 @@
 import React, { useEffect, useState } from "react";
-import {
-  getClases,
-  deleteClases,
-  updateCupos
-} from "../helpers/apiClases";
+import { getClases, deleteClases, updateCupos } from "../helpers/apiClases";
 import Modal from "react-bootstrap/Modal";
-
+import { FaCheckCircle } from "react-icons/fa";
+import iconborrar from "../icons/boton-x.png";
+import { GrPowerReset } from "react-icons/gr";
 import Pagination from "react-bootstrap/Pagination";
 
 export const CourseTable = () => {
+  let item = [];
 
-  let item = []
-  
-  const [itemPaginacion, setitemPaginacion] = useState([])
+  const [itemPaginacion, setitemPaginacion] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
   const [paramFuncion, setparamFuncion] = useState({});
   const [courses, setCourses] = useState([]);
@@ -31,8 +28,7 @@ export const CourseTable = () => {
   const handleDelete = async (id) => {
     let course = courses.find((curso) => curso._id === id);
 
-   console.log("el curso es: ", course)
-  
+    console.log("el curso es: ", course);
 
     let validator = window.confirm(
       `Estas seguro que quieres eliminar la clase ${course.nombre}`
@@ -45,54 +41,47 @@ export const CourseTable = () => {
     }
   };
 
-  const getClasesPaginacion = async (pagina) =>{
-   
-    const clasesPaginacion = await getClases(pagina)
-    setCourses(clasesPaginacion)
-}
-
+  const getClasesPaginacion = async (pagina) => {
+    const clasesPaginacion = await getClases(pagina);
+    setCourses(clasesPaginacion);
+  };
 
   const actualizarDatos = async () => {
-    let pagina = 1
-    if (localStorage.paginacion){
-      const paginacion = JSON.parse(localStorage.getItem("paginacion"))
-       pagina = paginacion.page
-    
+    let pagina = 1;
+    if (localStorage.paginacion) {
+      const paginacion = JSON.parse(localStorage.getItem("paginacion"));
+      pagina = paginacion.page;
     }
     const datos = await getClases(pagina);
-    
 
-    datos.map((dato)=>{
-        if(dato.cupos_disponibles ===0){
-          updateCupos(dato._id,{disponible:false})
-        }
-    })
+    datos.map((dato) => {
+      if (dato.cupos_disponibles === 0) {
+        updateCupos(dato._id, { disponible: false });
+      }
+    });
 
     setCourses(datos);
 
-     /* inicio *** paginacion**** */
-     const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
-     const longitud = datosPaginacion.totalPages
+    /* inicio *** paginacion**** */
+    const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"));
+    const longitud = datosPaginacion.totalPages;
 
+    for (let index = 1; index <= longitud; index++) {
+      item.push(
+        <Pagination.Item
+          key={index}
+          onClick={() => {
+            getClasesPaginacion(index);
+          }}
+        >
+          {index}
+        </Pagination.Item>
+      );
 
-   
-   for (let index = 1; index <= longitud ; index++) {
-    
-     item.push(
-      <Pagination.Item   key={index}  onClick={()=>{
-         getClasesPaginacion(index)} 
-      } >
-           {index}
-       </Pagination.Item>
-       
-     ) 
+      setitemPaginacion(item);
+    }
 
-     setitemPaginacion(item)
-   }
-
-   /* fin *** paginacion**** */
-
-
+    /* fin *** paginacion**** */
   };
 
   useEffect(() => {
@@ -123,7 +112,7 @@ export const CourseTable = () => {
     }
 
     const inicioHora = parseInt(newCourseData.inicio);
-    if (inicioHora < 7 ) {
+    if (inicioHora < 7) {
       setErrorMessage("La hora de inicio debe ser posterior a las 7hs.");
       return;
     }
@@ -134,7 +123,6 @@ export const CourseTable = () => {
       return;
     }
 
-    
     if (parseInt(newCourseData.inicio) >= parseInt(newCourseData.fin)) {
       setErrorMessage("La hora de inicio debe ser menor que la hora de fin.");
       return;
@@ -160,22 +148,10 @@ export const CourseTable = () => {
     setErrorMessage("");
   };
 
-  const resetCupos = async (paramFuncion) => {/*
-    setparamFuncion((prevParamFuncion) => ({
-      ...prevParamFuncion,
-      cupos_disponibles: prevParamFuncion.cupos,
-    }));*/
-
-    
-   /* console.log("reset cupos antes: ",paramFuncion)*/
-    const resetCupo = paramFuncion.cupos
-    const resetDisponible = true
-    paramFuncion.cupos_disponibles = resetCupo
-    paramFuncion.disponible = resetDisponible  
-    console.log("reset cupos despues : ",paramFuncion)
-
-    await updateCupos(paramFuncion._id, paramFuncion);
-
+  const resetCupos = async (course) => {
+    course.cupos_disponibles = course.cupos;
+    course.disponible = true;
+    await updateCupos(course._id, course);
     await actualizarDatos();
   };
 
@@ -185,14 +161,28 @@ export const CourseTable = () => {
         <table className="table">
           <thead className="thead-dark">
             <tr className="table-dark">
-              <th scope="col" style={{backgroundColor: "black"}}>Nombre de la Clase</th>
-              <th scope="col" style={{backgroundColor: "black"}}>Inicio</th>
-              <th scope="col" style={{backgroundColor: "black"}}>Fin</th>
-              <th scope="col" style={{backgroundColor: "black"}}>Profesor</th>
-              <th scope="col" style={{backgroundColor: "black"}}>Cupos Disponibles</th>
-              <th scope="col" style={{backgroundColor: "black"}}>Cupos</th>
-              <th scope="col" style={{backgroundColor: "black"}}>Disponible</th>
-              <th scope="col" style={{backgroundColor: "black"}}></th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Nombre de la Clase
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Inicio
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Fin
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Profesor
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Cupos Disponibles
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Cupos
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}>
+                Disponible
+              </th>
+              <th scope="col" style={{ backgroundColor: "black" }}></th>
             </tr>
           </thead>
           <tbody>
@@ -200,8 +190,10 @@ export const CourseTable = () => {
               return (
                 <tr key={course._id}>
                   <th>{course.nombre}</th>
-                  <td style={{ textAlign: "center" }}>{course.inicio+" hs"}</td>
-                  <td>{course.fin+" hs"}</td>
+                  <td style={{ textAlign: "center" }}>
+                    {course.inicio + " hs"}
+                  </td>
+                  <td>{course.fin + " hs"}</td>
                   <td>{course.profesor}</td>
                   <td style={{ textAlign: "center" }}>
                     {course.cupos_disponibles}
@@ -211,99 +203,140 @@ export const CourseTable = () => {
                     {course.disponible ? "Si" : "No"}
                   </td>
                   <td>
-                    <button
-                      className="btn btn-danger mr-2 mb-2"
-                      onClick={() => {
-                        handleDelete(course._id);
-                      }}
-                    >
-                      Borrar
-                    </button>
-                    <button
-                      className="btn btn-success mr-2 mb-2 "
-                      onClick={() => {
-                        handleModify(course._id);
-                      }}
-                      style={{ marginLeft: "10px" }}
-                    >
-                      Modificar
-                    </button>
-                    <button
-                      className="btn btn-secondary mr-2 mb-2"
-                      onClick={() => {
-                       /* setparamFuncion((prevParamFuncion) => ({
-                          ...prevParamFuncion,
-                          id: course.id,
-                          nombre: course.nombre,
-                          cupos_disponibles: course.cupos,
-                          cupos: course.cupos,
-                          profesor: course.profesor,
-                          inicio: course.inicio,
-                          fin: course.fin,
-                        }));*/
+                    <div className="d-md-flex justify-content-between align-items-center flex-md-row flex-column">
+                      <button
+                        /* disabled={`${habilitaBoton}`} */
+                        className="btn btn-danger d-block d-sm-none"
+                        style={{
+                          backgroundImage: `url(${iconborrar})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          height: "40px",
+                          width: "40px",
+                          borderRadius: "50%",
+                          margin: "auto",
+                          marginBottom: "10px",
+                        }}
+                        onClick={() => {
+                          handleDelete(course._id);
+                        }}
+                      ></button>
+                      <button
+                        /* disabled={`${habilitaBoton}`} */
+                        className="btn btn-danger d-none d-sm-block"
+                        onClick={() => {
+                          handleDelete(course._id);
+                        }}
+                      >
+                        Borrar
+                      </button>
 
-                       /* setparamFuncion(
-                          {
-                          id: course._id,
-                          nombre: course.nombre,
-                          cupos_disponibles: course.cupos,
-                          cupos: course.cupos,
-                          profesor: course.profesor,
-                          inicio: course.inicio,
-                          fin: course.fin,
-                          disponible:true
-                          }
-                        )*/
-                       // console.log("on click clases ", course)
-                        resetCupos(course);
-                      }}
-                      style={{ marginLeft: "10px" }}
-                    >
-                      Resetear Cupos
-                    </button>
+                      <button
+                        /* disabled={`${habilitaBoton}`} */
+                        className="btn mr-2 mb-2 d-block d-sm-none"
+                        style={{
+                          backgroundImage: `url(${FaCheckCircle})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          color: "green",
+                          height: "60px",
+                          width: "60px",
+                          borderRadius: "50%",
+                          margin: "auto",
+                          marginBottom: "10px",
+                          marginRight: "10px",
+                          border: "1px solid transparent",
+                        }}
+                        onClick={() => {
+                          handleModify(course._id);
+                        }}
+                      >
+                        <FaCheckCircle style={{ fontSize: "42px" }} />
+                      </button>
+                      <button
+                        /* disabled={`${habilitaBoton}`} */
+                        className="btn btn-success mr-2 mb-2 d-none d-sm-block"
+                        onClick={() => {
+                          handleModify(course._id);
+                        }}
+                      >
+                        Modificar
+                      </button>
+                      <button
+                        className="btn mr-2 mb-2 d-block d-sm-none"
+                        style={{
+                          backgroundImage: `url(${GrPowerReset})`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                          color: "grey",
+                          height: "60px",
+                          /* width: "60px", */
+                          /* borderRadius: "50%", */
+                          margin: "auto",
+                          /* marginBottom: "10px", */
+                          /* marginRight: "10px", */
+                          /* border: "1px solid transparent", */
+                        }}
+                        onClick={() => {
+                          resetCupos(course);
+                        }}
+                      >
+                        <GrPowerReset style={{ fontSize: "42px" }} />
+                      </button>
+                      <button
+                        className="btn btn-secondary mr-2 mb-2 d-none d-sm-block"
+                        onClick={() => {
+                          resetCupos(course);
+                        }}
+                        style={{ marginLeft: "10px" }}
+                      >
+                        Resetear Cupos
+                      </button>
+                    </div>
                   </td>
                 </tr>
               );
             })}
           </tbody>
-      </table>
+        </table>
 
-      <div  style={{display:"flex", justifyContent:"center"}} >
-          <Pagination >
-            
-            
-            < Pagination.Prev onClick={()=>{
-                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
-                let paginaAnte= datosPaginacion.prevPage
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Pagination>
+            <Pagination.Prev
+              onClick={() => {
+                const datosPaginacion = JSON.parse(
+                  localStorage.getItem("paginacion")
+                );
+                let paginaAnte = datosPaginacion.prevPage;
 
-                if(!paginaAnte){
-                  paginaAnte= datosPaginacion.page
+                if (!paginaAnte) {
+                  paginaAnte = datosPaginacion.page;
                 }
-                
-                getClasesPaginacion(paginaAnte)
-            } } 
-             />  
-            
-              {itemPaginacion.map((item)=>{return item  })}
-            
+
+                getClasesPaginacion(paginaAnte);
+              }}
+            />
+
+            {itemPaginacion.map((item) => {
+              return item;
+            })}
 
             <Pagination.Next
-               onClick={()=>{
-                const datosPaginacion = JSON.parse(localStorage.getItem("paginacion"))
-                let paginaSig=datosPaginacion.nextPage  
-                
-                if(!paginaSig){
-                  paginaSig = datosPaginacion.page
+              onClick={() => {
+                const datosPaginacion = JSON.parse(
+                  localStorage.getItem("paginacion")
+                );
+                let paginaSig = datosPaginacion.nextPage;
+
+                if (!paginaSig) {
+                  paginaSig = datosPaginacion.page;
                 }
-                
-                getClasesPaginacion(paginaSig)
-            } }
+
+                getClasesPaginacion(paginaSig);
+              }}
             />
-           
           </Pagination>
-
-          </div>
-
+        </div>
       </div>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>

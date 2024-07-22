@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createUser, getUsersByEmail } from "../helpers/apiUsers";
+import { createUser } from "../helpers/apiUsers";
 import {
   MDBContainer,
   MDBCard,
@@ -17,6 +17,8 @@ const Registration = () => {
   const [formData, setFormData] = useState({
     fname_lname: "",
     email: "",
+    telefono: "",
+    planContratado: "",
     password: "",
     cpassword: "",
     role: "USER",
@@ -40,6 +42,12 @@ const Registration = () => {
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       isValid = false;
       setErrorMessage("Por favor, ingresa un email válido");
+    } else if (formData.telefono.trim() === "") {
+      isValid = false;
+      setErrorMessage("Por favor, ingresa tu número de telefono");
+    } else if (formData.planContratado.trim() === "") {
+      isValid = false;
+      setErrorMessage("Por favor, selecciona el plan que deseas contratar");
     } else if (formData.password.trim() === "") {
       isValid = false;
       setErrorMessage("Por favor, ingresa tu contraseña");
@@ -57,24 +65,20 @@ const Registration = () => {
     }
 
     if (isValid) {
-      try {
-        const existingUser = await getUsersByEmail(formData.email);
-        if (existingUser) {
-          setErrorMessage("Ya existe un usuario con ese email");
-        } else {
-          await createUser(formData);
-          alert("Registro exitoso");
-          setFormData({
-            fname_lname: "",
-            email: "",
-            password: "",
-            cpassword: "",
-          });
-          navigate("/login");
-        }
-      } catch (error) {
-        setErrorMessage("Ya existe un usuario con este email. Por favor, inicia sesión");
-      }
+      console.log("formData before submit:", formData);
+      await createUser(formData);
+      alert("Registro exitoso");
+      setFormData({
+        fname_lname: "",
+        email: "",
+        telefono: "",
+        planContratado: "",
+        password: "",
+        cpassword: "",
+        role: "USER",
+        status: "true",
+      });
+      navigate("/login");
     }
   };
 
@@ -141,6 +145,44 @@ const Registration = () => {
                       id="email"
                       type="email"
                     />
+                  </div>
+
+                  <div className="mb-4">
+                    <MDBInput
+                      label={<span className="required">Teléfono</span>}
+                      onChange={(event) =>
+                        setFormData({
+                          ...formData,
+                          telefono: event.target.value,
+                        })
+                      }
+                      value={formData.telefono}
+                      size="sm"
+                      id="telefono"
+                      type="number"
+                    />
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="required" htmlFor="planContratado">
+                      Plan Contratado
+                    </label>
+                    <select
+                      className="form-select"
+                      id="planContratado"
+                      value={formData.planContratado}
+                      onChange={(event) =>
+                        setFormData({
+                          ...formData,
+                          planContratado: event.target.value,
+                        })
+                      }
+                    >
+                      <option value="">Selecciona un plan</option>
+                      <option value="Plan Solo Musculación">Plan Solo Musculación</option>
+                      <option value="Plan Solo Clases">Plan Solo Clases</option>
+                      <option value="Plan Full">Plan Full</option>
+                    </select>
                   </div>
 
                   <div className="mb-4">

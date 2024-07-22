@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import { createUser } from "../helpers/apiUsers";
 
 export const CreateUserModal = (props) => {
-  const [formValues, setFormValues] = useState({
+  const initialFormValues = {
     fname_lname: "",
     email: "",
     telefono: "",
@@ -14,7 +14,9 @@ export const CreateUserModal = (props) => {
     cpassword: "",
     role: "",
     status: "",
-  });
+  };
+
+  const [formValues, setFormValues] = useState(initialFormValues);
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleOnChange = (e) => {
@@ -58,6 +60,7 @@ export const CreateUserModal = (props) => {
 
     console.log("el usuario de admin page es: ", newUser);
     await createUser(newUser);
+    setFormValues(initialFormValues);
     props.onHide();
   };
 
@@ -115,7 +118,7 @@ export const CreateUserModal = (props) => {
               onChange={handleOnChange}
               required
             >
-              <option value={null}>Selecciona un Plan</option>
+              <option value="">Selecciona un Plan</option>
               <option value="solo Musculacion">Plan solo musculación</option>
               <option value="solo Clases">Plan solo clases</option>
               <option value="full">Plan full</option>

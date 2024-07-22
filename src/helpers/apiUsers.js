@@ -38,7 +38,7 @@ export const createUser = async (datos) => {
     body: JSON.stringify(datos),
   });
 
-  const data = response.json();
+  const data = await response.json();
   console.log("la respuesta es: ", data);
 };
 
@@ -66,8 +66,9 @@ export const updateUsers = async (id, datos) => {
 };
 
 export const updateCupos = async (id, datos) => {
-  const response = await fetch(`http://localhost:3000/users/${id}`, {
+  const response = await fetch(`${import.meta.env.VITE_BACK_URL}/users/${id}`, {
     method: "PUT",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(datos),
   });
 

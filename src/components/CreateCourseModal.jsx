@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import { crearClases } from "../helpers/apiClases";
 
 export const CreateCourseModal = (props) => {
-  const [formValues, setFormValues] = useState({
+  const initialFormValues = {
     nombre: "",
     inicio: "",
     fin: "",
@@ -13,7 +13,9 @@ export const CreateCourseModal = (props) => {
     cupos_disponibles: 0,
     cupos: "",
     disponible: true,
-  });
+  };
+
+  const [formValues, setFormValues] = useState(initialFormValues);
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleOnChange = (e) => {
@@ -50,7 +52,6 @@ export const CreateCourseModal = (props) => {
     }
 
     await crearClases(formValues);
-    
     props.onHide();
 
   };
