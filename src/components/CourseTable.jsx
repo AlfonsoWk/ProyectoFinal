@@ -140,6 +140,11 @@ export const CourseTable = () => {
       return;
     }
 
+    if (newCourseData.cupos_disponibles > newCourseData.cupos){
+      setErrorMessage("La cantidad de cupos disponibles no puede ser mayor a la cantidad de cupos de la clase.");
+      return;
+    }
+
     await updateCupos(selectedCourseId, newCourseData);
     await actualizarDatos();
     setShowModal(false);

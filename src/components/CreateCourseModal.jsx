@@ -50,7 +50,9 @@ export const CreateCourseModal = (props) => {
     }
 
     await crearClases(formValues);
+    
     props.onHide();
+
   };
 
   return (
