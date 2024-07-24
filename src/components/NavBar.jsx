@@ -16,7 +16,6 @@ const NavBar = () => {
   let cadena = "/";
   const navigate = useNavigate();
 
-  // Determinar la ruta de redireccionamiento dependiendo del tipo de usuario
   if (loggedInUser) {
     if (loggedInUser.role === "ADMIN" || loggedInUser.role === "SUPERADMIN") {
       cadena = "/AdminPage";
@@ -27,10 +26,9 @@ const NavBar = () => {
 
   const cerrarSesion = () => {
     localStorage.clear();
-    navigate("/login"); // Redireccionar a la página de inicio de sesión
+    navigate("/login");
   };
 
-  // Determinar si se debe mostrar el botón de inicio de sesión
   const showLoginButton = () => {
     if (!loggedInUser) {
       return true;
@@ -54,20 +52,13 @@ const NavBar = () => {
     return !loggedInPaths.includes(location.pathname);
   };
 
-  // Obtener la URL del avatar del usuario
   const avatarUrl = loggedInUser ? loggedInUser.avatarUrl : null;
-
-  // Obtener el nombre completo del usuario
   const fullName = loggedInUser ? loggedInUser.fname_lname : "Usuario";
-
-  // Obtener la leyenda del menú basado en el rol del usuario
   const menuLegend = loggedInUser
     ? `${fullName} (${
         loggedInUser.role === "USER" ? "Usuario" : "Administrador"
       })`
     : "Usuario";
-
-  // Determinar la página de redireccionamiento del perfil
   const profilePage =
     loggedInUser && loggedInUser.role === "USER" ? "/Reservar" : "/userpage";
 

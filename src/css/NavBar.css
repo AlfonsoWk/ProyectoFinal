@@ -241,6 +241,7 @@ code {
 
 .custom-dropdown .dropdown-menu {
   background-color: black; /* Cambia esto al color de fondo deseado */
+  margin-top: -10px;
 }
 
 .custom-dropdown .dropdown-item {
@@ -250,6 +251,22 @@ code {
 .custom-dropdown .dropdown-item:hover {
   background-color: black; /* Cambia esto al color de fondo deseado */
 }
+
+@media (max-width: 768px) {
+  #container-nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  .nav-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-left: 0 !important;
+  }
+}
+
 
 @media (max-width: 768px) {
   .nav-container {
