@@ -38,10 +38,10 @@ const Registration = () => {
       setErrorMessage("Por favor, ingresa tu nombre y apellido");
     } else if (formData.email.trim() === "") {
       isValid = false;
-      setErrorMessage("Por favor, ingresa tu email");
+      setErrorMessage("Por favor, ingresa tu correo electrónico");
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       isValid = false;
-      setErrorMessage("Por favor, ingresa un email válido");
+      setErrorMessage("Por favor, ingresa un correo electrónico válido");
     } else if (formData.telefono.trim() === "") {
       isValid = false;
       setErrorMessage("Por favor, ingresa tu número de telefono");
