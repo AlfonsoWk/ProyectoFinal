@@ -6,15 +6,14 @@
 }
 
 .registration-form-container {
-  max-height: 100vh; /* Limita la altura máxima */
-  overflow-y: auto; /* Agrega el scroll vertical */
-  /* display: flex; */
-  flex-direction: column; /* Permite que el contenido se alinee verticalmente */
+  max-height: 100vh; 
+  overflow-y: auto; 
+  display: flex;
+  flex-direction: column; 
   align-items: center;
   justify-content: center;
-  /* margin-top: 180px; */
-  padding: 20px; /* Agrega un poco de espacio alrededor del contenido */
-  box-sizing: border-box; /* Asegura que el padding no afecte las dimensiones totales */
+  padding: 20px; 
+  box-sizing: border-box; 
 }
 
 /* Botones */

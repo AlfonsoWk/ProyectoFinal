@@ -89,6 +89,7 @@ const Registration = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         minHeight: "100vh",
+        overflowX: "hidden",
       }}
     >
       <NavBar />
