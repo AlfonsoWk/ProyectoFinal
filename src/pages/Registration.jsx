@@ -4,7 +4,6 @@ import {
   MDBContainer,
   MDBCard,
   MDBCardBody,
-  MDBInput,
   MDBCheckbox,
 } from "mdb-react-ui-kit";
 import { Link, useNavigate } from "react-router-dom";
@@ -12,6 +11,7 @@ import "../css/Registration.css";
 import NavBar from "../components/NavBar";
 import { Footer } from "../components/Footer";
 import fondogym5 from "../images/fondogym5.webp";
+import CustomInput from "../components/CustomInput";
 
 const Registration = () => {
   const [formData, setFormData] = useState({
@@ -112,58 +112,42 @@ const Registration = () => {
                   <div className="text-danger mb-4">{errorMessage}</div>
                 )}
                 <form onSubmit={handleSubmit}>
-                  <div className="mb-4">
-                    <MDBInput
-                      label={
-                        <span className="required">Nombre y Apellido</span>
-                      }
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          fname_lname: event.target.value,
-                        })
-                      }
-                      value={formData.fname_lname}
-                      size="sm"
-                      id="fname_lname"
-                      type="text"
-                    />
-                  </div>
-
-                  <div className="mb-4">
-                    <MDBInput
-                      label={
-                        <span className="required">Correo Electronico</span>
-                      }
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          email: event.target.value,
-                        })
-                      }
-                      value={formData.email}
-                      size="sm"
-                      id="email"
-                      type="email"
-                    />
-                  </div>
-
-                  <div className="mb-4">
-                    <MDBInput
-                      label={<span className="required">Teléfono</span>}
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          telefono: event.target.value,
-                        })
-                      }
-                      value={formData.telefono}
-                      size="sm"
-                      id="telefono"
-                      type="number"
-                    />
-                  </div>
-
+                  <CustomInput
+                    label="Nombre y Apellido"
+                    type="text"
+                    id="fname_lname"
+                    value={formData.fname_lname}
+                    onChange={(event) =>
+                      setFormData({
+                        ...formData,
+                        fname_lname: event.target.value,
+                      })
+                    }
+                  />
+                  <CustomInput
+                    label="Correo Electrónico"
+                    type="email"
+                    id="email"
+                    value={formData.email}
+                    onChange={(event) =>
+                      setFormData({
+                        ...formData,
+                        email: event.target.value,
+                      })
+                    }
+                  />
+                  <CustomInput
+                    label="Teléfono"
+                    type="number"
+                    id="telefono"
+                    value={formData.telefono}
+                    onChange={(event) =>
+                      setFormData({
+                        ...formData,
+                        telefono: event.target.value,
+                      })
+                    }
+                  />
                   <div className="mb-4">
                     <label className="required" htmlFor="planContratado">
                       Plan Contratado
@@ -180,46 +164,37 @@ const Registration = () => {
                       }
                     >
                       <option value="">Selecciona un plan</option>
-                      <option value="Plan Solo Musculación">Plan Solo Musculación</option>
+                      <option value="Plan Solo Musculación">
+                        Plan Solo Musculación
+                      </option>
                       <option value="Plan Solo Clases">Plan Solo Clases</option>
                       <option value="Plan Full">Plan Full</option>
                     </select>
                   </div>
-
-                  <div className="mb-4">
-                    <MDBInput
-                      label={<span className="required">Contraseña</span>}
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          password: event.target.value,
-                        })
-                      }
-                      value={formData.password}
-                      size="sm"
-                      id="password"
-                      type="password"
-                    />
-                  </div>
-
-                  <div className="mb-4">
-                    <MDBInput
-                      label={
-                        <span className="required">Repeti tu Contraseña</span>
-                      }
-                      onChange={(event) =>
-                        setFormData({
-                          ...formData,
-                          cpassword: event.target.value,
-                        })
-                      }
-                      value={formData.cpassword}
-                      size="sm"
-                      id="cpassword"
-                      type="password"
-                    />
-                  </div>
-
+                  <CustomInput
+                    label="Contraseña"
+                    type="password"
+                    id="password"
+                    value={formData.password}
+                    onChange={(event) =>
+                      setFormData({
+                        ...formData,
+                        password: event.target.value,
+                      })
+                    }
+                  />
+                  <CustomInput
+                    label="Repeti tu Contraseña"
+                    type="password"
+                    id="cpassword"
+                    value={formData.cpassword}
+                    onChange={(event) =>
+                      setFormData({
+                        ...formData,
+                        cpassword: event.target.value,
+                      })
+                    }
+                  />
                   <div className="d-flex flex-row justify-content-center mb-4">
                     <MDBCheckbox
                       name="termsCheckbox"
@@ -229,7 +204,6 @@ const Registration = () => {
                       onChange={() => setTermsAccepted(!termsAccepted)}
                     />
                   </div>
-
                   <div className="text-center">
                     <button
                       className="btn btn-primary btn-register"
