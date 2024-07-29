@@ -49,8 +49,7 @@ const PaginaPrincipal = () => {
           />
         </div>
       ) : (
-        <>
-          <div className="main-container">
+        <div className="main-container">
             <NavBar />
 
             <Carrusel />
@@ -157,7 +156,6 @@ const PaginaPrincipal = () => {
             </div>
             <Footer />
           </div>
-        </>
       )}
     </>
   );
