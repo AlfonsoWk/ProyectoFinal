@@ -26,7 +26,7 @@ export const DetallePlan = () => {
                   La musculación se centra en desarrollar y fortalecer los
                   músculos del cuerpo. Esto mejora la fuerza y la forma física.
                 </Card.Text>
-                <Link to="/contacto" className="btn btn-primary">
+                <Link to="/contacto" className="btn btn-primary" style={{ marginTop: "22px" }}>
                   Asociate
                 </Link>
               </Card.Body>
@@ -61,7 +61,7 @@ export const DetallePlan = () => {
                   Este es un plan que te brinda todos los beneficios del fitness
                   y musculación.
                 </Card.Text>
-                <Link to="/contacto" className="btn btn-warning">
+                <Link to="/contacto" className="btn btn-warning text-white" style={{ marginTop: "46px" }}>
                   Asociate
                 </Link>
               </Card.Body>
