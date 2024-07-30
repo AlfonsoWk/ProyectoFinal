@@ -26,3 +26,8 @@
 .table a {
   text-decoration: none;
 }
+
+.center-text {
+  text-align: center;
+  margin-top: 20px;
+}
