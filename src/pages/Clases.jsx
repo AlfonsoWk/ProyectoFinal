@@ -83,7 +83,7 @@ const Clases = () => {
     if (!user) {
       navigate("/Contacto");
     } else {
-      navigate("/login");
+      navigate("/Reservar");
     }
   };
 
@@ -136,7 +136,7 @@ const Clases = () => {
                       cursor: "pointer",
                     }}
                   >
-                    Consulta
+                    {user ? "Reservar" : "Consultar"}
                   </button>
                 </td>
               </tr>
